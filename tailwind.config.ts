@@ -8,6 +8,9 @@ export default {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
+      backgroundImage: {
+        'carousel-bg': "url('/images/images/index_head_bg.png')",
+      }
     },
   },
   plugins: [],
