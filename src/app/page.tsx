@@ -1,7 +1,11 @@
+'use client';
+
 import Image from 'next/image'
 import Button from '@mui/material/Button'
+import Popover from '@mui/material/Popover'
+import React from 'react';
 
-export default async function Home() {
+export default function Home() {
   return (
       <main className="min-h-screen">
         <Header></Header>
@@ -19,18 +23,16 @@ const img_twitter_rollover = '/images/index_topicon_twitter_rollover.png'
 const img_email_rollover = '/images/index_topicon_email_rollover.png'
 const img_discord_rollover = '/images/index_topicon_discord_rollover.png'
 
-const img_index_head_bg = '/images/index_head_bg.png'
-
 // Page header
-const Header = async function () {
+const Header = function () {
   return (
     <div className="flex justify-center ">
-      <div className="w-[1200px] flex justify-between items-center h-full py-[36px]">
+      <div className="w-[1200px] flex justify-between items-center h-full py-[50px]">
         <div>
           <Image
             src="/images/logo.png"
-            width={210}
-            height={50}
+            width={175}
+            height={35}
             alt="LOGO"
           />
         </div>
@@ -59,7 +61,7 @@ const Header = async function () {
               alt="Image"
             />
             <Button className='ml-3' variant="contained">
-              <div className='text-white'>打开APP</div>
+              <div className='text-white text-xs'>打开APP</div>
             </Button>
           </div>
         </div>
@@ -70,17 +72,116 @@ const Header = async function () {
 
 const HeaderContent = function () {
   return (
-    <div className="flex justify-center items-center flex-1 gap-x-14">
-      <div>首页</div>
-      <div>功能</div>
-      <div>关于Carina</div>
-      <div>语言</div>
+    <div className="flex justify-center items-center flex-1 gap-x-3 text-color-2 text-xs">
+      <HeaderMenuItem title='首页' nopopup={true}>
+      </HeaderMenuItem>
+      <HeaderMenuItem title='功能'>
+        <div className='p-5 flex gap-6 flex-wrap max-w-[550px]'>
+          <div className='flex gap-2 cursor-pointer'>
+            <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_01.png')] bg-no-repeat"></div>
+            <div className="flex flex-col justify-between gap-2">
+              <div className="text-orange-500 text-sm">专属积分</div>
+              <div className="text-color-3 text-xs max-w-[175px]">发行专属自己商铺的积分/优惠券</div>
+            </div>
+          </div>
+          <div className='flex gap-2 cursor-pointer'>
+            <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_03.png')] bg-no-repeat"></div>
+            <div className="flex flex-col justify-between gap-2">
+              <div className="text-orange-500 text-sm">互换</div>
+              <div className="text-color-3 text-xs max-w-[175px]">积分/优惠券持有者间进行交换</div>
+            </div>
+          </div>
+          <div className='flex gap-2 cursor-pointer'>
+            <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_02.png')] bg-no-repeat"></div>
+            <div className="flex flex-col justify-between gap-2">
+              <div className="text-orange-500 text-sm">共通积分</div>
+              <div className="text-color-3 text-xs max-w-[175px]">多家商户联合发行团体内共通使用的积分/优惠券</div>
+            </div>
+          </div>
+          <div className='flex gap-2 cursor-pointer'>
+            <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_04.png')] bg-no-repeat"></div>
+            <div className="flex flex-col justify-between gap-2">
+              <div className="text-orange-500 text-sm">收益</div>
+              <div className="text-color-3 text-xs max-w-[175px]">成为社区的一员，作出贡献获得收益</div>
+            </div>
+          </div>
+        </div>
+      </HeaderMenuItem>
+      <HeaderMenuItem title='关于Carina'>
+        <div className='p-5 flex gap-6 flex-wrap max-w-[550px]'>
+          <div className='flex gap-2 cursor-pointer'>
+            <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_01.png')] bg-no-repeat"></div>
+            <div className="flex flex-col justify-between gap-2">
+              <div className="text-orange-500 text-sm">架构</div>
+              <div className="text-color-3 text-xs w-[175px]">管理运行架构</div>
+            </div>
+          </div>
+          <div className='flex gap-2 cursor-pointer'>
+            <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_03.png')] bg-no-repeat"></div>
+            <div className="flex flex-col justify-between gap-2">
+              <div className="text-orange-500 text-sm">经济模式</div>
+              <div className="text-color-3 text-xs max-w-[175px]">发行专属自己商铺的积分/优惠券</div>
+            </div>
+          </div>
+          <div className='flex gap-2 cursor-pointer'>
+            <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_02.png')] bg-no-repeat"></div>
+            <div className="flex flex-col justify-between gap-2">
+              <div className="text-orange-500 text-sm">项目白皮书</div>
+              <div className="text-color-3 text-xs max-w-[200px]">下载 Carina Chain 的项目白皮书<br/>简体中文 ｜ English ｜ 日本語</div>
+            </div>
+          </div>
+        </div>
+      </HeaderMenuItem>
+      <HeaderMenuItem title='语言'>
+        <div className='p-5 flex felx-col justify-center gap-3 flex-wrap w-[88px] text-xs cursor-pointer'>
+          <div>简体中文</div>
+          <div>English</div>
+          <div>日本語</div>
+        </div>
+      </HeaderMenuItem>
     </div>
   )
 }
 
+const HeaderMenuItem = function (props: { children: React.ReactNode, title: string, nopopup?: boolean }) {
+  const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null)
+  const handleClick = (event: any) => {
+    if (props.nopopup) return
+    setAnchorEl(event.currentTarget);
+  }
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+  return (
+    <>
+      <div className='cursor-pointer hover:shadow' aria-describedby={id} onClick={handleClick}>
+        <div className='px-8 py-2'>
+          {props.title}
+        </div>
+      </div>
+      <Popover 
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}>
+          {props.children}
+      </Popover>
+    </>
+  )
+}
+
 // Home page main content
-const Content = async function () {
+const Content = function () {
   return (
     <div>
       <Carousel></Carousel>
@@ -96,20 +197,20 @@ const Carousel = function () {
     <div className="flex justify-center h-[630px] bg-[url('/images/index_head_bg.png')] bg-no-repeat w-full">
       <div className="w-[1200px] flex justify-between">
         <div className="flex flex-col justify-center gap-y-8 h-full">
-          <div className="flex text-3xl">
-            <div>
+          <div className="flex text-4xl">
+            <div className='text-color-1'>
               Chrina Chain的
             </div>
             <div className="text-orange-500">伟大愿景</div>
           </div>
-          <div>
-            <div className="">
+          <div className='flex flex-col gap-y-1'>
+            <div className="text-color-3">
               发行店铺的专厲积分卡/优惠券
             </div>
-            <div className="">
+            <div className="text-color-3">
               交换手中的积分/优惠卡
             </div>
-            <div className="">
+            <div className="text-color-3">
               最贴近大众生活的Web3.0体验
             </div>
           </div>
@@ -118,8 +219,8 @@ const Carousel = function () {
           </Button>
         </div>
         <div className="w-[480px] bg-[url('/images/index_head_image_01.png')] bg-no-repeat mt-[32px] flex flex-col justify-end items-center">
-          <Button className='w-[270px] mb-[30px] ml-[40px]' variant="contained">
-            <div className='text-white'>炊迎使用 Carina Chain</div>
+          <Button className='w-[270px] mb-[30px] ml-[40px] rounded-full' variant="contained">
+            <div className='text-white py-1'>欢迎使用 Carina Chain</div>
           </Button>
         </div>
       </div>
@@ -130,10 +231,10 @@ const Carousel = function () {
 // Feature block
 const Feature = function () {
   return (
-    <div className="flex justify-center pb-[60px]">
+    <div className="flex justify-center">
       <div className="w-[1200px]">
         <div className="flex justify-center text-2xl pt-[50px] pb-[40px]">Carina Chain 的项目特点</div>
-        <div className="flex justify-between">
+        <div className="h-[550px] flex justify-between text-color-2 bg-[url(/images/index_function_bg.png)] bg-no-repeat bg-contain bg-bottom">
           <FeatureBox className="flex flex-col items-center w-[380px] h-[450px] bg-[url(/images/index_function_01.png)] bg-no-repeat">
             <div className="text-white text-2xl mt-[250px] mb-[20px]">筒単流程，易上手</div>
             <div className="mb-[15px]">Line小程序筒単流協</div>
@@ -167,12 +268,12 @@ const FeatureBox = function (props: { children: React.ReactNode, className: stri
 // Advantage block
 const Advantage = function () {
   return (
-    <div className="flex justify-center pb-[160px]">
+    <div className="flex justify-center pb-[100px]">
       <div className="w-[1200px]">
         <div className="flex justify-center text-2xl pt-[50px] pb-[40px]">Carina Chain 的项目优势</div>
-        <div className="flex justify-between">
+        <div className="flex justify-between text-color-2 text-xs">
           <AdvantageBox>
-            <div className="w-[100px] h-[100px] bg-[url('/images/index_advantage_icon_01.png')] bg-no-repeat"></div>
+            <div className="ml-[-20px] w-[110px] h-[100px] bg-[url('/images/index_advantage_icon_01.png')] bg-no-repeat"></div>
             <div className='text-orange-500 text-xl pt-[30px] pb-[15px]'>低成本</div>
             <div className='pb-[10px]'>0成本创建用户</div>
             <div className='pb-[10px]'>低成本发型积分</div>
@@ -180,7 +281,7 @@ const Advantage = function () {
             <div className='pb-[10px]'>免费查询信息</div>
           </AdvantageBox>
           <AdvantageBox>
-            <div className="w-[100px] h-[100px] bg-[url('/images/index_advantage_icon_02.png')] bg-no-repeat"></div>
+            <div className="ml-[-20px] w-[110px] h-[100px] bg-[url('/images/index_advantage_icon_02.png')] bg-no-repeat"></div>
             <div className='text-orange-500 text-xl pt-[30px] pb-[15px]'>易用</div>
             <div className='pb-[10px]'>快速上手</div>
             <div className='pb-[10px]'>无需登录个人信息</div>
@@ -188,7 +289,7 @@ const Advantage = function () {
             <div className='pb-[10px]'>支持多种交互模式</div>
           </AdvantageBox>
           <AdvantageBox>
-            <div className="w-[100px] h-[100px] bg-[url('/images/index_advantage_icon_03.png')] bg-no-repeat"></div>
+            <div className="ml-[-20px] w-[110px] h-[100px] bg-[url('/images/index_advantage_icon_03.png')] bg-no-repeat"></div>
             <div className='text-orange-500 text-xl pt-[30px] pb-[15px]'>高拓展</div>
             <div className='pb-[10px]'>支持积分间兑换和发行</div>
             <div className='pb-[10px]'>支持CRM功能和API接入</div>
@@ -196,7 +297,7 @@ const Advantage = function () {
             <div className='pb-[10px]'>支持验证人挖矿</div>
           </AdvantageBox>
           <AdvantageBox>
-            <div className="w-[100px] h-[100px] bg-[url('/images/index_advantage_icon_04.png')] bg-no-repeat"></div>
+            <div className="ml-[-20px] w-[110px] h-[100px] bg-[url('/images/index_advantage_icon_04.png')] bg-no-repeat"></div>
             <div className='text-orange-500 text-xl pt-[30px] pb-[15px]'>信息保护</div>
             <div className='pb-[10px]'>数据不会消失且无法被篡改</div>
             <div className='pb-[10px]'>自身信息自由查询</div>
@@ -218,41 +319,41 @@ const AdvantageBox = function (props: { children: React.ReactNode }) {
 }
 
 // Page Footer
-const Footer = async function () {
+const Footer = function () {
   return (
     <div className="flex items-center flex-col bg-gray-300">
       <div className="flex justify-center text-2xl pt-[50px] pb-[40px]">想通过更多的方式了解 Carina Chain？</div>
       <div className="w-[1200px] h-[400px] bg-[url('/images/index_bottom_bg.png')] bg-no-repeat bg-center relative">
         <div className="p-[50px]">
           <div className='text-orange-500 text-xl pb-[36px]'>网站地图</div>
-          <div className="flex text-white">
+          <div className="flex text-white text-xs">
             <FooterMapCol>
-              <div className='text-gray-500 cursor-pointer'>首页</div>
+              <div className='text-gray-500 cursor-pointer text-sm'>首页</div>
               <div className='cursor-pointer'>伟大愿景</div>
               <div className='cursor-pointer'>项目特点</div>
               <div className='cursor-pointer'>项目优势</div>
             </FooterMapCol>
             <FooterMapCol>
-              <div className='text-gray-500 cursor-pointer'>功能</div>
+              <div className='text-gray-500 cursor-pointer text-sm'>功能</div>
               <div className='cursor-pointer'>专属积分</div>
               <div className='cursor-pointer'>共通积分</div>
               <div className='cursor-pointer'>互换</div>
               <div className='cursor-pointer'>收益</div>
             </FooterMapCol>
             <FooterMapCol>
-              <div className='text-gray-500 cursor-pointer'>关于Carina</div>
+              <div className='text-gray-500 cursor-pointer text-sm'>关于Carina</div>
               <div className='cursor-pointer'>架构</div>
               <div className='cursor-pointer'>经济模型</div>
               <div className='cursor-pointer'>项目白皮书</div>
             </FooterMapCol>
             <FooterMapCol>
-              <div className='text-gray-500 cursor-pointer'>语言</div>
+              <div className='text-gray-500 cursor-pointer text-sm'>语言</div>
               <div className='cursor-pointer'>简体中文</div>
               <div className='cursor-pointer'>English</div>
               <div className='cursor-pointer'>日本語</div>
             </FooterMapCol>
             <FooterMapCol>
-              <div className='text-gray-500 cursor-pointer'>打开APP</div>
+              <div className='text-gray-500 cursor-pointer text-sm'>打开APP</div>
             </FooterMapCol>
           </div>
           <FooterBtnContent></FooterBtnContent>
@@ -296,7 +397,7 @@ const FooterBtnContent = function () {
           alt="Image"
         />
       </div>
-      <div className="text-white absolute bottom-[30px] right-[50px]">Copyright © 2024 Carina Chain Ltd</div>
+      <div className="text-white absolute bottom-[30px] right-[50px] text-xs">Copyright © 2024 Carina Chain Ltd</div>
     </div>
   )
 }

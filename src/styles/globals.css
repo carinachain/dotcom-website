@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.text-color-1 {
+    color: #1f2a3f;
+}
+
+.text-color-2 {
+    color: #383838;
+}
+
+.text-color-3 {
+    color: #bababa;
+}
