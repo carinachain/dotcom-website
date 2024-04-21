@@ -5,6 +5,8 @@ import { loggerLink, unstable_httpBatchStreamLink } from "@trpc/client";
 import { createTRPCReact } from "@trpc/react-query";
 import { useState } from "react";
 import SuperJSON from "superjson";
+import { ThemeProvider } from '@mui/material/styles';
+import theme from '~/app/theme';
 
 import { type AppRouter } from "~/server/api/root";
 
@@ -49,7 +51,9 @@ export function TRPCReactProvider(props: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       <api.Provider client={trpcClient} queryClient={queryClient}>
-        {props.children}
+        <ThemeProvider theme={theme}>
+          {props.children}
+        </ThemeProvider>
       </api.Provider>
     </QueryClientProvider>
   );
