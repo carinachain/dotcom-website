@@ -1,0 +1,118 @@
+{
+    "home": {
+        "header": {
+            "openApp": "Open App",
+            "homePage": {
+                "title": "Home"
+            },
+            "function": {
+                "title": "Home",
+                "text1": "Exclusive Points",
+                "detail1": "Issue exclusive points/coupons for your own shop",
+                "text2": "Exchange",
+                "detail2": "Exchange points/coupons between holders",
+                "text3": "Common Points",
+                "detail3": "Issue points/coupons for common use within a group of merchants",
+                "text4": "Earnings",
+                "detail4": "Become a member of the community, contribute, and earn profits"
+            },
+            "about": {
+                "title": "About Carina",
+                "text1": "Architecture",
+                "detail1": "Manage operational architecture",
+                "text2": "Economic Model",
+                "detail2": "Issue exclusive points/coupons for your own shop",
+                "text3": "Project Whitepaper",
+                "detail3": "Download the project whitepaper for Carina Chain<br/>Simplified Chinese | English | Japanese/Coupons"
+            }
+        },
+        "carousel": {
+            "title1": "Carina Chain's",
+            "title2": "Great Vision",
+            "text1": "Issue exclusive points/cards/coupons for shops",
+            "text2": "Exchange points/coupons in hand",
+            "text3": "Web3.0 experience closest to the public's life",
+            "button1": "Learn More＞",
+            "button2": "Welcome to use Carina Chain"
+        },
+        "feature": {
+            "title": "Project Features of Carina Chain",
+            "box1": {
+                "text1": "Simple process, easy to use",
+                "text2": "Line Mini Program simple process cooperation",
+                "text3": "Create an account without logging in personal information, easy to get started"
+            },
+            "box2": {
+                "text1": "Customizable, cost-effective",
+                "text2": "Customize and issue exclusive points/coupons",
+                "text3": "Charge a low fee based only on usage, no monthly rent"
+            },
+            "box3": {
+                "text1": "Freedom to exchange, many benefits",
+                "text2": "Points/coupons received can be freely exchanged with other accounts",
+                "text3": "Freedom to choose what you need"
+            }
+        },
+        "advantage": {
+            "title": "Project Advantages of Carina Chain",
+            "box1": {
+                "text1": "Low cost",
+                "text2": "Zero cost to create users",
+                "text3": "Low cost to issue points",
+                "text4": "No fixed costs, charge based on initiated interactions",
+                "text5": "Free information query"
+            },
+            "box2": {
+                "text1": "Easy to use",
+                "text2": "Quick to get started",
+                "text3": "No need to log in personal information",
+                "text4": "Aggregate different points, saving cumbersome processes",
+                "text5": "Supports multiple interaction modes"
+            },
+            "box3": {
+                "text1": "High scalability",
+                "text2": "Supports points exchange and issuance",
+                "text3": "Supports CRM functionality and API access",
+                "text4": "Open third-party SDK",
+                "text5": "Supports validator mining"
+            },
+            "box4": {
+                "text1": "Information protection",
+                "text2": "Data will not disappear and cannot be tampered with",
+                "text3": "Free query of personal information",
+                "text4": "Can choose the scope of personal information disclosure",
+                "text5": "Profits from public information belong to oneself"
+            }
+        },
+        "footer": {
+            "title": "Want to learn more about Carina Chain?",
+            "intro": "Website Map",
+            "box1": {
+                "title": "Home",
+                "text1": "Great Vision",
+                "text2": "Project Features",
+                "text3": "Project Advantages"
+            },
+            "box2": {
+                "title": "Functions",
+                "text1": "Exclusive Points",
+                "text2": "Common Points",
+                "text3": "Exchange",
+                "text4": "Earnings"
+            },
+            "box3": {
+                "title": "About Carina",
+                "text1": "Architecture",
+                "text2": "Economic Model",
+                "text3": "Project Whitepaper"
+            },
+            "box4": {
+                "title": "Language",
+                "text1": "简体中文",
+                "text2": "English",
+                "text3": "日本語"
+            },
+            "button": "Open App"
+        }
+    }
+}
