@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Button from '@mui/material/Button'
 import Popover from '@mui/material/Popover'
 import React from 'react';
+import { useTranslations } from 'next-intl';
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ const img_discord_rollover = '/images/index_topicon_discord_rollover.png'
 
 // Page header
 const Header = function () {
+  const t = useTranslations('home.header');
   return (
     <div className="flex justify-center ">
       <div className="w-[1200px] flex justify-between items-center h-full py-[50px]">
@@ -61,7 +63,7 @@ const Header = function () {
               alt="Image"
             />
             <Button className='ml-3' variant="contained">
-              <div className='text-white text-xs'>打开APP</div>
+              <div className='text-white text-xs'>{t('openApp')}</div>
             </Button>
           </div>
         </div>
@@ -71,43 +73,44 @@ const Header = function () {
 }
 
 const HeaderContent = function () {
+  const t = useTranslations('home.header');
   return (
     <div className="flex justify-center items-center flex-1 gap-x-3 text-color-2 text-xs">
-      <HeaderMenuItem title='首页' nopopup={true}>
+      <HeaderMenuItem title={t('homePage.title')} nopopup={true}>
       </HeaderMenuItem>
-      <HeaderMenuItem title='功能'>
+      <HeaderMenuItem title={t('function.title')}>
         <div className='p-5 flex gap-6 flex-wrap max-w-[550px]'>
           <div className='flex gap-2 cursor-pointer'>
             <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_01.png')] bg-no-repeat"></div>
             <div className="flex flex-col justify-between gap-2">
-              <div className="text-orange-500 text-sm">专属积分</div>
-              <div className="text-color-3 text-xs max-w-[175px]">发行专属自己商铺的积分/优惠券</div>
+              <div className="text-orange-500 text-sm">{t('function.text1')}</div>
+              <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail1')}</div>
             </div>
           </div>
           <div className='flex gap-2 cursor-pointer'>
             <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_03.png')] bg-no-repeat"></div>
             <div className="flex flex-col justify-between gap-2">
-              <div className="text-orange-500 text-sm">互换</div>
-              <div className="text-color-3 text-xs max-w-[175px]">积分/优惠券持有者间进行交换</div>
+              <div className="text-orange-500 text-sm">{t('function.text2')}</div>
+              <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail2')}</div>
             </div>
           </div>
           <div className='flex gap-2 cursor-pointer'>
             <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_02.png')] bg-no-repeat"></div>
             <div className="flex flex-col justify-between gap-2">
-              <div className="text-orange-500 text-sm">共通积分</div>
-              <div className="text-color-3 text-xs max-w-[175px]">多家商户联合发行团体内共通使用的积分/优惠券</div>
+              <div className="text-orange-500 text-sm">{t('function.text3')}</div>
+              <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail3')}</div>
             </div>
           </div>
           <div className='flex gap-2 cursor-pointer'>
             <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_04.png')] bg-no-repeat"></div>
             <div className="flex flex-col justify-between gap-2">
-              <div className="text-orange-500 text-sm">收益</div>
-              <div className="text-color-3 text-xs max-w-[175px]">成为社区的一员，作出贡献获得收益</div>
+              <div className="text-orange-500 text-sm">{t('function.text4')}</div>
+              <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail4')}</div>
             </div>
           </div>
         </div>
       </HeaderMenuItem>
-      <HeaderMenuItem title='关于Carina'>
+      <HeaderMenuItem title={t('about.title')}>
         <div className='p-5 flex gap-6 flex-wrap max-w-[550px]'>
           <div className='flex gap-2 cursor-pointer'>
             <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_01.png')] bg-no-repeat"></div>
@@ -193,34 +196,35 @@ const Content = function () {
 
 // Carousel block
 const Carousel = function () {
+  const t = useTranslations('home.carousel');
   return (
     <div className="flex justify-center h-[630px] bg-[url('/images/index_head_bg.png')] bg-no-repeat w-full">
       <div className="w-[1200px] flex justify-between">
         <div className="flex flex-col justify-center gap-y-8 h-full">
           <div className="flex text-4xl">
             <div className='text-color-1'>
-              Chrina Chain的
+            {t('title1')}
             </div>
-            <div className="text-orange-500">伟大愿景</div>
+            <div className="text-orange-500">{t('title2')}</div>
           </div>
           <div className='flex flex-col gap-y-1'>
             <div className="text-color-3">
-              发行店铺的专厲积分卡/优惠券
+            {t('text1')}
             </div>
             <div className="text-color-3">
-              交换手中的积分/优惠卡
+            {t('text2')}
             </div>
             <div className="text-color-3">
-              最贴近大众生活的Web3.0体验
+            {t('text3')}
             </div>
           </div>
           <Button className='w-[180px]' variant="contained">
-            <div className='text-white'>了解更多＞</div>
+            <div className='text-white'>{t('button1')}</div>
           </Button>
         </div>
         <div className="w-[480px] bg-[url('/images/index_head_image_01.png')] bg-no-repeat mt-[32px] flex flex-col justify-end items-center">
           <Button className='w-[270px] mb-[30px] ml-[40px] rounded-full' variant="contained">
-            <div className='text-white py-1'>欢迎使用 Carina Chain</div>
+            <div className='text-white py-1'>{t('button2')}</div>
           </Button>
         </div>
       </div>
