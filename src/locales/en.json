@@ -74,7 +74,7 @@
         "title": "Home"
       },
       "function": {
-        "title": "Home",
+        "title": "Functions",
         "text1": "Exclusive Points",
         "detail1": "Issue exclusive points/coupons for your own shop",
         "text2": "Exchange",
@@ -92,10 +92,16 @@
         "detail2": "Issue exclusive points/coupons for your own shop",
         "text3": "Project Whitepaper",
         "detail3": "Download the project whitepaper for Carina Chain<br/>Simplified Chinese | English | Japanese/Coupons"
+      },
+      "language": {
+        "title": "Language",
+        "text1": "简体中文",
+        "text2": "English",
+        "text3": "日本語"
       }
     },
     "carousel": {
-      "title1": "Carina Chain's",
+      "title1": "Carina Chain's\f",
       "title2": "Great Vision",
       "text1": "Issue exclusive points/cards/coupons for shops",
       "text2": "Exchange points/coupons in hand",
