@@ -5,6 +5,7 @@ import Button from '@mui/material/Button'
 import Popover from '@mui/material/Popover'
 import React from 'react';
 import { useTranslations } from 'next-intl';
+import { usePathname, useRouter } from '@/libs/i18nNavigation';
 
 export default function Home() {
   return (
@@ -74,6 +75,12 @@ const Header = function () {
 
 const HeaderContent = function () {
   const t = useTranslations('home.header');
+  const router = useRouter();
+  const pathname = usePathname();
+  const handleChange = (val: any) => {
+    router.push(pathname, { locale: val });
+    router.refresh();
+  };
   return (
     <div className="flex justify-center items-center flex-1 gap-x-3 text-color-2 text-xs">
       <HeaderMenuItem title={t('homePage.title')} nopopup={true}>
@@ -137,9 +144,9 @@ const HeaderContent = function () {
       </HeaderMenuItem>
       <HeaderMenuItem title={t('language.title')}>
         <div className='p-5 flex felx-col justify-center gap-3 flex-wrap w-[88px] text-xs cursor-pointer'>
-          <div>简体中文</div>
-          <div>English</div>
-          <div>日本語</div>
+          <div onClick={() => handleChange('zh')}>简体中文</div>
+          <div onClick={() => handleChange('en')}>English</div>
+          <div onClick={() => handleChange('jp')}>日本語</div>
         </div>
       </HeaderMenuItem>
     </div>
