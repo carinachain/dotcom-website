@@ -230,7 +230,7 @@ const Carousel = function () {
           </Button>
         </div>
         <div className="w-[480px] bg-[url('/images/index_head_image_01.png')] bg-no-repeat mt-[32px] flex flex-col justify-end items-center">
-          <Button className='w-[270px] mb-[30px] ml-[40px] rounded-full' variant="contained">
+          <Button className='mw-[270px] mb-[30px] ml-[40px] rounded-full' variant="contained">
             <div className='text-white py-1'>{t('button2')}</div>
           </Button>
         </div>
@@ -247,35 +247,32 @@ const Feature = function () {
       <div className="w-[1200px]">
         <div className="flex justify-center text-2xl pt-[50px] pb-[40px]">{t('title')}</div>
         <div className="h-[550px] flex justify-between text-color-2 bg-[url(/images/index_function_bg.png)] bg-no-repeat bg-contain bg-bottom">
-          <FeatureBox className="flex flex-col items-center w-[380px] h-[450px] bg-[url(/images/index_function_01.png)] bg-no-repeat">
+          <div className="flex flex-col items-center w-[380px] h-[450px] bg-[url(/images/index_function_01.png)] bg-no-repeat">
             <div className="text-white text-2xl mt-[250px] mb-[20px]">{t('box1.text1')}</div>
-            <div className="mb-[15px]">{t('box1.text2')}</div>
-            <div className="mb-[15px]">{t('box1.text3')}</div>
-          </FeatureBox>
-          <FeatureBox className="flex flex-col items-center w-[380px] h-[450px] bg-[url(/images/index_function_02.png)] bg-no-repeat">
+            <div className="px-[30px]">
+              <div className="mb-[15px]">{t('box1.text2')}</div>
+              <div className="mb-[15px]">{t('box1.text3')}</div>
+            </div>
+          </div>
+          <div className="flex flex-col items-center w-[380px] h-[450px] bg-[url(/images/index_function_02.png)] bg-no-repeat">
             <div className="text-white text-2xl mt-[250px] mb-[20px]">{t('box2.text1')}</div>
-            <div className="mb-[15px]">{t('box2.text2')}</div>
-            <div className="mb-[15px]">{t('box2.text3')}</div>
-          </FeatureBox>
-          <FeatureBox className="flex flex-col items-center w-[380px] h-[450px] bg-[url(/images/index_function_03.png)] bg-no-repeat">
+            <div className="px-[30px]">
+              <div className="mb-[15px]">{t('box2.text3')}</div>
+              <div className="mb-[15px]">{t('box2.text2')}</div>
+            </div>
+          </div>
+          <div className="flex flex-col items-center w-[380px] h-[450px] bg-[url(/images/index_function_03.png)] bg-no-repeat">
             <div className="text-white text-2xl mt-[250px] mb-[20px]">{t('box3.text1')}</div>
-            <div className="mb-[15px]">{t('box3.text2')}</div>
-            <div className="mb-[15px]">{t('box3.text3')}</div>
-          </FeatureBox>
+            <div className="px-[30px]">
+              <div className="mb-[15px]">{t('box3.text2')}</div>
+              <div className="mb-[15px]">{t('box3.text3')}</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   )
 }
-
-const FeatureBox = function (props: { children: React.ReactNode, className: string }) {
-  return (
-    <div className={props.className}>
-      {props.children}
-    </div>
-  )
-}
-
 
 // Advantage block
 const Advantage = function () {
@@ -285,48 +282,40 @@ const Advantage = function () {
       <div className="w-[1200px]">
         <div className="flex justify-center text-2xl pt-[50px] pb-[40px]">{t('title')}</div>
         <div className="flex justify-between text-color-2 text-xs">
-          <AdvantageBox>
+          <div className="flex flex-col w-[285px] h-[355px] bg-[url('/images/index_advantage_bg.png')] bg-no-repeat pl-[40px]">
             <div className="ml-[-20px] w-[110px] h-[100px] bg-[url('/images/index_advantage_icon_01.png')] bg-no-repeat"></div>
             <div className='text-orange-500 text-xl pt-[30px] pb-[15px]'>{t('box1.text1')}</div>
             <div className='pb-[10px]'>{t('box1.text2')}</div>
             <div className='pb-[10px]'>{t('box1.text3')}</div>
             <div className='pb-[10px]'>{t('box1.text4')}</div>
             <div className='pb-[10px]'>{t('box1.text5')}</div>
-          </AdvantageBox>
-          <AdvantageBox>
+          </div>
+          <div className="flex flex-col w-[285px] h-[355px] bg-[url('/images/index_advantage_bg.png')] bg-no-repeat pl-[40px]">
             <div className="ml-[-20px] w-[110px] h-[100px] bg-[url('/images/index_advantage_icon_02.png')] bg-no-repeat"></div>
             <div className='text-orange-500 text-xl pt-[30px] pb-[15px]'>{t('box2.text1')}</div>
             <div className='pb-[10px]'>{t('box2.text2')}</div>
             <div className='pb-[10px]'>{t('box2.text3')}</div>
             <div className='pb-[10px]'>{t('box2.text4')}</div>
             <div className='pb-[10px]'>{t('box2.text5')}</div>
-          </AdvantageBox>
-          <AdvantageBox>
+          </div>
+          <div className="flex flex-col w-[285px] h-[355px] bg-[url('/images/index_advantage_bg.png')] bg-no-repeat pl-[40px]">
             <div className="ml-[-20px] w-[110px] h-[100px] bg-[url('/images/index_advantage_icon_03.png')] bg-no-repeat"></div>
             <div className='text-orange-500 text-xl pt-[30px] pb-[15px]'>{t('box3.text1')}</div>
             <div className='pb-[10px]'>{t('box3.text2')}</div>
             <div className='pb-[10px]'>{t('box3.text3')}</div>
             <div className='pb-[10px]'>{t('box3.text4')}</div>
             <div className='pb-[10px]'>{t('box3.text5')}</div>
-          </AdvantageBox>
-          <AdvantageBox>
+          </div>
+          <div className="flex flex-col w-[285px] h-[355px] bg-[url('/images/index_advantage_bg.png')] bg-no-repeat pl-[40px]">
             <div className="ml-[-20px] w-[110px] h-[100px] bg-[url('/images/index_advantage_icon_04.png')] bg-no-repeat"></div>
             <div className='text-orange-500 text-xl pt-[30px] pb-[15px]'>{t('box4.text1')}</div>
             <div className='pb-[10px]'>{t('box4.text2')}</div>
             <div className='pb-[10px]'>{t('box4.text3')}</div>
             <div className='pb-[10px]'>{t('box4.text4')}</div>
             <div className='pb-[10px]'>{t('box4.text5')}</div>
-          </AdvantageBox>
+          </div>
         </div>
       </div>
-    </div>
-  )
-}
-
-const AdvantageBox = function (props: { children: React.ReactNode }) {
-  return (
-    <div className="flex flex-col w-[285px] h-[355px] bg-[url('/images/index_advantage_bg.png')] bg-no-repeat pl-[40px]">
-      {props.children}
     </div>
   )
 }
