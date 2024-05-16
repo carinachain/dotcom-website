@@ -15,7 +15,7 @@ export default function Header() {
     const t = useTranslations('home.header');
     return (
         <div className="flex justify-center ">
-            <div className="w-[1200px] flex justify-between items-center h-full py-[50px]">
+            <div className="w-[1200px] flex justify-between items-center h-full py-[30px]">
                 <div>
                     <Image
                         src="/images/logo.png"

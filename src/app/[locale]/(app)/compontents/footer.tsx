@@ -12,10 +12,12 @@ export default function Footer() {
     return (
         <div className="flex items-center flex-col bg-gray-300">
             <div className="flex justify-center text-2xl pt-[50px] pb-[40px]">{t('title')}</div>
-            <div className="w-[1200px] h-[400px] bg-[url('/images/index_bottom_bg.png')] bg-no-repeat bg-center relative">
+            <div className="w-full xl:w-[1200px] min-h-[400px] bg-slate-800 rounded-none xl:rounded-t-[50px] relative overflow-hidden">
+                <div className='absolute top-[-180px] right-[-60px] w-[300px] h-[300px] border-[3px] border-gray-600 rounded-full'></div>
+                <div className='absolute top-[-220px] right-[-100px] w-[420px] h-[420px] border-[3px] border-gray-600 rounded-full'></div>
                 <div className="p-[50px]">
                     <div className='text-orange-500 text-xl pb-[36px]'>{t('intro')}</div>
-                    <div className="flex text-white text-xs">
+                    <div className="max-w-[850px] grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-y-10 text-white text-xs">
                         <FooterMapCol>
                             <div className='text-gray-500 cursor-pointer text-sm'>{t('box1.title')}</div>
                             <div className='cursor-pointer'>{t('box1.text1')}</div>
@@ -54,7 +56,7 @@ export default function Footer() {
 
 const FooterMapCol = function (props: { children: React.ReactNode }) {
     return (
-        <div className="flex flex-col pr-[70px] gap-y-3">
+        <div className="flex flex-col gap-y-3 min-w-[200px]">
             {props.children}
         </div>
     )
@@ -62,7 +64,7 @@ const FooterMapCol = function (props: { children: React.ReactNode }) {
 
 const FooterBtnContent = function () {
     return (
-        <div className="flex justify-between">
+        <div className="flex justify-between h-[80px]">
             <div className="flex gap-x-3 absolute bottom-[30px] left-[50px]">
                 <div className='bg-gray-400 w-[36px] h-[36px] flex justify-center items-center rounded'>
                     <Image
