@@ -73,6 +73,7 @@ const Feature = function () {
                     </div>
                     <div className="bg-gray-100 min-h-[400px] flex flex-col rounded-md">
                         <div className="bg-[url('/images/function_exclusive_white_pic_02.png')] bg-blue-100 h-[160px] m-[20px] rounded-md">
+
                         </div>
                         <div className="m-[20px]">
                             <div className="text-2xl text-orange-500">
