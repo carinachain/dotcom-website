@@ -20,7 +20,7 @@ const Carousel = function () {
                     </div>
                 </div>
                 <div>
-                    <div className="bg-[url('/images/pronts/function_exclusive_head_image_01.png')] bg-cover w-[400px] h-full"></div>
+                    <div className="bg-[url('/images/function_exclusive_head_image_01.png')] bg-cover w-[400px] h-full"></div>
                 </div>
             </div>
         </div>
@@ -50,8 +50,8 @@ const Feature = function () {
                     </div>
                 </div>
                 <div className="grid grid-cols-3 gap-8 pt-[80px] px-[80px] text-gray-800">
-                    <div className="bg-gray-100 min-h-[400px] flex flex-col rounded-md">
-                        <div className="bg-[url('/images/pronts/function_exclusive_white_pic_01.png')] bg-cover h-[160px] m-[20px] rounded-md">
+                    <div className="bg-gray-100 min-h-[400px] flex flex-col rounded-xl">
+                        <div className="bg-[url('/images/function_exclusive_white_pic_01.png')] bg-cover h-[160px] m-[20px] rounded-xl">
                         </div>
                         <div className="m-[20px]">
                             <div className="text-2xl text-orange-500">
@@ -72,7 +72,7 @@ const Feature = function () {
                         </div>
                     </div>
                     <div className="bg-gray-100 min-h-[400px] flex flex-col rounded-md">
-                        <div className="bg-[url('/images/pronts/function_exclusive_white_pic_02.png')] bg-blue-100 h-[160px] m-[20px] rounded-md">
+                        <div className="bg-[url('/images/function_exclusive_white_pic_02.png')] bg-blue-100 h-[160px] m-[20px] rounded-md">
                         </div>
                         <div className="m-[20px]">
                             <div className="text-2xl text-orange-500">
@@ -90,7 +90,7 @@ const Feature = function () {
                         </div>
                     </div>
                     <div className="bg-gray-100 min-h-[400px] flex flex-col rounded-md">
-                        <div className="bg-[url('/images/pronts/function_exclusive_white_pic_03.png')] bg-blue-100 h-[160px] m-[20px] rounded-md">
+                        <div className="bg-[url('/images/function_exclusive_white_pic_03.png')] bg-blue-100 h-[160px] m-[20px] rounded-md">
                         </div>
                         <div className="m-[20px]">
                             <div className="text-2xl text-orange-500">
