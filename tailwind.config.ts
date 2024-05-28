@@ -18,7 +18,7 @@ export default {
         ],
       },
       backgroundImage: {
-        'carousel-bg': "url('/images/images/index_head_bg.png')",
+        'carousel-bg': "url('/images/images/index_head_bg.png')"
       }
     },
   },
