@@ -66,23 +66,32 @@ const Feature = function () {
     <div className="flex justify-center">
       <div className="w-[1200px]">
         <div className="flex justify-center text-2xl pt-[50px] pb-[40px]">{t('title')}</div>
-        <div className="h-[550px] flex justify-between text-color-2 bg-[url(/images/index_function_bg.png)] bg-no-repeat bg-contain bg-bottom">
-          <div className="flex flex-col items-center w-[380px] h-[450px] bg-[url(/images/index_function_01.png)] bg-no-repeat">
-            <div className="text-white text-2xl mt-[250px] mb-[20px]">{t('box1.text1')}</div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-color-2 mb-[100px]">
+          <div className="flex flex-col items-center w-full h-[450px] bg-orange-400 rounded-none md:rounded-[50px]">
+            <div className="h-[250px] flex justify-center items-center">
+              <div className="h-[160px] w-[160px] bg-[url(/images/function_interchange_icon_01.png)] bg-no-repeat bg-contain"></div>
+            </div>
+            <div className="text-white text-2xl mb-[20px]">{t('box1.text1')}</div>
             <div className="px-[30px]">
               <div className="mb-[15px]">{t('box1.text2')}</div>
               <div className="mb-[15px]">{t('box1.text3')}</div>
             </div>
           </div>
-          <div className="flex flex-col items-center w-[380px] h-[450px] bg-[url(/images/index_function_02.png)] bg-no-repeat">
-            <div className="text-white text-2xl mt-[250px] mb-[20px]">{t('box2.text1')}</div>
+          <div className="flex flex-col items-center w-full h-[450px] bg-orange-400 rounded-none md:rounded-[50px]">
+            <div className="h-[250px] flex justify-center items-center">
+              <div className="h-[160px] w-[160px] bg-[url(/images/function_interchange_icon_01.png)] bg-no-repeat bg-contain"></div>
+            </div>
+            <div className="text-white text-2xl mb-[20px]">{t('box2.text1')}</div>
             <div className="px-[30px]">
               <div className="mb-[15px]">{t('box2.text3')}</div>
               <div className="mb-[15px]">{t('box2.text2')}</div>
             </div>
           </div>
-          <div className="flex flex-col items-center w-[380px] h-[450px] bg-[url(/images/index_function_03.png)] bg-no-repeat">
-            <div className="text-white text-2xl mt-[250px] mb-[20px]">{t('box3.text1')}</div>
+          <div className="flex flex-col items-center w-full h-[450px] bg-orange-400 rounded-none md:rounded-[50px]">
+            <div className="h-[250px] flex justify-center items-center">
+              <div className="h-[160px] w-[160px] bg-[url(/images/function_interchange_icon_01.png)] bg-no-repeat bg-contain"></div>
+            </div>
+            <div className="text-white text-2xl mb-[20px]">{t('box3.text1')}</div>
             <div className="px-[30px]">
               <div className="mb-[15px]">{t('box3.text2')}</div>
               <div className="mb-[15px]">{t('box3.text3')}</div>
@@ -101,8 +110,8 @@ const Advantage = function () {
     <div className="flex justify-center pb-[100px]">
       <div className="w-[1200px]">
         <div className="flex justify-center text-2xl pt-[50px] pb-[40px]">{t('title')}</div>
-        <div className="flex justify-between text-color-2 text-xs">
-          <div className="flex flex-col w-[285px] h-[355px] bg-[url('/images/index_advantage_bg.png')] bg-no-repeat pl-[40px]">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-6 text-color-2 text-xs">
+          <div className="flex flex-col w-full h-[355px] px-[30px] rounded-none bg-gray-200 md:rounded-[50px]">
             <div className="ml-[-20px] w-[110px] h-[100px] bg-[url('/images/index_advantage_icon_01.png')] bg-no-repeat"></div>
             <div className='text-orange-500 text-xl pt-[30px] pb-[15px]'>{t('box1.text1')}</div>
             <div className='pb-[10px]'>{t('box1.text2')}</div>
@@ -110,7 +119,7 @@ const Advantage = function () {
             <div className='pb-[10px]'>{t('box1.text4')}</div>
             <div className='pb-[10px]'>{t('box1.text5')}</div>
           </div>
-          <div className="flex flex-col w-[285px] h-[355px] bg-[url('/images/index_advantage_bg.png')] bg-no-repeat pl-[40px]">
+          <div className="flex flex-col w-full h-[355px] px-[30px] rounded-none bg-gray-200 md:rounded-[50px]">
             <div className="ml-[-20px] w-[110px] h-[100px] bg-[url('/images/index_advantage_icon_02.png')] bg-no-repeat"></div>
             <div className='text-orange-500 text-xl pt-[30px] pb-[15px]'>{t('box2.text1')}</div>
             <div className='pb-[10px]'>{t('box2.text2')}</div>
@@ -118,7 +127,7 @@ const Advantage = function () {
             <div className='pb-[10px]'>{t('box2.text4')}</div>
             <div className='pb-[10px]'>{t('box2.text5')}</div>
           </div>
-          <div className="flex flex-col w-[285px] h-[355px] bg-[url('/images/index_advantage_bg.png')] bg-no-repeat pl-[40px]">
+          <div className="flex flex-col w-full h-[355px] px-[30px] rounded-none bg-gray-200 md:rounded-[50px]">
             <div className="ml-[-20px] w-[110px] h-[100px] bg-[url('/images/index_advantage_icon_03.png')] bg-no-repeat"></div>
             <div className='text-orange-500 text-xl pt-[30px] pb-[15px]'>{t('box3.text1')}</div>
             <div className='pb-[10px]'>{t('box3.text2')}</div>
@@ -126,7 +135,7 @@ const Advantage = function () {
             <div className='pb-[10px]'>{t('box3.text4')}</div>
             <div className='pb-[10px]'>{t('box3.text5')}</div>
           </div>
-          <div className="flex flex-col w-[285px] h-[355px] bg-[url('/images/index_advantage_bg.png')] bg-no-repeat pl-[40px]">
+          <div className="flex flex-col w-full h-[355px] px-[30px] rounded-none bg-gray-200 md:rounded-[50px]">
             <div className="ml-[-20px] w-[110px] h-[100px] bg-[url('/images/index_advantage_icon_04.png')] bg-no-repeat"></div>
             <div className='text-orange-500 text-xl pt-[30px] pb-[15px]'>{t('box4.text1')}</div>
             <div className='pb-[10px]'>{t('box4.text2')}</div>
