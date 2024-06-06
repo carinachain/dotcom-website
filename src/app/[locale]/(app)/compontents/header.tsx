@@ -24,7 +24,7 @@ export default function Header() {
                         alt="LOGO"
                     />
                 </div>
-                <div className="flex justify-between flex-1">
+                <div className="justify-between flex-1 hidden lg:flex">
                     <HeaderContent></HeaderContent>
                     <div className="flex gap-x-3">
                         <div className='bg-orange-300 w-[36px] h-[36px] flex justify-center items-center rounded'>
