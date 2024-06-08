@@ -14,7 +14,7 @@ const img_discord_rollover = '/svg/discord.svg'
 export default function Header() {
     const t = useTranslations('home.header');
     return (
-        <div className="flex justify-center ">
+        <div className="flex justify-center px-[10px] md:px-0">
             <div className="w-[1200px] flex justify-between items-center h-full py-[30px]">
                 <div>
                     <Image
@@ -157,7 +157,7 @@ const HeaderMenuItem = function (props: { children: React.ReactNode, title: stri
     const id = open ? 'simple-popover' : undefined;
     return (
         <>
-            <div className='cursor-pointer hover:shadow' aria-describedby={id} onClick={handleClick}>
+            <div className='cursor-pointer hover:shadow' aria-describedby={id} onClick={handleClick} onMouseOver={handleClick}>
                 <div className='px-8 py-2'>
                     {props.title}
                 </div>
