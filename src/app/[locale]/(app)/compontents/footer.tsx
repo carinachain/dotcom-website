@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import { usePathname, useRouter } from '@/libs/i18nNavigation';
 import Image from 'next/image';
 
 // Images path
@@ -9,6 +10,12 @@ const img_discord = '/svg/discord_dark.svg'
 // Page Footer
 export default function Footer() {
     const t = useTranslations('home.footer');
+    const router = useRouter();
+    const pathname = usePathname();
+    const handleChange = (val: any) => {
+        router.push(pathname, { locale: val });
+        router.refresh();
+    };
     return (
         <div className="flex items-center flex-col bg-gray-300">
             <div className="flex justify-center text-2xl pt-[50px] pb-[40px]">{t('title')}</div>
@@ -39,9 +46,9 @@ export default function Footer() {
                         </FooterMapCol>
                         <FooterMapCol>
                             <div className='text-gray-500 cursor-pointer text-sm'>{t('box4.title')}</div>
-                            <div className='cursor-pointer'>{t('box4.text1')}</div>
-                            <div className='cursor-pointer'>{t('box4.text2')}</div>
-                            <div className='cursor-pointer'>{t('box4.text3')}</div>
+                            <div onClick={() => handleChange('zh')} className='cursor-pointer'>{t('box4.text1')}</div>
+                            <div onClick={() => handleChange('en')} className='cursor-pointer'>{t('box4.text2')}</div>
+                            <div onClick={() => handleChange('jp')} className='cursor-pointer'>{t('box4.text3')}</div>
                         </FooterMapCol>
                         <FooterMapCol>
                             <div className='text-gray-500 cursor-pointer text-sm'>{t('button')}</div>

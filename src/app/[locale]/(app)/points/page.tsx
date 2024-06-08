@@ -1,3 +1,5 @@
+import { useTranslations } from 'next-intl';
+
 export default function Points() {
     return (
         <>
@@ -7,19 +9,16 @@ export default function Points() {
     )
 }
 
-
 const Carousel = function () {
+    const t = useTranslations('points.carousel');
     return (
         <div className="flex justify-center">
             <div className="w-[1200px] grid grid-cols-1 md:grid-cols-2 bg-orange-300 h-[500px] rounded-none md:rounded-t-[50px] bg-orange-400/80 relative overflow-hidden">
                 <div className="flex justify-center flex-col gap-3 px-10">
-                    <div className="text-2xl">发行您商铺的专属积分/优惠券</div>
-                    <div className="text-2xl">只需几个歩驟和1枚硬市（500日元）</div>
+                    <div className="text-2xl">{t('title1')}</div>
+                    <div className="text-2xl">{t('title2')}</div>
                     <div className="text-white w-[380px]">
-                    满足各类零售业商户的需求，发行商户定制的积分/优惠券<br />
-                    建立自己的客户群<br />
-                    激励客户再度光顾，提高客户的忠实度<br />
-                    帮助您扩大商铺的营业额<br />
+                    {t('text')}
                     </div>
                 </div>
                 <div className="hidden md:block relative">
@@ -41,6 +40,7 @@ const Carousel = function () {
 }
 
 const Feature = function () {
+    const t = useTranslations('points.feature');
     return (
         <div className="flex justify-center">
             <div className="w-[1200px] py-[80px]">
@@ -51,16 +51,16 @@ const Feature = function () {
                                 500
                             </div>
                             <div className="text-2xl">
-                                日元
+                            {t('jpy')}
                             </div>
                         </div>
                     </div>
                     <div className="grow flex flex-col items-center justify-center">
-                        <div className="text-3xl mb-[40px]">1硬币定制发行，0日元维持</div>
+                        <div className="text-3xl mb-[40px]">{t('conetent.title')}</div>
                         <div className="text-gray-500 flex flex-col items-cneter justify-center gap-1">
-                            <div className="text-center">设定自己的参数名称/简介等后即可发行专厲积分或优惠券</div>
-                            <div className="text-center">发行积分或优惠券仅需1枚500日元硬币</div>
-                            <div className="text-center">可按需增发或销毀，只需2日元/次的手续费，无任何维持费用</div>
+                            <div className="text-center">{t('conetent.text1')}</div>
+                            <div className="text-center">{t('conetent.text2')}</div>
+                            <div className="text-center">{t('conetent.text3')}</div>
                         </div>
                     </div>
                 </div>
@@ -70,19 +70,10 @@ const Feature = function () {
                         </div>
                         <div className="m-[20px]">
                             <div className="text-2xl text-orange-500">
-                                发放
+                            {t('box1.title')}
                             </div>
                             <div>
-                                扫描用户的QR码，
-                            </div>
-                            <div>
-                                输入积分数量，指定优惠券，执行发放即可
-                            </div>
-                            <div>
-                                手续费只需2日元/次*
-                            </div>
-                            <div>
-                                POS联动功能上线后，可与POS联动执行
+                            {t('box1.text1')}
                             </div>
                         </div>
                     </div>
@@ -91,16 +82,10 @@ const Feature = function () {
                         </div>
                         <div className="m-[20px]">
                             <div className="text-2xl text-orange-500">
-                                使用
+                            {t('box2.title')}
                             </div>
                             <div>
-                                扫描用户的QR码，
-                            </div>
-                            <div>
-                                根据用户账户内的持有积分/优惠券的状況
-                                输入积分数量，指定优惠券，执行使用即可
-                                手续费只需2日元/次*
-                                POS联动功能上线后，可与POS联动执行
+                            {t('box2.text1')}
                             </div>
                         </div>
                     </div>
@@ -109,12 +94,10 @@ const Feature = function () {
                         </div>
                         <div className="m-[20px]">
                             <div className="text-2xl text-orange-500">
-                                履透明
+                            {t('box3.title')}
                             </div>
                             <div>
-                                积分/优惠券的发放和使用服历随时免费查洵。
-                                履历信息保存在区块链上，保证不会被篡改或
-                                消失
+                            {t('box3.text1')}
                             </div>
                         </div>
                     </div>
