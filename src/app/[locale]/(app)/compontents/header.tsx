@@ -4,6 +4,7 @@ import { usePathname, useRouter } from '@/libs/i18nNavigation';
 import Image from 'next/image';
 import Button from '@mui/material/Button';
 import Popover from '@mui/material/Popover';
+import Link from 'next/link';
 
 // Images path
 const img_twitter_rollover = '/svg/x.svg'
@@ -74,24 +75,26 @@ const HeaderContent = function () {
     };
     return (
         <div className="flex justify-center items-center flex-1 gap-x-3 text-color-2 text-xs">
-            <HeaderMenuItem title={t('homePage.title')} nopopup={true}>
-            </HeaderMenuItem>
+            <Link href="/">
+                <HeaderMenuItem title={t('homePage.title')} nopopup={true}>
+                </HeaderMenuItem>
+            </Link>
             <HeaderMenuItem title={t('function.title')}>
                 <div className='p-5 flex gap-6 flex-wrap max-w-[550px]'>
-                    <div className='flex gap-2 cursor-pointer'>
+                    <Link className='flex gap-2 cursor-pointer' href="/points">
                         <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_01.png')] bg-no-repeat"></div>
                         <div className="flex flex-col justify-between gap-2">
                             <div className="text-orange-500 text-sm">{t('function.text1')}</div>
                             <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail1')}</div>
                         </div>
-                    </div>
-                    <div className='flex gap-2 cursor-pointer'>
+                    </Link>
+                    <Link className='flex gap-2 cursor-pointer' href="/exchange">
                         <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_03.png')] bg-no-repeat"></div>
                         <div className="flex flex-col justify-between gap-2">
                             <div className="text-orange-500 text-sm">{t('function.text2')}</div>
                             <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail2')}</div>
                         </div>
-                    </div>
+                    </Link>
                     <div className='flex gap-2 cursor-pointer'>
                         <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_02.png')] bg-no-repeat"></div>
                         <div className="flex flex-col justify-between gap-2">
@@ -167,6 +170,7 @@ const HeaderMenuItem = function (props: { children: React.ReactNode, title: stri
                 open={open}
                 anchorEl={anchorEl}
                 onClose={handleClose}
+                onClick={handleClose}
                 anchorOrigin={{
                     vertical: 'bottom',
                     horizontal: 'center',

@@ -120,5 +120,57 @@
       },
       "button": "Open App"
     }
+  },
+  "points": {
+    "carousel": {
+      "title1": "Issue Exclusive Points/Coupons for Your Store",
+      "title2": "Just a Few Steps and 1 Coin (¥500)",
+      "text": "Meet the needs of various retail merchants by issuing custom points/coupons for merchants\nBuild your own customer base\nEncourage repeat visits from customers, increase customer loyalty\nHelp you expand your store's turnover\n"
+    },
+    "feature": {
+      "jpy": "Japanese Yen",
+      "conetent": {
+        "title": "Custom Issue for 1 Coin, Maintenance for 0 Yen",
+        "text1": "Set your own parameter names/descriptions, etc., and issue specialized points or coupons",
+        "text2": "Issuing points or coupons only requires 1 coin worth ¥500",
+        "text3": "Additional issuance or destruction can be done as needed, with only a ¥2 fee per transaction, and no maintenance fees"
+      },
+      "box1": {
+        "title": "Issuance",
+        "text1": "Scan the user's QR code, enter the number of points, specify the coupon, and execute the issuance\nFee is only ¥2 per transaction*\nOnce the POS linkage function is online, it can be linked with the POS for execution"
+      },
+      "box2": {
+        "title": "Usage",
+        "text1": "Scan the user's QR code, enter the number of points based on the points/coupons held in the user's account, specify the coupon, and execute the usage\nFee is only ¥2 per transaction*\n(Once the POS linkage function is online, it can be linked with the POS for execution)"
+      },
+      "box3": {
+        "title": "Transparent History",
+        "text1": "The issuance and usage history of points/coupons can be freely checked at any time. The history information is stored on the blockchain to ensure that it cannot be tampered with or disappear"
+      }
+    }
+  },
+  "exchange": {
+    "carousel": {
+      "title1": "Exchange Points/Coupons Freely",
+      "title2": "Free and Flexible, Each Takes What They Need",
+      "text": "Points/coupons in the account can be exchanged with other users, allowing points/coupons to be more freely and flexibly used. At the same time, merchants issuing points/coupons also expand their user base"
+    },
+    "feature": {
+      "title": "Carina Chain Flexible Exchange",
+      "box1": {
+        "title": "Exchange",
+        "text1": "Users can give points/coupons they hold to other users"
+      },
+      "box2": {
+        "title": "Exchange (Flea Market)",
+        "text1": "Users can list the points/coupons they hold in their accounts for exchange in the flea market, and specify the exchange conditions (desired points/coupons).",
+        "text2": "Other users can exchange the points/coupons they want when they see them in the market."
+      },
+      "box3": {
+        "title": "Redemption",
+        "text1": "Two points issuing merchants can apply to the platform to establish a points redemption pool composed of points from both parties. The exchange rate, redemption fee rate, and redemption limit between points are determined by both merchants.",
+        "text2": "Users can exchange between two kinds of points through the dual points redemption pool. When using the redemption pool for exchange, users need to pay a certain amount of points to both points issuing merchants as redemption fees. The platform interaction fee is borne by the redemption user."
+      }
+    }
   }
 }

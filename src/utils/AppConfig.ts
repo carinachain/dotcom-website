@@ -6,6 +6,6 @@ const localePrefix: LocalePrefix = 'as-needed';
 export const AppConfig = {
   name: 'Nextjs Starter',
   locales: ['en', 'jp', 'zh'],
-  defaultLocale: 'en',
+  defaultLocale: 'jp',
   localePrefix,
 };
