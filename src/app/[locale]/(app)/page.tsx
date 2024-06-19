@@ -25,8 +25,8 @@ const Content = function () {
 const Carousel = function () {
   const t = useTranslations('home.carousel');
   return (
-    <div className="flex justify-center h-[630px] bg-[url('/images/index_head_bg.png')] bg-no-repeat w-full">
-      <div className="w-[1200px] flex justify-center md:justify-between">
+    <div className="flex justify-center h-[630px] bg-[url('/images/index_head_bg.png')] bg-no-repeat w-full ml-[140px]">
+      <div className="w-[1200px] flex justify-center md:justify-between ml-[-330px]">
         <div className="flex flex-col justify-center gap-y-8 h-full">
           <div className="flex text-4xl flex-col md:flex-row">
             <div className='text-color-1'>
@@ -51,7 +51,7 @@ const Carousel = function () {
         </div>
         <div className="w-[480px] bg-[url('/images/index_head_image_01.png')] bg-no-repeat mt-[32px] hidden md:flex  flex-col justify-end items-center">
           <Button className='mw-[270px] mb-[30px] ml-[40px] rounded-full' variant="contained">
-            <div className='text-white py-1'>{t('button2')}</div>
+            <div className='text-white py-1 text-lg'>{t('button2')}</div>
           </Button>
         </div>
       </div>
