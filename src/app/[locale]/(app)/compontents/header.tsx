@@ -95,20 +95,20 @@ const HeaderContent = function () {
                             <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail2')}</div>
                         </div>
                     </Link>
-                    <div className='flex gap-2 cursor-pointer'>
+                    <Link className='flex gap-2 cursor-pointer' href="/common-points">
                         <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_02.png')] bg-no-repeat"></div>
                         <div className="flex flex-col justify-between gap-2">
                             <div className="text-orange-500 text-sm">{t('function.text3')}</div>
                             <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail3')}</div>
                         </div>
-                    </div>
-                    <div className='flex gap-2 cursor-pointer'>
+                    </Link>
+                    <Link className='flex gap-2 cursor-pointer' href="/profit">
                         <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_04.png')] bg-no-repeat"></div>
                         <div className="flex flex-col justify-between gap-2">
                             <div className="text-orange-500 text-sm">{t('function.text4')}</div>
                             <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail4')}</div>
                         </div>
-                    </div>
+                    </Link>
                 </div>
             </HeaderMenuItem>
             <HeaderMenuItem title={t('about.title')}>
@@ -160,7 +160,7 @@ const HeaderMenuItem = function (props: { children: React.ReactNode, title: stri
     const id = open ? 'simple-popover' : undefined;
     return (
         <>
-            <div className='cursor-pointer hover:shadow' aria-describedby={id} onClick={handleClick} onMouseOver={handleClick}>
+            <div className='cursor-pointer hover:shadow' aria-describedby={id} onClick={handleClick}>
                 <div className='px-8 py-2'>
                     {props.title}
                 </div>
