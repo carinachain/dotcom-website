@@ -175,29 +175,49 @@
   },
   "common-points": {
     "carousel": {
-      "title1": "Issue Exclusive Points/Coupons for Your Store",
-      "title2": "Just a Few Steps and 1 Coin (¥500)",
-      "text": "Meet the needs of various retail merchants by issuing custom points/coupons for merchants\nBuild your own customer base\nEncourage repeat visits from customers, increase customer loyalty\nHelp you expand your store's turnover\n"
+      "title1": "Jointly Issued Points/Coupons Usable Across Multiple Merchants",
+      "title2": "Like Exclusive Points, Only 1 Coin (500 Yen) Needed",
+      "text1": "Support for joint issuance by multiple merchants, customize common points/coupons within your group.",
+      "text2": "Build a customer base for the merchant group, enabling resource sharing among merchants.",
+      "text3": "Aggregate group resources to maximize overall revenue."
     },
     "feature": {
       "jpy": "Japanese Yen",
-      "conetent": {
-        "title": "Custom Issue for 1 Coin, Maintenance for 0 Yen",
-        "text1": "Set your own parameter names/descriptions, etc., and issue specialized points or coupons",
-        "text2": "Issuing points or coupons only requires 1 coin worth ¥500",
-        "text3": "Additional issuance or destruction can be done as needed, with only a ¥2 fee per transaction, and no maintenance fees"
+      "content": {
+        "title": "Custom Issuance for 1 Coin, 0 Yen Maintenance",
+        "text1": "After setting parameters (name/description) for the representative account, common points or coupons can be issued. Once permissions are granted to merchants within the group, they can issue or redeem points/coupons as needed. Issuing points or coupons costs only one 500 yen coin, and issuing or redeeming incurs a fee of 2 yen per transaction, with no maintenance fees."
       },
       "box1": {
-        "title": "Issuance",
-        "text1": "Scan the user's QR code, enter the number of points, specify the coupon, and execute the issuance\nFee is only ¥2 per transaction*\nOnce the POS linkage function is online, it can be linked with the POS for execution"
+        "title": "Issuance/Usage",
+        "text1": "Similar to exclusive points/coupons, merchants scan the user’s QR code, input the points amount, specify the coupon, and execute the transaction. The fee is only 2 yen per transaction. (POS integration will enable direct execution through POS systems)"
       },
       "box2": {
-        "title": "Usage",
-        "text1": "Scan the user's QR code, enter the number of points based on the points/coupons held in the user's account, specify the coupon, and execute the usage\nFee is only ¥2 per transaction*\n(Once the POS linkage function is online, it can be linked with the POS for execution)"
+        "title": "Transparent Records",
+        "text1": "Issuance and usage records of points/coupons by merchants can be queried at any time for free. The records are stored on a blockchain to ensure they cannot be tampered with or lost."
       },
       "box3": {
-        "title": "Transparent History",
-        "text1": "The issuance and usage history of points/coupons can be freely checked at any time. The history information is stored on the blockchain to ensure that it cannot be tampered with or disappear"
+        "title": "Clear Settlement",
+        "text1": "Transaction fees for issuance and usage are borne by the using merchant, calculated per transaction. Common points can be settled periodically based on the difference between issued and used points."
+      }
+    }
+  },
+  "profit": {
+    "carousel": {
+      "title1": "Earn Rewards by Contributing as a Community Member",
+      "text1": "Users who participate in community activities and contribute to CarinaChain will receive community points (CRN: Carina Points) as rewards. These platform points can be used to pay platform fees, exchange points, stake, and redeem other prizes."
+    },
+    "advantage": {
+      "box1": {
+        "title": "Platform Usage",
+        "text": "The community will periodically hold events to reward active users. Users can earn points through the flea market, create dual points exchange pools, or complete platform-provided tasks. Points can be exchanged for goods/services/coupons on the platform."
+      },
+      "box2": {
+        "title": "Block Verification",
+        "text": "By staking a certain amount of platform tokens, users can set up block verification nodes on the platform. Running these nodes allows users to earn a portion of the interaction fees as revenue. Users can also earn revenue by delegating their stake to node operators."
+      },
+      "box3": {
+        "title": "Points Staking",
+        "text": "Users can stake their platform points for a specified period and receive a portion of the platform's interaction revenue as rewards."
       }
     }
   }

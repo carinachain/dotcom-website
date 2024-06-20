@@ -69,7 +69,7 @@ const Feature = function () {
                         <div className="bg-[url('/images/function_exclusive_white_pic_01.png')] bg-cover h-[160px] m-[20px] rounded-xl">
                         </div>
                         <div className="m-[20px]">
-                            <div className="text-2xl text-orange-500">
+                            <div className="text-2xl text-orange-500 mb-3">
                             {t('box1.title')}
                             </div>
                             <div>
@@ -81,7 +81,7 @@ const Feature = function () {
                         <div className="bg-[url('/images/function_exclusive_white_pic_02.png')] bg-cover bg-blue-100 h-[160px] m-[20px] rounded-md">
                         </div>
                         <div className="m-[20px]">
-                            <div className="text-2xl text-orange-500">
+                            <div className="text-2xl text-orange-500 mb-3">
                             {t('box2.title')}
                             </div>
                             <div>
@@ -93,7 +93,7 @@ const Feature = function () {
                         <div className="bg-[url('/images/function_exclusive_white_pic_03.png')] bg-cover bg-blue-100 h-[160px] m-[20px] rounded-md">
                         </div>
                         <div className="m-[20px]">
-                            <div className="text-2xl text-orange-500">
+                            <div className="text-2xl text-orange-500 mb-3">
                             {t('box3.title')}
                             </div>
                             <div>
