@@ -113,20 +113,20 @@ const HeaderContent = function () {
             </HeaderMenuItem>
             <HeaderMenuItem title={t('about.title')}>
                 <div className='p-5 flex gap-6 flex-wrap max-w-[550px]'>
-                    <div className='flex gap-2 cursor-pointer'>
+                    <Link className='flex gap-2 cursor-pointer' href="/architecture">
                         <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_01.png')] bg-no-repeat"></div>
                         <div className="flex flex-col justify-between gap-2">
                             <div className="text-orange-500 text-sm">{t('about.text1')}</div>
                             <div className="text-color-3 text-xs w-[175px]">{t('about.detail1')}</div>
                         </div>
-                    </div>
-                    <div className='flex gap-2 cursor-pointer'>
+                    </Link>
+                    <Link className='flex gap-2 cursor-pointer' href="/economic">
                         <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_03.png')] bg-no-repeat"></div>
                         <div className="flex flex-col justify-between gap-2">
                             <div className="text-orange-500 text-sm">{t('about.text2')}</div>
                             <div className="text-color-3 text-xs max-w-[175px]">{t('about.detail2')}</div>
                         </div>
-                    </div>
+                    </Link>
                     <div className='flex gap-2 cursor-pointer'>
                         <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_02.png')] bg-no-repeat"></div>
                         <div className="flex flex-col justify-between gap-2">
