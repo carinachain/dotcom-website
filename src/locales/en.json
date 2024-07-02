@@ -220,5 +220,33 @@
         "text": "Users can stake their platform points for a specified period and receive a portion of the platform's interaction revenue as rewards."
       }
     }
+  },
+  "architecture": {
+    "carousel": {
+      "title1": "Carina Points (CRN) circulate within the entire ecosystem as a medium",
+      "title2": "The value of CRN is based on the revenue obtained through products and services on the platform"
+    },
+    "advantage": {
+      "text1": "The foundation distributes CRN through various community activities and profit plans to expand the community",
+      "text2": "Merchants pay the required fees for using products and services on the platform with fiat currency or CRN",
+      "text3": "Users pay with CRN for paid services such as point/coupon transfers, market exchanges, and product redemptions",
+      "text4": "The revenue obtained by the platform is converted into CRN and given back to the community through the foundation's various activities and profit plans"
+    }
+  },
+  "economic": {
+    "carousel": {
+      "title1": "Community governance decisions are made through the foundation",
+      "title2": "Implemented in the form of entrusting to development and operation corporations"
+    },
+    "advantage": {
+      "title1": "Community",
+      "title2": "Foundation",
+      "title3": "Development and Operation Corporation",
+      "title4": "Local Corporation",
+      "text1": "Holders of Carina Points (tokens)",
+      "text2": "DAO organization, implementation and execution of community governance decisions, issuance and management of Carina Points (CRN), entrusted with the development and operation of IPIP, planning and implementation of community activities",
+      "text3": "Development and Operation Corporation: Implementing IP development and operation under the foundation's trust",
+      "text4": "Implementing market operations based on the actual conditions of the local market under the trust of the Development and Operation Corporation"
+    }
   }
 }
