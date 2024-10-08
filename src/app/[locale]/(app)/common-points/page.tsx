@@ -13,7 +13,7 @@ const Carousel = function () {
     const t = useTranslations('common-points.carousel');
     return (
         <div className="flex justify-center">
-            <div className="w-[1200px] bg-orange-300 h-[730px] rounded-none md:rounded-t-[80px] bg-slate-300 relative overflow-hidden">
+            <div className="w-[1200px] bg-orange-300 md:h-[730px] h-[1100px] rounded-none md:rounded-t-[80px] bg-slate-300 relative overflow-hidden">
                 <div className="w-full h-[390px]">
                     <div className="w-full h-[390px] bg-[url('/images/function_common_head_images_01.png')] bg-cover"></div>
                 </div>
@@ -58,10 +58,10 @@ const Feature = function () {
                             </div>
                         </div>
                     </div>
-                    <div className="grow flex flex-col items-center justify-center">
+                    <div className="grow flex flex-col items-center justify-center px-[10px]">
                         <div className="text-3xl mb-[40px]">{t('content.title')}</div>
                         <div className="text-gray-500 flex flex-col items-cneter justify-center gap-1">
-                            <div className="text-center w-[640px] leading-8">{t('content.text1')}</div>
+                            <div className="text-center mw-[640px] leading-8">{t('content.text1')}</div>
                         </div>
                     </div>
                 </div>

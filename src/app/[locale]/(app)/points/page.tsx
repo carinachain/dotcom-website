@@ -43,7 +43,7 @@ const Feature = function () {
     const t = useTranslations('points.feature');
     return (
         <div className="flex justify-center">
-            <div className="w-[1200px] py-[80px]">
+            <div className="w-[1200px] pt-[80px] md:pb-[80px] pb-10">
                 <div className="flex flex-col md:flex-row justify-bewteen">
                     <div className="flex justify-center ml-0 md:ml-[80px] mb-[50px] md:mb-0">
                         <div className="flex justify-center items-center flex-col rounded-full bg-orange-500 w-[250px] h-[250px] border-[20px] text-white">
@@ -56,8 +56,8 @@ const Feature = function () {
                         </div>
                     </div>
                     <div className="grow flex flex-col items-center justify-center">
-                        <div className="text-3xl mb-[40px]">{t('conetent.title')}</div>
-                        <div className="text-gray-500 flex flex-col items-cneter justify-center gap-1">
+                        <div className="text-3xl mb-[40px] text-center">{t('conetent.title')}</div>
+                        <div className="text-gray-500 flex flex-col items-cneter justify-center gap-1 px-[10px]">
                             <div className="text-center">{t('conetent.text1')}</div>
                             <div className="text-center">{t('conetent.text2')}</div>
                             <div className="text-center">{t('conetent.text3')}</div>
