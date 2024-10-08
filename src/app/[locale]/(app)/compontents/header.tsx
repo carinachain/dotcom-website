@@ -76,7 +76,7 @@ const HeaderContent = function () {
     return (
         <div className="flex justify-center items-center flex-1 gap-x-3 text-color-2 text-xs">
             <Link href="/">
-                <HeaderMenuItem title={t('homePage.title')} nopopup={true}>
+                <HeaderMenuItem children="" title={t('homePage.title')} nopopup={true}>
                 </HeaderMenuItem>
             </Link>
             <HeaderMenuItem title={t('function.title')}>
