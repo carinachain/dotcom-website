@@ -10,6 +10,7 @@ import Link from 'next/link';
 const img_twitter_rollover = '/svg/x.svg'
 const img_email_rollover = '/svg/mail.svg'
 const img_discord_rollover = '/svg/discord.svg'
+const img_burger = '/svg/burger.svg'
 
 // Page header
 export default function Header() {
@@ -18,12 +19,14 @@ export default function Header() {
         <div className="flex justify-center px-[10px] md:px-0">
             <div className="w-[1200px] flex justify-between items-center h-full py-[30px]">
                 <div>
-                    <Image
-                        src="/images/logo.png"
-                        width={200}
-                        height={40}
-                        alt="LOGO"
-                    />
+                    <Link href="/">
+                        <Image
+                            src="/images/logo.png"
+                            width={200}
+                            height={40}
+                            alt="LOGO"
+                        />
+                    </Link>
                 </div>
                 <div className="justify-between flex-1 hidden lg:flex">
                     <HeaderContent></HeaderContent>
@@ -60,6 +63,14 @@ export default function Header() {
                         </Button>
                     </div>
                 </div>
+                <div className="lg:hidden flex">
+                    <div className='w-[36px] h-[36px] mr-[10px] flex justify-center items-center rounded'>
+                        <HeaderMenuItem title={''} burger={true}>
+                            <ContentOne />
+                            <ContentTwo />
+                        </HeaderMenuItem>
+                    </div>
+                </div>
             </div>
         </div>
     )
@@ -80,61 +91,10 @@ const HeaderContent = function () {
                 </HeaderMenuItem>
             </Link>
             <HeaderMenuItem title={t('function.title')}>
-                <div className='p-5 flex gap-6 flex-wrap max-w-[550px]'>
-                    <Link className='flex gap-2 cursor-pointer' href="/points">
-                        <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_01.png')] bg-no-repeat"></div>
-                        <div className="flex flex-col justify-between gap-2">
-                            <div className="text-orange-500 text-sm">{t('function.text1')}</div>
-                            <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail1')}</div>
-                        </div>
-                    </Link>
-                    <Link className='flex gap-2 cursor-pointer' href="/exchange">
-                        <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_03.png')] bg-no-repeat"></div>
-                        <div className="flex flex-col justify-between gap-2">
-                            <div className="text-orange-500 text-sm">{t('function.text2')}</div>
-                            <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail2')}</div>
-                        </div>
-                    </Link>
-                    <Link className='flex gap-2 cursor-pointer' href="/common-points">
-                        <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_02.png')] bg-no-repeat"></div>
-                        <div className="flex flex-col justify-between gap-2">
-                            <div className="text-orange-500 text-sm">{t('function.text3')}</div>
-                            <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail3')}</div>
-                        </div>
-                    </Link>
-                    <Link className='flex gap-2 cursor-pointer' href="/profit">
-                        <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_04.png')] bg-no-repeat"></div>
-                        <div className="flex flex-col justify-between gap-2">
-                            <div className="text-orange-500 text-sm">{t('function.text4')}</div>
-                            <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail4')}</div>
-                        </div>
-                    </Link>
-                </div>
+                <ContentOne />
             </HeaderMenuItem>
             <HeaderMenuItem title={t('about.title')}>
-                <div className='p-5 flex gap-6 flex-wrap max-w-[550px]'>
-                    <Link className='flex gap-2 cursor-pointer' href="/architecture">
-                        <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_01.png')] bg-no-repeat"></div>
-                        <div className="flex flex-col justify-between gap-2">
-                            <div className="text-orange-500 text-sm">{t('about.text1')}</div>
-                            <div className="text-color-3 text-xs w-[175px]">{t('about.detail1')}</div>
-                        </div>
-                    </Link>
-                    <Link className='flex gap-2 cursor-pointer' href="/economic">
-                        <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_03.png')] bg-no-repeat"></div>
-                        <div className="flex flex-col justify-between gap-2">
-                            <div className="text-orange-500 text-sm">{t('about.text2')}</div>
-                            <div className="text-color-3 text-xs max-w-[175px]">{t('about.detail2')}</div>
-                        </div>
-                    </Link>
-                    <div className='flex gap-2 cursor-pointer'>
-                        <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_02.png')] bg-no-repeat"></div>
-                        <div className="flex flex-col justify-between gap-2">
-                            <div className="text-orange-500 text-sm">{t('about.text3')}</div>
-                            <div className="text-color-3 text-xs max-w-[200px]">{t('about.detail3')}</div>
-                        </div>
-                    </div>
-                </div>
+                <ContentTwo />
             </HeaderMenuItem>
             <HeaderMenuItem title={t('language.title')}>
                 <div className='p-5 flex felx-col justify-center gap-3 flex-wrap w-[88px] text-xs cursor-pointer'>
@@ -147,7 +107,73 @@ const HeaderContent = function () {
     )
 }
 
-const HeaderMenuItem = function (props: { children: React.ReactNode, title: string, nopopup?: boolean }) {
+const ContentOne = function () {
+    const t = useTranslations('home.header');
+    return (
+        <div className='p-5 flex gap-6 flex-wrap max-w-[550px]'>
+            <Link className='flex gap-2 cursor-pointer' href="/points">
+                <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_01.png')] bg-no-repeat"></div>
+                <div className="flex flex-col justify-between gap-2">
+                    <div className="text-orange-500 text-sm">{t('function.text1')}</div>
+                    <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail1')}</div>
+                </div>
+            </Link>
+            <Link className='flex gap-2 cursor-pointer' href="/exchange">
+                <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_03.png')] bg-no-repeat"></div>
+                <div className="flex flex-col justify-between gap-2">
+                    <div className="text-orange-500 text-sm">{t('function.text2')}</div>
+                    <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail2')}</div>
+                </div>
+            </Link>
+            <Link className='flex gap-2 cursor-pointer' href="/common-points">
+                <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_02.png')] bg-no-repeat"></div>
+                <div className="flex flex-col justify-between gap-2">
+                    <div className="text-orange-500 text-sm">{t('function.text3')}</div>
+                    <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail3')}</div>
+                </div>
+            </Link>
+            <Link className='flex gap-2 cursor-pointer' href="/profit">
+                <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_04.png')] bg-no-repeat"></div>
+                <div className="flex flex-col justify-between gap-2">
+                    <div className="text-orange-500 text-sm">{t('function.text4')}</div>
+                    <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail4')}</div>
+                </div>
+            </Link>
+        </div>
+    )
+}
+
+const ContentTwo = function () {
+    const t = useTranslations('home.header');
+    return (
+        <div className='p-5 flex gap-6 flex-wrap max-w-[550px]'>
+            <Link className='flex gap-2 cursor-pointer' href="/architecture">
+                <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_01.png')] bg-no-repeat"></div>
+                <div className="flex flex-col justify-between gap-2">
+                    <div className="text-orange-500 text-sm">{t('about.text1')}</div>
+                    <div className="text-color-3 text-xs w-[175px]">{t('about.detail1')}</div>
+                </div>
+            </Link>
+            <Link className='flex gap-2 cursor-pointer' href="/economic">
+                <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_03.png')] bg-no-repeat"></div>
+                <div className="flex flex-col justify-between gap-2">
+                    <div className="text-orange-500 text-sm">{t('about.text2')}</div>
+                    <div className="text-color-3 text-xs max-w-[175px]">{t('about.detail2')}</div>
+                </div>
+            </Link>
+            <div className='flex gap-2 cursor-pointer'>
+                <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_02.png')] bg-no-repeat"></div>
+                <div className="flex flex-col justify-between gap-2">
+                    <div className="text-orange-500 text-sm">{t('about.text3')}</div>
+                    <div className="text-color-3 text-xs max-w-[200px]">{t('about.detail3')}</div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+
+const HeaderMenuItem = function (props: { children: React.ReactNode, title: any, nopopup?: boolean, burger?: boolean }) {
     const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null)
     const handleClick = (event: any) => {
         if (props.nopopup) return
@@ -160,11 +186,21 @@ const HeaderMenuItem = function (props: { children: React.ReactNode, title: stri
     const id = open ? 'simple-popover' : undefined;
     return (
         <>
-            <div className='cursor-pointer hover:shadow' aria-describedby={id} onClick={handleClick}>
-                <div className='px-8 py-2'>
-                    {props.title}
+            {props.burger ? <Image
+                aria-describedby={id}
+                onClick={handleClick}
+                className='cursor-pointer'
+                src={img_burger}
+                width={30}
+                height={30}
+                alt="Image"
+                /> :
+                <div className='cursor-pointer hover:shadow' aria-describedby={id} onClick={handleClick}>
+                    <div className='px-8 py-2'>
+                        {props.title}
+                    </div>
                 </div>
-            </div>
+            }
             <Popover
                 id={id}
                 open={open}

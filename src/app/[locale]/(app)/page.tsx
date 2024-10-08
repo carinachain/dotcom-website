@@ -25,10 +25,10 @@ const Content = function () {
 const Carousel = function () {
   const t = useTranslations('home.carousel');
   return (
-    <div className="flex justify-center h-[630px] bg-[url('/images/index_head_bg.png')] bg-no-repeat w-full ml-[140px]">
-      <div className="w-[1200px] flex justify-center md:justify-between ml-[-330px]">
+    <div className="flex justify-center h-[630px] bg-[url('/images/index_head_bg.png')] bg-no-repeat w-full">
+      <div className="mw-[1200px] flex justify-center md:justify-between gap-x-36">
         <div className="flex flex-col justify-center gap-y-8 h-full">
-          <div className="flex text-4xl flex-col md:flex-row">
+          <div className="flex text-4xl flex-col">
             <div className='text-color-1'>
             {t('title1')}
             </div>
@@ -66,7 +66,7 @@ const Feature = function () {
     <div className="flex justify-center">
       <div className="w-[1200px]">
         <div className="flex justify-center text-2xl pt-[50px] pb-[40px]">{t('title')}</div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-color-2 mb-[100px] drop-shadow-2xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 text-color-2 mb-[100px] drop-shadow-2xl">
           <div className="flex flex-col items-center w-full h-[450px] bg-orange-400 rounded-none md:rounded-[50px] drop-shadow">
             <div className="h-[250px] flex justify-center items-center">
               <div className="h-[160px] w-[160px] bg-[url(/images/function_interchange_icon_01.png)] bg-no-repeat bg-contain"></div>
@@ -107,10 +107,10 @@ const Feature = function () {
 const Advantage = function () {
   const t = useTranslations('home.advantage');
   return (
-    <div className="flex justify-center pb-[100px]">
+    <div className="flex justify-center md:pb-[100px] pb-0">
       <div className="w-[1200px]">
         <div className="flex justify-center text-2xl pt-[50px] pb-[40px]">{t('title')}</div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-6 text-color-2 text-xs">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-x-2 md:gap-x-6 text-color-2 text-xs">
           <div className="flex flex-col w-full h-[355px] px-[30px] rounded-none bg-gray-100 md:rounded-[50px] drop-shadow">
             <div className="ml-[-20px] w-[110px] h-[100px] bg-[url('/images/index_advantage_icon_01.png')] bg-no-repeat"></div>
             <div className='text-orange-500 text-xl pt-[30px] pb-[15px]'>{t('box1.text1')}</div>

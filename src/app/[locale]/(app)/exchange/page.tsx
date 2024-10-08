@@ -17,7 +17,7 @@ const Carousel = function () {
         <div className="flex justify-center flex-col gap-3 px-14 translate-y-[-50px]">
           <div className="text-2xl">{t('title1')}</div>
           <div className="text-2xl">{t('title2')}</div>
-          <div className="text-orange-500 w-[400px]">
+          <div className="text-orange-500 mw-[400px]">
           {t('text')}
           </div>
         </div>
@@ -42,7 +42,7 @@ const Feature = function () {
       <div className="flex justify-center">
         <div className="w-[1200px]">
           <div className="flex justify-center text-2xl pt-[50px] pb-[40px]">{t('title')}</div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-color-2 mb-[100px] drop-shadow-2xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 text-color-2 md:mb-[100px] mb-0 drop-shadow-2xl">
             <div className="flex flex-col items-center w-full h-[620px] bg-orange-400 rounded-none md:rounded-[50px] drop-shadow">
               <div className="h-[250px] flex justify-center items-center">
                 <div className="h-[160px] w-[160px] bg-[url(/images/function_interchange_icon_01.png)] bg-no-repeat bg-contain"></div>
