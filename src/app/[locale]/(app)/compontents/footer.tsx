@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter } from '@/libs/i18nNavigation';
 import Image from 'next/image';
+import Link from 'next/link';
 
 // Images path
 const img_twitter = '/svg/x_dark.svg'
@@ -74,31 +75,37 @@ const FooterBtnContent = function () {
         <div className="flex justify-between h-[80px]">
             <div className="flex gap-x-3 absolute bottom-[30px] left-[50px]">
                 <div className='bg-gray-400 w-[36px] h-[36px] flex justify-center items-center rounded'>
-                    <Image
-                        className='cursor-pointer'
-                        src={img_discord}
-                        width={28}
-                        height={28}
-                        alt="Image"
-                    />
+                    <Link href="https://discord.gg/b3tqEsYZ" target="_blank" rel="noreferrer">
+                        <Image
+                            className='cursor-pointer'
+                            src={img_discord}
+                            width={28}
+                            height={28}
+                            alt="Image"
+                        />
+                    </Link>
                 </div>
                 <div className='bg-gray-400 w-[36px] h-[36px] flex justify-center items-center rounded'>
-                    <Image
-                        className='cursor-pointer'
-                        src={img_twitter}
-                        width={30}
-                        height={30}
-                        alt="Image"
-                    />
+                    <Link href="https://twitter.com/carinachain" target="_blank" rel="noreferrer">
+                        <Image
+                            className='cursor-pointer'
+                            src={img_twitter}
+                            width={30}
+                            height={30}
+                            alt="Image"
+                        />
+                    </Link>
                 </div>
                 <div className='bg-gray-400 w-[36px] h-[36px] flex justify-center items-center rounded'>
-                    <Image
-                        className='cursor-pointer'
-                        src={img_email}
-                        width={32}
-                        height={32}
-                        alt="Image"
-                    />
+                    <Link href="mailto:contact@carinachain.com">
+                        <Image
+                            className='cursor-pointer'
+                            src={img_email}
+                            width={32}
+                            height={32}
+                            alt="Image"
+                        />
+                    </Link>
                 </div>
             </div>
             <div className="text-white absolute bottom-[30px] right-[50px] text-xs">Copyright © 2024 Carina Chain Ltd</div>
