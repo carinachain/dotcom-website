@@ -32,31 +32,37 @@ export default function Header() {
                     <HeaderContent></HeaderContent>
                     <div className="flex gap-x-3">
                         <div className='bg-orange-300 w-[36px] h-[36px] flex justify-center items-center rounded'>
-                            <Image
-                                className='cursor-pointer'
-                                src={img_discord_rollover}
-                                width={28}
-                                height={28}
-                                alt="Image"
-                            />
+                            <Link href="https://discord.gg/b3tqEsYZ" target="_blank" rel="noreferrer">
+                                <Image
+                                    className='cursor-pointer'
+                                    src={img_discord_rollover}
+                                    width={28}
+                                    height={28}
+                                    alt="Image"
+                                />
+                            </Link>
                         </div>
                         <div className='bg-orange-300 w-[36px] h-[36px] flex justify-center items-center rounded'>
-                            <Image
-                                className='cursor-pointer'
-                                src={img_twitter_rollover}
-                                width={30}
-                                height={30}
-                                alt="Image"
-                            />
+                            <Link href="https://twitter.com/carinachain" target="_blank" rel="noreferrer">
+                                <Image
+                                    className='cursor-pointer'
+                                    src={img_twitter_rollover}
+                                    width={30}
+                                    height={30}
+                                    alt="Image"
+                                />
+                            </Link>
                         </div>
                         <div className='bg-orange-300 w-[36px] h-[36px] flex justify-center items-center rounded'>
-                            <Image
-                                className='cursor-pointer'
-                                src={img_email_rollover}
-                                width={32}
-                                height={32}
-                                alt="Image"
-                            />
+                            <Link href="mailto:contact@carinachain.com">
+                                <Image
+                                    className='cursor-pointer'
+                                    src={img_email_rollover}
+                                    width={32}
+                                    height={32}
+                                    alt="Image"
+                                />  
+                            </Link>
                         </div>
                         <Button className='ml-3' variant="contained">
                             <div className='text-white text-xs'>{t('openApp')}</div>
