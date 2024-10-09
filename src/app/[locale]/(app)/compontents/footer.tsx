@@ -1,114 +1,150 @@
-import { useTranslations } from 'next-intl';
-import { usePathname, useRouter } from '@/libs/i18nNavigation';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+
+import { usePathname, useRouter } from '@/libs/i18nNavigation';
 
 // Images path
-const img_twitter = '/svg/x_dark.svg'
-const img_email = '/svg/mail_dark.svg'
-const img_discord = '/svg/discord_dark.svg'
+const img_twitter = '/svg/x_dark.svg';
+const img_email = '/svg/mail_dark.svg';
+const img_discord = '/svg/discord_dark.svg';
 
 // Page Footer
 export default function Footer() {
-    const t = useTranslations('home.footer');
-    const router = useRouter();
-    const pathname = usePathname();
-    const handleChange = (val: any) => {
-        router.push(pathname, { locale: val });
-        router.refresh();
-    };
-    return (
-        <div className="flex items-center flex-col bg-gray-300">
-            <div className="flex justify-center text-2xl pt-[50px] pb-[40px]">{t('title')}</div>
-            <div className="w-full xl:w-[1200px] min-h-[400px] bg-slate-800 rounded-none xl:rounded-t-[50px] relative overflow-hidden">
-                <div className='absolute top-[-180px] right-[-60px] w-[300px] h-[300px] border-[3px] border-gray-600 rounded-full'></div>
-                <div className='absolute top-[-220px] right-[-100px] w-[420px] h-[420px] border-[3px] border-gray-600 rounded-full'></div>
-                <div className="p-[50px]">
-                    <div className='text-orange-500 text-xl pb-[36px]'>{t('intro')}</div>
-                    <div className="max-w-[850px] grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-y-10 text-white text-xs">
-                        <FooterMapCol>
-                            <div className='text-gray-500 cursor-pointer text-sm'>{t('box1.title')}</div>
-                            <div className='cursor-pointer'>{t('box1.text1')}</div>
-                            <div className='cursor-pointer'>{t('box1.text2')}</div>
-                            <div className='cursor-pointer'>{t('box1.text3')}</div>
-                        </FooterMapCol>
-                        <FooterMapCol>
-                            <div className='text-gray-500 cursor-pointer text-sm'>{t('box2.title')}</div>
-                            <div className='cursor-pointer'>{t('box2.text1')}</div>
-                            <div className='cursor-pointer'>{t('box2.text2')}</div>
-                            <div className='cursor-pointer'>{t('box2.text3')}</div>
-                            <div className='cursor-pointer'>{t('box2.text4')}</div>
-                        </FooterMapCol>
-                        <FooterMapCol>
-                            <div className='text-gray-500 cursor-pointer text-sm'>{t('box3.title')}</div>
-                            <div className='cursor-pointer'>{t('box3.text1')}</div>
-                            <div className='cursor-pointer'>{t('box3.text2')}</div>
-                            <div className='cursor-pointer'>{t('box3.text3')}</div>
-                        </FooterMapCol>
-                        <FooterMapCol>
-                            <div className='text-gray-500 cursor-pointer text-sm'>{t('box4.title')}</div>
-                            <div onClick={() => handleChange('zh')} className='cursor-pointer'>{t('box4.text1')}</div>
-                            <div onClick={() => handleChange('en')} className='cursor-pointer'>{t('box4.text2')}</div>
-                            <div onClick={() => handleChange('jp')} className='cursor-pointer'>{t('box4.text3')}</div>
-                        </FooterMapCol>
-                        <FooterMapCol>
-                            <div className='text-gray-500 cursor-pointer text-sm'>{t('button')}</div>
-                        </FooterMapCol>
-                    </div>
-                    <FooterBtnContent></FooterBtnContent>
-                </div>
-            </div>
+  const t = useTranslations('home.footer');
+  const router = useRouter();
+  const pathname = usePathname();
+  const handleChange = (val: any) => {
+    router.push(pathname, { locale: val });
+    router.refresh();
+  };
+  return (
+    <div className="flex flex-col items-center bg-gray-300">
+      <div className="flex justify-center pb-[40px] pt-[50px] text-2xl">
+        {t('title')}
+      </div>
+      <div className="relative min-h-[400px] w-full overflow-hidden rounded-none bg-slate-800 xl:w-[1200px] xl:rounded-t-[50px]">
+        <div className="absolute right-[-60px] top-[-180px] size-[300px] rounded-full border-[3px] border-gray-600" />
+        <div className="absolute right-[-100px] top-[-220px] size-[420px] rounded-full border-[3px] border-gray-600" />
+        <div className="p-[50px]">
+          <div className="pb-[36px] text-xl text-orange-500">{t('intro')}</div>
+          <div className="grid max-w-[850px] grid-cols-2 gap-y-10 text-xs text-white md:grid-cols-3 lg:grid-cols-5">
+            <FooterMapCol>
+              <div className="cursor-pointer text-sm text-gray-500">
+                {t('box1.title')}
+              </div>
+              <div className="cursor-pointer">{t('box1.text1')}</div>
+              <div className="cursor-pointer">{t('box1.text2')}</div>
+              <div className="cursor-pointer">{t('box1.text3')}</div>
+            </FooterMapCol>
+            <FooterMapCol>
+              <div className="cursor-pointer text-sm text-gray-500">
+                {t('box2.title')}
+              </div>
+              <div className="cursor-pointer">{t('box2.text1')}</div>
+              <div className="cursor-pointer">{t('box2.text2')}</div>
+              <div className="cursor-pointer">{t('box2.text3')}</div>
+              <div className="cursor-pointer">{t('box2.text4')}</div>
+            </FooterMapCol>
+            <FooterMapCol>
+              <div className="cursor-pointer text-sm text-gray-500">
+                {t('box3.title')}
+              </div>
+              <div className="cursor-pointer">{t('box3.text1')}</div>
+              <div className="cursor-pointer">{t('box3.text2')}</div>
+              <div className="cursor-pointer">{t('box3.text3')}</div>
+            </FooterMapCol>
+            <FooterMapCol>
+              <div className="cursor-pointer text-sm text-gray-500">
+                {t('box4.title')}
+              </div>
+              <div
+                onClick={() => handleChange('zh')}
+                className="cursor-pointer"
+              >
+                {t('box4.text1')}
+              </div>
+              <div
+                onClick={() => handleChange('en')}
+                className="cursor-pointer"
+              >
+                {t('box4.text2')}
+              </div>
+              <div
+                onClick={() => handleChange('jp')}
+                className="cursor-pointer"
+              >
+                {t('box4.text3')}
+              </div>
+            </FooterMapCol>
+            <FooterMapCol>
+              <div className="cursor-pointer text-sm text-gray-500">
+                {t('button')}
+              </div>
+            </FooterMapCol>
+          </div>
+          <FooterBtnContent />
         </div>
-    )
+      </div>
+    </div>
+  );
 }
 
 const FooterMapCol = function (props: { children: React.ReactNode }) {
-    return (
-        <div className="flex flex-col gap-y-3 min-w-[200px]">
-            {props.children}
-        </div>
-    )
-}
+  return (
+    <div className="flex min-w-[200px] flex-col gap-y-3">{props.children}</div>
+  );
+};
 
 const FooterBtnContent = function () {
-    return (
-        <div className="flex justify-between h-[80px]">
-            <div className="flex gap-x-3 absolute bottom-[30px] left-[50px]">
-                <div className='bg-gray-400 w-[36px] h-[36px] flex justify-center items-center rounded'>
-                    <Link href="https://discord.gg/b3tqEsYZ" target="_blank" rel="noreferrer">
-                        <Image
-                            className='cursor-pointer'
-                            src={img_discord}
-                            width={28}
-                            height={28}
-                            alt="Image"
-                        />
-                    </Link>
-                </div>
-                <div className='bg-gray-400 w-[36px] h-[36px] flex justify-center items-center rounded'>
-                    <Link href="https://twitter.com/carinachain" target="_blank" rel="noreferrer">
-                        <Image
-                            className='cursor-pointer'
-                            src={img_twitter}
-                            width={30}
-                            height={30}
-                            alt="Image"
-                        />
-                    </Link>
-                </div>
-                <div className='bg-gray-400 w-[36px] h-[36px] flex justify-center items-center rounded'>
-                    <Link href="mailto:contact@carinachain.com">
-                        <Image
-                            className='cursor-pointer'
-                            src={img_email}
-                            width={32}
-                            height={32}
-                            alt="Image"
-                        />
-                    </Link>
-                </div>
-            </div>
-            <div className="text-white absolute bottom-[30px] right-[50px] text-xs">Copyright © 2024 Carina Chain Ltd</div>
+  return (
+    <div className="flex h-[80px] justify-between">
+      <div className="absolute bottom-[30px] left-[50px] flex gap-x-3">
+        <div className="flex size-[36px] items-center justify-center rounded bg-gray-400">
+          <Link
+            href="https://discord.gg/b3tqEsYZ"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Image
+              className="cursor-pointer"
+              src={img_discord}
+              width={28}
+              height={28}
+              alt="Image"
+            />
+          </Link>
         </div>
-    )
-}
+        <div className="flex size-[36px] items-center justify-center rounded bg-gray-400">
+          <Link
+            href="https://twitter.com/carinachain"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Image
+              className="cursor-pointer"
+              src={img_twitter}
+              width={30}
+              height={30}
+              alt="Image"
+            />
+          </Link>
+        </div>
+        <div className="flex size-[36px] items-center justify-center rounded bg-gray-400">
+          <Link href="mailto:contact@carinachain.com">
+            <Image
+              className="cursor-pointer"
+              src={img_email}
+              width={32}
+              height={32}
+              alt="Image"
+            />
+          </Link>
+        </div>
+      </div>
+      <div className="absolute bottom-[30px] right-[50px] text-xs text-white">
+        Copyright © 2024 Carina Chain Ltd
+      </div>
+    </div>
+  );
+};
