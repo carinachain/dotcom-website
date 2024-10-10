@@ -5,18 +5,22 @@ on:
     branches:
       - main
 
+env:
+  DEPLOY_DEST_PATH: /srv/production-deploy/${{ github.repository }}
+  SERVICE_NAME: carina-dotcom-website
+  
 jobs:
-  build-and-deploy:
-    runs-on: self-hosted
+  build:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-
+        uses: actions/checkout@v4
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm install
@@ -24,8 +28,35 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy to server
+      - name: Upload built artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: built-artifacts
+          path: |
+            .next
+            public
+            node_modules
+            package.json
+            package-lock.json
+
+  deploy:
+    runs-on: self-hosted
+    needs: build
+
+    steps:
+      - name: Download built artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: built-artifacts
+          path: ${{ runner.temp }}/built-artifacts
+
+      - name: Clean destination directory
+        run: rm -rf ${{ env.DEPLOY_DEST_PATH }}/*
+
+      - name: Move artifacts to destination
         run: |
-          rm -rf /srv/production-deploy/carinachain/dotcom-website/*
-          mv ./* /srv/production-deploy/carinachain/dotcom-website
-          sudo systemctl restart carinachain-dotcom-website.service
+          mkdir -p ${{ env.DEPLOY_DEST_PATH }}
+          mv ${{ runner.temp }}/built-artifacts/* ${{ env.DEPLOY_DEST_PATH }}/
+
+      - name: Restart service
+        run: sudo systemctl restart ${{ env.SERVICE_NAME }}
