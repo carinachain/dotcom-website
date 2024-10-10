@@ -28,22 +28,42 @@ export default function Footer() {
                     <div className="max-w-[850px] grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-y-10 text-white text-xs">
                         <FooterMapCol>
                             <div className='text-gray-500 cursor-pointer text-sm'>{t('box1.title')}</div>
-                            <div className='cursor-pointer'>{t('box1.text1')}</div>
-                            <div className='cursor-pointer'>{t('box1.text2')}</div>
-                            <div className='cursor-pointer'>{t('box1.text3')}</div>
+                            <Link href="/#carousel" passHref>
+                                <div className='cursor-pointer'>{t('box1.text1')}</div>
+                            </Link>
+                            <Link href="/#feature" passHref>
+                                <div className='cursor-pointer'>{t('box1.text2')}</div>
+                            </Link>
+                            <Link href="/#advantage" passHref>
+                                <div className='cursor-pointer'>{t('box1.text3')}</div>
+                            </Link>
                         </FooterMapCol>
                         <FooterMapCol>
                             <div className='text-gray-500 cursor-pointer text-sm'>{t('box2.title')}</div>
-                            <div className='cursor-pointer'>{t('box2.text1')}</div>
-                            <div className='cursor-pointer'>{t('box2.text2')}</div>
-                            <div className='cursor-pointer'>{t('box2.text3')}</div>
-                            <div className='cursor-pointer'>{t('box2.text4')}</div>
+                            <Link href="/points" passHref>
+                                <div className='cursor-pointer'>{t('box2.text1')}</div>
+                            </Link>
+                            <Link href="/common-points" passHref>
+                                <div className='cursor-pointer'>{t('box2.text2')}</div>
+                            </Link>
+                            <Link href="/exchange" passHref>
+                                <div className='cursor-pointer'>{t('box2.text3')}</div>
+                            </Link>
+                            <Link href="/profit" passHref>
+                                <div className='cursor-pointer'>{t('box2.text4')}</div>
+                            </Link>
                         </FooterMapCol>
                         <FooterMapCol>
                             <div className='text-gray-500 cursor-pointer text-sm'>{t('box3.title')}</div>
-                            <div className='cursor-pointer'>{t('box3.text1')}</div>
-                            <div className='cursor-pointer'>{t('box3.text2')}</div>
-                            <div className='cursor-pointer'>{t('box3.text3')}</div>
+                            <Link href="/architecture" passHref>
+                                <div className='cursor-pointer'>{t('box3.text1')}</div>
+                            </Link>
+                            <Link href="/economic" passHref>
+                                <div className='cursor-pointer'>{t('box3.text2')}</div>
+                            </Link>
+                            <Link href="/whitepaper" passHref>
+                                <div className='cursor-pointer'>{t('box3.text3')}</div>
+                            </Link>
                         </FooterMapCol>
                         <FooterMapCol>
                             <div className='text-gray-500 cursor-pointer text-sm'>{t('box4.title')}</div>

@@ -25,7 +25,7 @@ const Content = function () {
 const Carousel = function () {
   const t = useTranslations('home.carousel');
   return (
-    <div className="flex justify-center h-[630px] bg-[url('/images/index_head_bg.png')] bg-no-repeat w-full">
+    <div id="carousel" className="flex justify-center h-[630px] bg-[url('/images/index_head_bg.png')] bg-no-repeat w-full">
       <div className="mw-[1200px] flex justify-center md:justify-between gap-x-36">
         <div className="flex flex-col justify-center gap-y-8 h-full">
           <div className="flex text-4xl flex-col">
@@ -63,7 +63,7 @@ const Carousel = function () {
 const Feature = function () {
   const t = useTranslations('home.feature');
   return (
-    <div className="flex justify-center">
+    <div id="feature" className="flex justify-center">
       <div className="w-[1200px]">
         <div className="flex justify-center text-2xl pt-[50px] pb-[40px]">{t('title')}</div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 text-color-2 mb-[100px] drop-shadow-2xl">
@@ -107,7 +107,7 @@ const Feature = function () {
 const Advantage = function () {
   const t = useTranslations('home.advantage');
   return (
-    <div className="flex justify-center md:pb-[100px] pb-0">
+    <div id="advantage" className="flex justify-center md:pb-[100px] pb-0">
       <div className="w-[1200px]">
         <div className="flex justify-center text-2xl pt-[50px] pb-[40px]">{t('title')}</div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-x-2 md:gap-x-6 text-color-2 text-xs">
