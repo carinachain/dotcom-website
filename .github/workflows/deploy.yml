@@ -39,18 +39,19 @@ jobs:
         run: npm install
 
       - name: Build project
-        run: npm run build
+        run: |
+          npm run build
+
+      - name: Compress built artifacts
+        run: |
+          tar -czf ${{ runner.temp }}/built-artifacts.tar.gz .
 
       - name: Upload built artifacts
         uses: actions/upload-artifact@v4
         with:
           name: built-artifacts
-          path: |
-            .next
-            public
-            node_modules
-            package.json
-            package-lock.json
+          include-hidden-files: true
+          path: ${{ runner.temp }}/built-artifacts.tar.gz
 
   deploy:
     runs-on: self-hosted
@@ -66,9 +67,10 @@ jobs:
       - name: Clean destination directory
         run: rm -rf ${{ env.DEPLOY_DEST_PATH }}
 
-      - name: Move artifacts to destination
+      - name: Extract artifacts to destination
         run: |
-          mv ${{ runner.temp }}/built-artifacts ${{ env.DEPLOY_DEST_PATH }}
+          mkdir -p ${{ env.DEPLOY_DEST_PATH }}
+          tar -xzf ${{ runner.temp }}/built-artifacts/built-artifacts.tar.gz -C ${{ env.DEPLOY_DEST_PATH }}
 
       - name: Restart service
         run: |
