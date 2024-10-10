@@ -22,8 +22,8 @@
         "detail1": "Manage operational architecture",
         "text2": "Economic Model",
         "detail2": "Issue exclusive points/coupons for your own shop",
-        "text3": "Project Whitepaper",
-        "detail3": "Download the project whitepaper for Carina Chain<br/>Simplified Chinese | English | Japanese/Coupons"
+        "text3": "Whitepaper",
+        "detail3": "Download the whitepaper of Carina Chain\nSimplified Chinese | English | Japanese"
       },
       "language": {
         "title": "Language",
@@ -110,7 +110,7 @@
         "title": "About Carina",
         "text1": "Architecture",
         "text2": "Economic Model",
-        "text3": "Project Whitepaper"
+        "text3": "Whitepaper"
       },
       "box4": {
         "title": "Language",
