@@ -167,13 +167,13 @@ const ContentTwo = function () {
                     <div className="text-color-3 text-xs max-w-[175px]">{t('about.detail2')}</div>
                 </div>
             </Link>
-            <div className='flex gap-2 cursor-pointer'>
+            <Link className='flex gap-2 cursor-pointer' href="/whitepaper">
                 <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_02.png')] bg-no-repeat"></div>
                 <div className="flex flex-col justify-between gap-2">
                     <div className="text-orange-500 text-sm">{t('about.text3')}</div>
                     <div className="text-color-3 text-xs max-w-[200px]">{t('about.detail3')}</div>
                 </div>
-            </div>
+            </Link>
         </div>
     )
 }
