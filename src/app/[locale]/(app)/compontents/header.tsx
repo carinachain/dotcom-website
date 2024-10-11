@@ -31,7 +31,7 @@ export default function Header() {
                 <div className="justify-between flex-1 hidden lg:flex">
                     <HeaderContent></HeaderContent>
                     <div className="flex gap-x-3">
-                        <div className='bg-orange-300 w-[36px] h-[36px] flex justify-center items-center rounded'>
+                        <div className='bg-orange-300 w-[36px] h-[36px] flex justify-center items-center rounded hover:bg-orange-400'>
                             <Link href="https://discord.gg/b3tqEsYZ" target="_blank" rel="noreferrer">
                                 <Image
                                     className='cursor-pointer'
@@ -42,7 +42,7 @@ export default function Header() {
                                 />
                             </Link>
                         </div>
-                        <div className='bg-orange-300 w-[36px] h-[36px] flex justify-center items-center rounded'>
+                        <div className='bg-orange-300 w-[36px] h-[36px] flex justify-center items-center rounded hover:bg-orange-400'>
                             <Link href="https://twitter.com/carinachain" target="_blank" rel="noreferrer">
                                 <Image
                                     className='cursor-pointer'
@@ -53,7 +53,7 @@ export default function Header() {
                                 />
                             </Link>
                         </div>
-                        <div className='bg-orange-300 w-[36px] h-[36px] flex justify-center items-center rounded'>
+                        <div className='bg-orange-300 w-[36px] h-[36px] flex justify-center items-center rounded hover:bg-orange-400'>
                             <Link href="mailto:contact@carinachain.com">
                                 <Image
                                     className='cursor-pointer'
@@ -103,89 +103,90 @@ const HeaderContent = function () {
                 <ContentTwo />
             </HeaderMenuItem>
             <HeaderMenuItem title={t('language.title')}>
-                <div className='p-5 flex felx-col justify-center gap-3 flex-wrap w-[88px] text-xs cursor-pointer'>
-                    <div onClick={() => handleChange('zh')}>简体中文</div>
-                    <div onClick={() => handleChange('en')}>English</div>
-                    <div onClick={() => handleChange('jp')}>日本語</div>
+                <div className='pt-3 pb-3 pl-0 pr-0 flex flex-col justify-center gap-0 flex-wrap w-[88px] text-xs'>
+                    <div className='pl-5 pt-2 pb-2 cursor-pointer hover:shadow hover:bg-gray-100' onClick={() => handleChange('zh')}>简体中文</div>
+                    <div className='pl-5 pt-2 pb-2 cursor-pointer hover:shadow hover:bg-gray-100' onClick={() => handleChange('en')}>English</div>
+                    <div className='pl-5 pt-2 pb-2 cursor-pointer hover:shadow hover:bg-gray-100' onClick={() => handleChange('jp')}>日本語</div>
                 </div>
             </HeaderMenuItem>
         </div>
     )
 }
 
-const ContentOne = function () {
+const ContentOne = function ({ onMouseLeave }: { onMouseLeave: () => void }) {
     const t = useTranslations('home.header');
     return (
-        <div className='p-5 flex gap-6 flex-wrap max-w-[550px]'>
-            <Link className='flex gap-2 cursor-pointer' href="/points">
+        <div className='pt-3 pb-3 pl-3 pr-0 flex gap-0 flex-wrap max-w-[550px]'  onMouseLeave={onMouseLeave}>
+            <Link className='pt-3 pb-3 pl-5 flex gap-2 cursor-pointer hover:shadow hover:bg-gray-100' href="/points">
                 <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_01.png')] bg-no-repeat"></div>
                 <div className="flex flex-col justify-between gap-2">
                     <div className="text-orange-500 text-sm">{t('function.text1')}</div>
-                    <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail1')}</div>
+                    <div className="text-gray-400 text-xs max-w-[175px]">{t('function.detail1')}</div>
                 </div>
             </Link>
-            <Link className='flex gap-2 cursor-pointer' href="/exchange">
+            <Link className='pt-3 pb-3 pl-5 flex gap-2 cursor-pointer hover:shadow hover:bg-gray-100' href="/exchange">
                 <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_03.png')] bg-no-repeat"></div>
                 <div className="flex flex-col justify-between gap-2">
                     <div className="text-orange-500 text-sm">{t('function.text2')}</div>
-                    <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail2')}</div>
+                    <div className="text-gray-400 text-xs max-w-[175px]">{t('function.detail2')}</div>
                 </div>
             </Link>
-            <Link className='flex gap-2 cursor-pointer' href="/common-points">
+            <Link className='pt-3 pb-3 pl-5 flex gap-2 cursor-pointer hover:shadow hover:bg-gray-100' href="/common-points">
                 <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_02.png')] bg-no-repeat"></div>
                 <div className="flex flex-col justify-between gap-2">
                     <div className="text-orange-500 text-sm">{t('function.text3')}</div>
-                    <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail3')}</div>
+                    <div className="text-gray-400 text-xs max-w-[175px]">{t('function.detail3')}</div>
                 </div>
             </Link>
-            <Link className='flex gap-2 cursor-pointer' href="/profit">
+            <Link className='pt-3 pb-3 pl-5 flex gap-2 cursor-pointer hover:shadow hover:bg-gray-100' href="/profit">
                 <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_04.png')] bg-no-repeat"></div>
                 <div className="flex flex-col justify-between gap-2">
                     <div className="text-orange-500 text-sm">{t('function.text4')}</div>
-                    <div className="text-color-3 text-xs max-w-[175px]">{t('function.detail4')}</div>
+                    <div className="text-gray-400 text-xs max-w-[175px]">{t('function.detail4')}</div>
                 </div>
             </Link>
         </div>
     )
 }
 
-const ContentTwo = function () {
+const ContentTwo = function ({ onMouseLeave }: { onMouseLeave: () => void }) {
     const t = useTranslations('home.header');
     return (
-        <div className='p-5 flex gap-6 flex-wrap max-w-[550px]'>
-            <Link className='flex gap-2 cursor-pointer' href="/architecture">
+        <div className='pt-3 pb-3 pl-3 pr-0 flex gap-0 flex-wrap max-w-[550px]' onMouseLeave={onMouseLeave}>
+            <Link className='pt-3 pb-3 pl-5 flex gap-2 cursor-pointer hover:shadow hover:bg-gray-100' href="/architecture">
                 <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_01.png')] bg-no-repeat"></div>
                 <div className="flex flex-col justify-between gap-2">
                     <div className="text-orange-500 text-sm">{t('about.text1')}</div>
-                    <div className="text-color-3 text-xs w-[175px]">{t('about.detail1')}</div>
+                    <div className="text-gray-400 text-xs w-[175px]">{t('about.detail1')}</div>
                 </div>
             </Link>
-            <Link className='flex gap-2 cursor-pointer' href="/economic">
+            <Link className='pt-3 pb-3 pl-5 flex gap-2 cursor-pointer hover:shadow hover:bg-gray-100' href="/economic">
                 <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_03.png')] bg-no-repeat"></div>
                 <div className="flex flex-col justify-between gap-2">
                     <div className="text-orange-500 text-sm">{t('about.text2')}</div>
-                    <div className="text-color-3 text-xs max-w-[175px]">{t('about.detail2')}</div>
+                    <div className="text-gray-400 text-xs max-w-[175px]">{t('about.detail2')}</div>
                 </div>
             </Link>
-            <Link className='flex gap-2 cursor-pointer' href="/whitepaper">
+            <Link className='pt-3 pb-3 pl-5 flex gap-2 cursor-pointer hover:shadow hover:bg-gray-100' href="/whitepaper">
                 <div className="w-[50px] h-[50px] bg-[url('/images/index_top_menu_icon_02.png')] bg-no-repeat"></div>
                 <div className="flex flex-col justify-between gap-2">
                     <div className="text-orange-500 text-sm">{t('about.text3')}</div>
-                    <div className="text-color-3 text-xs max-w-[200px]">{t('about.detail3')}</div>
+                    <div className="text-gray-400 text-xs max-w-[200px]">{t('about.detail3')}</div>
                 </div>
             </Link>
         </div>
     )
 }
 
-
 const HeaderMenuItem = function (props: { children: React.ReactNode, title: any, nopopup?: boolean, burger?: boolean }) {
     const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null)
-    const handleClick = (event: any) => {
-        if (props.nopopup) return
+
+    const handleOpen = (event: any) => {
+        if (props.nopopup) return        
         setAnchorEl(event.currentTarget);
     }
     const handleClose = () => {
+        console.log('close');
         setAnchorEl(null);
     };
     const open = Boolean(anchorEl);
@@ -194,14 +195,14 @@ const HeaderMenuItem = function (props: { children: React.ReactNode, title: any,
         <>
             {props.burger ? <Image
                 aria-describedby={id}
-                onClick={handleClick}
-                className='cursor-pointer'
+                onMouseEnter={handleOpen}
+                className={`cursor-pointer hover:shadow  ${open ? 'shadow' : ''}`}
                 src={img_burger}
                 width={30}
                 height={30}
                 alt="Image"
                 /> :
-                <div className='cursor-pointer hover:shadow' aria-describedby={id} onClick={handleClick}>
+                <div className={`cursor-pointer hover:shadow hover:bg-gray-100 ${open ? 'bg-gray-100' : ''}`} aria-describedby={id} onMouseEnter={handleOpen}>
                     <div className='px-8 py-2'>
                         {props.title}
                     </div>
@@ -209,6 +210,7 @@ const HeaderMenuItem = function (props: { children: React.ReactNode, title: any,
             }
             <Popover
                 id={id}
+                className='mt-0'
                 open={open}
                 anchorEl={anchorEl}
                 onClose={handleClose}
@@ -221,7 +223,9 @@ const HeaderMenuItem = function (props: { children: React.ReactNode, title: any,
                     vertical: 'top',
                     horizontal: 'center',
                 }}>
-                {props.children}
+                {React.cloneElement(props.children as React.ReactElement<any>, {
+                    onMouseLeave: handleClose
+                })}
             </Popover>
         </>
     )
