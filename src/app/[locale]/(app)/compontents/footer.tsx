@@ -94,7 +94,7 @@ const FooterBtnContent = function () {
     return (
         <div className="flex justify-between h-[80px]">
             <div className="flex gap-x-3 absolute bottom-[30px] left-[50px]">
-                <div className='bg-gray-400 w-[36px] h-[36px] flex justify-center items-center rounded'>
+                <div className='bg-gray-400 w-[36px] h-[36px] flex justify-center items-center rounded hover:bg-gray-200'>
                     <Link href="https://discord.gg/b3tqEsYZ" target="_blank" rel="noreferrer">
                         <Image
                             className='cursor-pointer'
@@ -105,7 +105,7 @@ const FooterBtnContent = function () {
                         />
                     </Link>
                 </div>
-                <div className='bg-gray-400 w-[36px] h-[36px] flex justify-center items-center rounded'>
+                <div className='bg-gray-400 w-[36px] h-[36px] flex justify-center items-center rounded hover:bg-gray-200'>
                     <Link href="https://twitter.com/carinachain" target="_blank" rel="noreferrer">
                         <Image
                             className='cursor-pointer'
@@ -116,7 +116,7 @@ const FooterBtnContent = function () {
                         />
                     </Link>
                 </div>
-                <div className='bg-gray-400 w-[36px] h-[36px] flex justify-center items-center rounded'>
+                <div className='bg-gray-400 w-[36px] h-[36px] flex justify-center items-center rounded hover:bg-gray-200'>
                     <Link href="mailto:contact@carinachain.com">
                         <Image
                             className='cursor-pointer'
