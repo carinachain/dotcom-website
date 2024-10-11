@@ -113,7 +113,7 @@ const HeaderContent = function () {
     )
 }
 
-const ContentOne = function ({ onMouseLeave }: { onMouseLeave: () => void }) {
+const ContentOne = function ({ onMouseLeave }: { onMouseLeave?: () => void }) {
     const t = useTranslations('home.header');
     return (
         <div className='pt-3 pb-3 pl-3 pr-0 flex gap-0 flex-wrap max-w-[550px]'  onMouseLeave={onMouseLeave}>
@@ -149,7 +149,7 @@ const ContentOne = function ({ onMouseLeave }: { onMouseLeave: () => void }) {
     )
 }
 
-const ContentTwo = function ({ onMouseLeave }: { onMouseLeave: () => void }) {
+const ContentTwo = function ({ onMouseLeave }: { onMouseLeave?: () => void }) {
     const t = useTranslations('home.header');
     return (
         <div className='pt-3 pb-3 pl-3 pr-0 flex gap-0 flex-wrap max-w-[550px]' onMouseLeave={onMouseLeave}>
@@ -186,7 +186,6 @@ const HeaderMenuItem = function (props: { children: React.ReactNode, title: any,
         setAnchorEl(event.currentTarget);
     }
     const handleClose = () => {
-        console.log('close');
         setAnchorEl(null);
     };
     const open = Boolean(anchorEl);
