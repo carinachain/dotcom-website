@@ -259,44 +259,65 @@ const HeaderMenuItem = function (props: {
   return (
     <>
       {props.burger ? (
-        <Image
-          aria-describedby={id}
-          onMouseEnter={handleOpen}
-          className={`cursor-pointer hover:shadow  ${open ? 'shadow' : ''}`}
-          src={img_burger}
-          width={30}
-          height={30}
-          alt="Image"
-        />
+        <>
+          <Image
+            aria-describedby={id}
+            onMouseEnter={handleOpen}
+            className={`cursor-pointer hover:shadow  ${open ? 'shadow' : ''}`}
+            src={img_burger}
+            width={30}
+            height={30}
+            alt="Image"
+          />
+          <Popover
+            id={id}
+            className="mt-0"
+            open={open}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            onClick={handleClose}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'center',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'center',
+            }}
+          >
+            {props.children}
+          </Popover>
+        </>
       ) : (
         <div
           className={`cursor-pointer hover:bg-gray-100 hover:shadow ${open ? 'bg-gray-100' : ''}`}
           aria-describedby={id}
           onMouseEnter={handleOpen}
+          onMouseLeave={handleClose}
         >
           <div className="px-8 py-2">{props.title}</div>
+          <Popover
+            id={id}
+            className="mt-0"
+            open={open}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            onClick={handleClose}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'center',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'center',
+            }}
+          >
+            {React.cloneElement(props.children as React.ReactElement<any>, {
+              onMouseLeave: handleClose,
+            })}
+          </Popover>
         </div>
       )}
-      <Popover
-        id={id}
-        className="mt-0"
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        onClick={handleClose}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'center',
-        }}
-      >
-        {React.cloneElement(props.children as React.ReactElement<any>, {
-          onMouseLeave: handleClose,
-        })}
-      </Popover>
     </>
   );
 };
