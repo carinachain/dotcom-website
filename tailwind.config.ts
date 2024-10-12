@@ -1,7 +1,7 @@
-import { type Config } from "tailwindcss";
+import { type Config } from 'tailwindcss';
 // import { fontFamily } from "tailwindcss/defaultTheme";
 export default {
-  content: ["./src/**/*.tsx"],
+  content: ['./src/**/*.tsx'],
   theme: {
     extend: {
       fontFamily: {
@@ -18,8 +18,8 @@ export default {
         ],
       },
       backgroundImage: {
-        'carousel-bg': "url('/images/images/index_head_bg.png')"
-      }
+        'carousel-bg': "url('/images/images/index_head_bg.png')",
+      },
     },
   },
   plugins: [],
