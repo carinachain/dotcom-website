@@ -1,19 +1,22 @@
 // import Link from 'next/link';
+
 'use client';
 
 import { ThemeProvider } from '@mui/system';
-import theme from '@/app/theme';
 import React from 'react';
-import Header from './compontents/header';
+
+import theme from '@/app/theme';
+
 import Footer from './compontents/footer';
+import Header from './compontents/header';
 
 export default function Layout(props: { children: React.ReactNode }) {
   return (
     <ThemeProvider theme={theme}>
       <main className="min-h-screen">
-        <Header></Header>
+        <Header />
         {props.children}
-        <Footer></Footer>
+        <Footer />
       </main>
     </ThemeProvider>
   );
