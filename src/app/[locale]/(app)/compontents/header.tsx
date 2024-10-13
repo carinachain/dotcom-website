@@ -11,6 +11,7 @@ import { usePathname, useRouter } from '@/libs/i18nNavigation';
 const img_twitter_rollover = '/svg/x.svg';
 const img_email_rollover = '/svg/mail.svg';
 const img_discord_rollover = '/svg/discord.svg';
+const img_github_rollover = '/svg/github.svg';
 const img_burger = '/svg/burger.svg';
 
 // Page header
@@ -51,6 +52,21 @@ export default function Header() {
                 <Image
                   className="cursor-pointer"
                   src={img_twitter_rollover}
+                  width={30}
+                  height={30}
+                  alt="Image"
+                />
+              </Link>
+            </div>
+            <div className="flex size-[36px] items-center justify-center rounded bg-orange-300 hover:bg-orange-400">
+              <Link
+                href="https://github.com/carinachain"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  className="cursor-pointer"
+                  src={img_github_rollover}
                   width={30}
                   height={30}
                   alt="Image"

@@ -8,6 +8,7 @@ import { usePathname, useRouter } from '@/libs/i18nNavigation';
 const img_twitter = '/svg/x_dark.svg';
 const img_email = '/svg/mail_dark.svg';
 const img_discord = '/svg/discord_dark.svg';
+const img_github = '/svg/github_dark.svg';
 
 // Page Footer
 export default function Footer() {
@@ -144,6 +145,21 @@ const FooterBtnContent = function () {
             <Image
               className="cursor-pointer"
               src={img_twitter}
+              width={30}
+              height={30}
+              alt="Image"
+            />
+          </Link>
+        </div>
+        <div className="flex size-[36px] items-center justify-center rounded bg-gray-400 hover:bg-orange-500">
+          <Link
+            href="https://github.com/carinachain"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Image
+              className="cursor-pointer"
+              src={img_github}
               width={30}
               height={30}
               alt="Image"
