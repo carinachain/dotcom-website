@@ -34,13 +34,13 @@ export default function Footer() {
                 {t('box1.title')}
               </div>
               <Link href="/#carousel" passHref>
-                <div className="cursor-pointer">{t('box1.text1')}</div>
+                <div className="cursor-pointer hover:text-orange-500">{t('box1.text1')}</div>
               </Link>
               <Link href="/#feature" passHref>
-                <div className="cursor-pointer">{t('box1.text2')}</div>
+                <div className="cursor-pointer hover:text-orange-500">{t('box1.text2')}</div>
               </Link>
               <Link href="/#advantage" passHref>
-                <div className="cursor-pointer">{t('box1.text3')}</div>
+                <div className="cursor-pointer hover:text-orange-500">{t('box1.text3')}</div>
               </Link>
             </FooterMapCol>
             <FooterMapCol>
@@ -48,16 +48,16 @@ export default function Footer() {
                 {t('box2.title')}
               </div>
               <Link href="/points" passHref>
-                <div className="cursor-pointer">{t('box2.text1')}</div>
+                <div className="cursor-pointer hover:text-orange-500">{t('box2.text1')}</div>
               </Link>
               <Link href="/common-points" passHref>
-                <div className="cursor-pointer">{t('box2.text2')}</div>
+                <div className="cursor-pointer hover:text-orange-500">{t('box2.text2')}</div>
               </Link>
               <Link href="/exchange" passHref>
-                <div className="cursor-pointer">{t('box2.text3')}</div>
+                <div className="cursor-pointer hover:text-orange-500">{t('box2.text3')}</div>
               </Link>
               <Link href="/profit" passHref>
-                <div className="cursor-pointer">{t('box2.text4')}</div>
+                <div className="cursor-pointer hover:text-orange-500">{t('box2.text4')}</div>
               </Link>
             </FooterMapCol>
             <FooterMapCol>
@@ -65,13 +65,13 @@ export default function Footer() {
                 {t('box3.title')}
               </div>
               <Link href="/architecture" passHref>
-                <div className="cursor-pointer">{t('box3.text1')}</div>
+                <div className="cursor-pointer hover:text-orange-500">{t('box3.text1')}</div>
               </Link>
               <Link href="/economic" passHref>
-                <div className="cursor-pointer">{t('box3.text2')}</div>
+                <div className="cursor-pointer hover:text-orange-500">{t('box3.text2')}</div>
               </Link>
               <Link href="/whitepaper" passHref>
-                <div className="cursor-pointer">{t('box3.text3')}</div>
+                <div className="cursor-pointer hover:text-orange-500">{t('box3.text3')}</div>
               </Link>
             </FooterMapCol>
             <FooterMapCol>
@@ -80,25 +80,25 @@ export default function Footer() {
               </div>
               <div
                 onClick={() => handleChange('zh-CN')}
-                className="cursor-pointer"
+                className="cursor-pointer hover:text-orange-500"
               >
                 {t('box4.text1')}
               </div>
               <div
                 onClick={() => handleChange('en')}
-                className="cursor-pointer"
+                className="cursor-pointer hover:text-orange-500"
               >
                 {t('box4.text2')}
               </div>
               <div
                 onClick={() => handleChange('jp')}
-                className="cursor-pointer"
+                className="cursor-pointer hover:text-orange-500"
               >
                 {t('box4.text3')}
               </div>
             </FooterMapCol>
             <FooterMapCol>
-              <div className="cursor-pointer text-sm text-gray-500">
+              <div className="cursor-pointer text-sm text-gray-500 hover:text-orange-500">
                 {t('button')}
               </div>
             </FooterMapCol>
@@ -120,7 +120,7 @@ const FooterBtnContent = function () {
   return (
     <div className="flex h-[80px] justify-between">
       <div className="absolute bottom-[60px] left-[50px] flex gap-x-3 md:bottom-[30px]">
-        <div className="flex size-[36px] items-center justify-center rounded bg-gray-400 hover:bg-gray-200">
+        <div className="flex size-[36px] items-center justify-center rounded bg-gray-400 hover:bg-orange-500">
           <Link
             href="https://discord.gg/b3tqEsYZ"
             target="_blank"
@@ -135,7 +135,7 @@ const FooterBtnContent = function () {
             />
           </Link>
         </div>
-        <div className="flex size-[36px] items-center justify-center rounded bg-gray-400 hover:bg-gray-200">
+        <div className="flex size-[36px] items-center justify-center rounded bg-gray-400 hover:bg-orange-500">
           <Link
             href="https://twitter.com/carinachain"
             target="_blank"
@@ -150,7 +150,7 @@ const FooterBtnContent = function () {
             />
           </Link>
         </div>
-        <div className="flex size-[36px] items-center justify-center rounded bg-gray-400 hover:bg-gray-200">
+        <div className="flex size-[36px] items-center justify-center rounded bg-gray-400 hover:bg-orange-500">
           <Link href="mailto:contact@carinachain.com">
             <Image
               className="cursor-pointer"
