@@ -14,9 +14,15 @@ export default function Layout(props: { children: React.ReactNode }) {
   return (
     <ThemeProvider theme={theme}>
       <main className="min-h-screen">
-        <Header />
-        {props.children}
-        <Footer />
+        <div>
+          <Header />
+        </div>
+        <div className='pt-[110px]'>
+          {props.children}
+        </div>
+        <div>
+          <Footer />
+        </div>
       </main>
     </ThemeProvider>
   );
