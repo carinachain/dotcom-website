@@ -129,7 +129,7 @@
     },
     "feature": {
       "jpy": "Japanese Yen",
-      "conetent": {
+      "content": {
         "title": "Custom Issue for 1 Coin, Maintenance for 0 Yen",
         "text1": "Set your own parameter names/descriptions, etc., and issue specialized points or coupons",
         "text2": "Issuing points or coupons only requires 1 coin worth ¥500",

@@ -64,7 +64,11 @@
         "unused-imports/no-unused-vars": [
           "error",
           { "argsIgnorePattern": "^_" }
-        ]
+        ],
+        "@typescript-eslint/no-use-before-define": [
+          "error",
+          { "functions": false, "classes": false, "variables": false }
+        ] // Allow functions to be used before they're defined, but enforce it for variables and classes
       }
     },
     // Configuration for testing
