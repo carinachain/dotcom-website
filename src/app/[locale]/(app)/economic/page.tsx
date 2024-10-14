@@ -1,17 +1,19 @@
 import { useTranslations } from 'next-intl';
+import { memo } from 'react';
 
 export default function Profit() {
   return (
     <>
-      <Carousel />
-      <Title />
-      <Advantage />
-      <Chart />
+      <MemoizedCarousel />
+      <MemoizedTitle />
+      <MemoizedAdvantage />
+      <MemoizedChart />
     </>
   );
 }
 
-const Carousel = function () {
+// Carousel Component
+const Carousel: React.FC = () => {
   return (
     <div className="flex justify-center">
       <div className="relative h-[170px] w-[1200px] overflow-hidden rounded-none md:h-[398px] md:rounded-t-[80px]">
@@ -23,7 +25,8 @@ const Carousel = function () {
   );
 };
 
-const Title = function () {
+// Title Component
+const Title: React.FC = () => {
   const t = useTranslations('economic.carousel');
   return (
     <div className="flex justify-center">
@@ -35,47 +38,78 @@ const Title = function () {
   );
 };
 
-const Advantage = function () {
+// Advantage Component with reusable AdvantageCard
+const Advantage: React.FC = () => {
   const t = useTranslations('economic.advantage');
+  const advantages = [
+    {
+      title: t('title1'),
+      text: t('text1'),
+      imgUrl: '/images/architecture_01.png',
+    },
+    {
+      title: t('title2'),
+      text: t('text2'),
+      imgUrl: '/images/architecture_02.png',
+    },
+    {
+      title: t('title3'),
+      text: t('text3'),
+      imgUrl: '/images/architecture_03.png',
+    },
+    {
+      title: t('title4'),
+      text: t('text4'),
+      imgUrl: '/images/architecture_04.png',
+    },
+  ];
+
   return (
     <div className="flex justify-center pb-[100px] pt-[50px]">
       <div className="w-[1200px]">
         <div className="text-color-2 grid grid-cols-1 gap-2 rounded-[40px] bg-sky-100/20 p-[20px] text-lg leading-8 md:grid-cols-4 md:gap-6">
-          <div className="flex h-[450px] w-full flex-col rounded-none bg-white px-[30px] md:rounded-[25px]">
-            <div className="mt-[30px] h-[100px] w-[110px] bg-[url('/images/architecture_01.png')] bg-no-repeat" />
-            <div className="pb-[15px] pt-[30px] text-2xl text-orange-500">
-              {t('title1')}
-            </div>
-            <div className="pb-[10px]">{t('text1')}</div>
-          </div>
-          <div className="flex h-[450px] w-full flex-col rounded-none bg-white px-[30px] md:rounded-[25px]">
-            <div className="mt-[30px] h-[100px] w-[110px] bg-[url('/images/architecture_02.png')] bg-no-repeat" />
-            <div className="pb-[15px] pt-[30px] text-2xl text-orange-500">
-              {t('title2')}
-            </div>
-            <div className="pb-[10px]">{t('text2')}</div>
-          </div>
-          <div className="flex h-[450px] w-full flex-col rounded-none bg-white px-[30px] md:rounded-[25px]">
-            <div className="mt-[30px] h-[100px] w-[110px] bg-[url('/images/architecture_03.png')] bg-no-repeat" />
-            <div className="pb-[15px] pt-[30px] text-2xl text-orange-500">
-              {t('title3')}
-            </div>
-            <div className="pb-[10px]">{t('text3')}</div>
-          </div>
-          <div className="flex h-[450px] w-full flex-col rounded-none bg-white px-[30px] md:rounded-[25px]">
-            <div className="mt-[30px] h-[100px] w-[110px] bg-[url('/images/architecture_04.png')] bg-no-repeat" />
-            <div className="pb-[15px] pt-[30px] text-2xl text-orange-500">
-              {t('title4')}
-            </div>
-            <div className="pb-[10px]">{t('text4')}</div>
-          </div>
+          {advantages.map((advantage, index) => (
+            <AdvantageCard
+              key={index}
+              title={advantage.title}
+              text={advantage.text}
+              imgUrl={advantage.imgUrl}
+            />
+          ))}
         </div>
       </div>
     </div>
   );
 };
 
-const Chart = function () {
+// Reusable AdvantageCard component
+interface AdvantageCardProps {
+  title: string;
+  text: string;
+  imgUrl: string;
+}
+
+const AdvantageCard: React.FC<AdvantageCardProps> = ({
+  title,
+  text,
+  imgUrl,
+}) => {
+  return (
+    <div className="flex h-[450px] w-full flex-col rounded-none bg-white px-[30px] md:rounded-[25px]">
+      <div
+        className="mt-[30px] h-[100px] w-[110px] bg-no-repeat"
+        style={{ backgroundImage: `url(${imgUrl})` }}
+      />
+      <div className="pb-[15px] pt-[30px] text-2xl text-orange-500">
+        {title}
+      </div>
+      <div className="pb-[10px]">{text}</div>
+    </div>
+  );
+};
+
+// Chart Component
+const Chart: React.FC = () => {
   return (
     <div className="flex justify-center pb-[100px]">
       <div className="h-[300px] w-[1200px] sm:h-[550px] md:h-[720px]">
@@ -84,3 +118,9 @@ const Chart = function () {
     </div>
   );
 };
+
+// Memoized Components to prevent unnecessary re-renders
+const MemoizedCarousel = memo(Carousel);
+const MemoizedTitle = memo(Title);
+const MemoizedAdvantage = memo(Advantage);
+const MemoizedChart = memo(Chart);

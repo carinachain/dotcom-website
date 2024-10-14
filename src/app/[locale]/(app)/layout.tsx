@@ -7,8 +7,8 @@ import React from 'react';
 
 import theme from '@/app/theme';
 
-import Footer from './compontents/footer';
-import Header from './compontents/header';
+import Footer from './components/footer';
+import Header from './components/header';
 
 export default function Layout(props: { children: React.ReactNode }) {
   return (
