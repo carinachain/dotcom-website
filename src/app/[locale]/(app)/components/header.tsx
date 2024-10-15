@@ -159,7 +159,7 @@ const ContentTwo: React.FC<{ onMouseLeave?: () => void }> = ({ onMouseLeave }) =
 };
 
 // Content Link Component
-const ContentLink: React.FC<{ href: string; title: string; detail: string; icon: string }> = ({ href, title, detail, icon }) => (
+const ContentLink: React.FC<{ href: string; title: string; detail: string; icon: string }> = ({ href, title, detail }) => (
   <Link className="flex cursor-pointer gap-2 py-3 pl-5 hover:bg-gray-100 hover:shadow" href={href}>
     <div className="size-[50px] bg-[url('/images/index_top_menu_icon_01.png')] bg-no-repeat" />
     <div className="flex flex-col justify-between gap-2">
