@@ -43,7 +43,7 @@ const Header: React.FC = () => {
 
   return (
     <div
-      className={`fixed w-full top-0 transition-transform duration-300 z-100 ${
+      className={`fixed w-screen top-0 transition-transform duration-300 z-100 ${
         isScrollingUp ? 'translate-y-0' : '-translate-y-full'
       } z-50 bg-white`}
     >
@@ -236,7 +236,6 @@ const HeaderMenuItem: React.FC<{
             open={isOpen}
             anchorEl={anchorEl}
             onClose={handleClose}
-            onClick={handleClose}
             anchorOrigin={{
               vertical: 'bottom',
               horizontal: 'center',
@@ -246,7 +245,9 @@ const HeaderMenuItem: React.FC<{
               horizontal: 'center',
             }}
           >
-            {children}
+            <div onMouseLeave={handleClose}>
+              {children}
+            </div>
           </Popover>
         </div>
       )}
