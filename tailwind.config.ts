@@ -21,7 +21,7 @@ export default {
         'carousel-bg': "url('/images/images/index_head_bg.png')",
       },
       zIndex: {
-        '100': '100'
+        '100': '100',
       },
       keyframes: {
         'slide-in-left': {
