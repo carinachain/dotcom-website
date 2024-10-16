@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from '@/libs/i18nNavigation';
 
 // Image paths
@@ -15,59 +15,88 @@ const Footer: React.FC = () => {
   const t = useTranslations('home.footer');
   const router = useRouter();
   const pathname = usePathname();
+  const [isInView, setIsInView] = useState(false);
+  const footerRef = useRef(null);
 
   const handleLanguageChange = (locale: string) => {
     router.push(pathname, { locale });
     router.refresh();
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry?.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect(); // Stop observing after the first intersection
+        }
+      },
+      { threshold: 0.1 } // Adjust the threshold as needed
+    );
+
+    if (footerRef.current) {
+      observer.observe(footerRef.current);
+    }
+
+    return () => {
+      if (footerRef.current) {
+        observer.unobserve(footerRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div className="flex flex-col items-center bg-gray-300">
       <div className="flex justify-center pb-[40px] pt-[50px] text-2xl">
         {t('title')}
       </div>
-      <div className="relative min-h-[400px] w-full overflow-hidden rounded-none bg-slate-800 xl:w-[1200px] xl:rounded-t-[50px]">
-        <div className="absolute right-[-60px] top-[-180px] size-[300px] rounded-full border-[3px] border-gray-600" />
-        <div className="absolute right-[-100px] top-[-220px] size-[420px] rounded-full border-[3px] border-gray-600" />
-        <div className="p-[50px]">
-          <div className="pb-[36px] text-xl text-orange-500">{t('intro')}</div>
-          <div className="grid max-w-[850px] grid-cols-2 gap-y-10 text-xs text-white md:grid-cols-3 lg:grid-cols-5">
-            <FooterColumn>
-              <div className="cursor-pointer text-sm text-gray-500">{t('box1.title')}</div>
-              <FooterLink href="/#carousel" text={t('box1.text1')} />
-              <FooterLink href="/#feature" text={t('box1.text2')} />
-              <FooterLink href="/#advantage" text={t('box1.text3')} />
-            </FooterColumn>
-            <FooterColumn>
-              <div className="cursor-pointer text-sm text-gray-500">{t('box2.title')}</div>
-              <FooterLink href="/points" text={t('box2.text1')} />
-              <FooterLink href="/common-points" text={t('box2.text2')} />
-              <FooterLink href="/exchange" text={t('box2.text3')} />
-              <FooterLink href="/profit" text={t('box2.text4')} />
-            </FooterColumn>
-            <FooterColumn>
-              <div className="cursor-pointer text-sm text-gray-500">{t('box3.title')}</div>
-              <FooterLink href="/architecture" text={t('box3.text1')} />
-              <FooterLink href="/economic" text={t('box3.text2')} />
-              <FooterLink href="/whitepaper" text={t('box3.text3')} />
-            </FooterColumn>
-            <FooterColumn>
-              <div className="cursor-pointer text-sm text-gray-500">{t('box4.title')}</div>
-              <div onClick={() => handleLanguageChange('zh-CN')} className="cursor-pointer hover:text-orange-500">
-                {t('box4.text1')}
-              </div>
-              <div onClick={() => handleLanguageChange('en')} className="cursor-pointer hover:text-orange-500">
-                {t('box4.text2')}
-              </div>
-              <div onClick={() => handleLanguageChange('jp')} className="cursor-pointer hover:text-orange-500">
-                {t('box4.text3')}
-              </div>
-            </FooterColumn>
-            <FooterColumn>
-              <div className="cursor-pointer text-sm text-gray-500 hover:text-orange-500">{t('button')}</div>
-            </FooterColumn>
+      <div ref={footerRef} className={`relative min-h-[400px] w-full overflow-hidden rounded-none bg-slate-800 xl:w-[1200px] xl:rounded-t-[50px]
+        transition-opacity duration-1000 ${isInView ? 'opacity-100' : 'opacity-0'}
+        `}>
+        <div className={`${isInView ? 'animate-slide-in-bottom' : ''}`}>
+          <div className="absolute right-[-60px] top-[-180px] size-[300px] rounded-full border-[3px] border-gray-600" />
+          <div className="absolute right-[-100px] top-[-220px] size-[420px] rounded-full border-[3px] border-gray-600" />
+          <div className="p-[50px]">
+            <div className="pb-[36px] text-xl text-orange-500">{t('intro')}</div>
+            <div className="grid max-w-[850px] grid-cols-2 gap-y-10 text-xs text-white md:grid-cols-3 lg:grid-cols-5">
+              <FooterColumn>
+                <div className="cursor-pointer text-sm text-gray-500">{t('box1.title')}</div>
+                <FooterLink href="/#carousel" text={t('box1.text1')} />
+                <FooterLink href="/#feature" text={t('box1.text2')} />
+                <FooterLink href="/#advantage" text={t('box1.text3')} />
+              </FooterColumn>
+              <FooterColumn>
+                <div className="cursor-pointer text-sm text-gray-500">{t('box2.title')}</div>
+                <FooterLink href="/points" text={t('box2.text1')} />
+                <FooterLink href="/common-points" text={t('box2.text2')} />
+                <FooterLink href="/exchange" text={t('box2.text3')} />
+                <FooterLink href="/profit" text={t('box2.text4')} />
+              </FooterColumn>
+              <FooterColumn>
+                <div className="cursor-pointer text-sm text-gray-500">{t('box3.title')}</div>
+                <FooterLink href="/architecture" text={t('box3.text1')} />
+                <FooterLink href="/economic" text={t('box3.text2')} />
+                <FooterLink href="/whitepaper" text={t('box3.text3')} />
+              </FooterColumn>
+              <FooterColumn>
+                <div className="cursor-pointer text-sm text-gray-500">{t('box4.title')}</div>
+                <div onClick={() => handleLanguageChange('zh-CN')} className="cursor-pointer hover:text-orange-500">
+                  {t('box4.text1')}
+                </div>
+                <div onClick={() => handleLanguageChange('en')} className="cursor-pointer hover:text-orange-500">
+                  {t('box4.text2')}
+                </div>
+                <div onClick={() => handleLanguageChange('jp')} className="cursor-pointer hover:text-orange-500">
+                  {t('box4.text3')}
+                </div>
+              </FooterColumn>
+              <FooterColumn>
+                <div className="cursor-pointer text-sm text-gray-500 hover:text-orange-500">{t('button')}</div>
+              </FooterColumn>
+            </div>
+            <FooterBottom />
           </div>
-          <FooterBottom />
         </div>
       </div>
     </div>
