@@ -2,7 +2,7 @@
 
 import Button from '@mui/material/Button';
 import { useTranslations } from 'next-intl';
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useEffect, useState, useRef } from 'react';
 
 export default function Home() {
   return <Content />;
@@ -65,10 +65,6 @@ const Feature: React.FC = () => {
   const t = useTranslations('home.feature');
   const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    setIsVisible(true); // Trigger animation when component is mounted
-  }, []);
-
   const features = [
     {
       title: t('box1.text1'),
@@ -87,6 +83,30 @@ const Feature: React.FC = () => {
     },
   ];
 
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Stop observing after the first intersection
+        }
+      },
+      { threshold: 0.1 } // Adjust the threshold as needed
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div id="feature" className="flex justify-center">
       <div className="w-[1200px]">
@@ -96,13 +116,23 @@ const Feature: React.FC = () => {
           {t('title')}
         </div>
         <div
+          ref={containerRef}
           className={`text-color-2 mb-[100px] grid grid-cols-1 gap-x-6 drop-shadow-2xl md:grid-cols-3 transition-opacity duration-1000 ${
             isVisible ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          {features.map((feature, idx) => (
-            <MemoizedBox key={idx} {...feature} bgColor="bg-orange-400" titleColor="text-white" />
-          ))}
+          {features.map((feature, idx) => {
+            let animationClass = '';
+            if (idx === 0) animationClass = 'animate-slide-in-left';
+            else if (idx === 1) animationClass = 'animate-slide-in-bottom';
+            else if (idx === 2) animationClass = 'animate-slide-in-right';
+
+            return (
+              <div key={idx} className={isVisible ? animationClass : ""}>
+                <MemoizedBox {...feature} bgColor="bg-orange-400" titleColor="text-white" />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
@@ -113,10 +143,6 @@ const Feature: React.FC = () => {
 const Advantage: React.FC = () => {
   const t = useTranslations('home.advantage');
   const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true); // Trigger animation when component is mounted
-  }, []);
 
   const advantages = [
     {
@@ -161,6 +187,30 @@ const Advantage: React.FC = () => {
     },
   ];
 
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Stop observing after the first intersection
+        }
+      },
+      { threshold: 0.1 } // Adjust the threshold as needed
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div id="advantage" className="flex justify-center pb-0 md:pb-[100px]">
       <div className="w-[1200px]">
@@ -170,13 +220,23 @@ const Advantage: React.FC = () => {
           {t('title')}
         </div>
         <div
+          ref={containerRef}
           className={`text-color-2 grid grid-cols-1 gap-x-2 text-xs md:grid-cols-4 md:gap-x-6 transition-opacity duration-1000 ${
             isVisible ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          {advantages.map((advantage, idx) => (
-            <MemoizedBox key={idx} {...advantage} bgColor="bg-gray-100" titleColor="text-orange-500" />
-          ))}
+          {advantages.map((advantage, idx) => {
+            let animationClass = '';
+            if (idx === 0) animationClass = 'animate-slide-in-left';
+            else if (idx === 1) animationClass = 'animate-slide-in-left';
+            else if (idx === 2) animationClass = 'animate-slide-in-right';
+            else if (idx === 3) animationClass = 'animate-slide-in-right';
+            return (
+              <div key={idx} className={isVisible ? animationClass : ""}>
+                <MemoizedBox key={idx} {...advantage} bgColor="bg-gray-100" titleColor="text-orange-500" />
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>
