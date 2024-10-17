@@ -13,3 +13,14 @@
 .text-color-3 {
     color: #bababa;
 }
+
+/* Change selection color */
+::-moz-selection { /* Code for Firefox */
+    color: #fff;
+    background: #e67c11;
+}
+
+::selection {
+    color: #fff;
+    background: #e67c11;
+}
