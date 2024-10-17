@@ -128,15 +128,15 @@ const Feature: React.FC = () => {
 
   return (
     <div id="feature" className="flex justify-center">
-      <div className="w-[1200px]">
-        <div className={`flex justify-center pb-[40px] pt-[50px] text-2xl ${
+      <div className="w-[1200px] pt-[40px]">
+        <div className={`flex justify-center text-2xl ${
             isVisible ? 'opacity-100' : 'opacity-0'
           }`}>
-          {t('title')}
+          <MemoizedTitle title={t('title')} />
         </div>
         <div
           ref={containerRef}
-          className={`text-color-2 mb-[100px] grid grid-cols-1 gap-x-6 drop-shadow-2xl md:grid-cols-3 transition-opacity duration-1000 ${
+          className={`text-color-2 mb-[100px] pt-[50px] grid grid-cols-1 gap-x-6 drop-shadow-2xl md:grid-cols-3 transition-opacity duration-1000 ${
             isVisible ? 'opacity-100' : 'opacity-0'
           }`}
         >
@@ -148,7 +148,7 @@ const Feature: React.FC = () => {
 
             return (
               <div key={idx} className={isVisible ? animationClass : ""}>
-                <MemoizedBox {...feature} bgColor="bg-orange-400" titleColor="text-white" />
+                <MemoizedBox {...feature} bgColor="bg-gradient-to-tr from-orange-600 to-orange-400 hover:shadow-lg hover:shadow-orange-400" titleColor="text-white" />
               </div>
             );
           })}
@@ -236,7 +236,7 @@ const Advantage: React.FC = () => {
         <div className={`flex justify-center pb-[40px] pt-[50px] text-2xl ${
             isVisible ? 'opacity-100' : 'opacity-0'
           }`}>
-          {t('title')}
+          <MemoizedTitle title={t('title')} />
         </div>
         <div
           ref={containerRef}
@@ -252,7 +252,7 @@ const Advantage: React.FC = () => {
             else if (idx === 3) animationClass = 'animate-slide-in-right';
             return (
               <div key={idx} className={isVisible ? animationClass : ""}>
-                <MemoizedBox key={idx} {...advantage} bgColor="bg-gray-100" titleColor="text-orange-500" />
+                <MemoizedBox key={idx} {...advantage} bgColor="bg-gradient-to-tr from-gray-200 to-gray-100 hover:shadow-lg hover:shadow-gray-100" titleColor="text-orange-500" />
               </div>
             )
           })}
@@ -275,16 +275,16 @@ const Box: React.FC<BoxProps> = ({ title, texts, imageUrl, bgColor, titleColor }
 
   return (
   <div
-    className={`flex h-[450px] w-full flex-col items-center rounded-none ${bgColor} drop-shadow md:rounded-[50px] animate-fade-in-up cursor-pointer transition-all duration-300 hover:shadow-lg hover:shadow-orange-400`}
+    className={`flex h-[500px] w-full flex-col items-center rounded-none drop-shadow md:rounded-[50px] px-5 animate-fade-in-up cursor-pointer transition-all duration-300 ${bgColor}`}
   >
     <div className="flex h-[250px] items-center justify-center">
       <div
-        className="size-[160px] bg-contain bg-no-repeat"
+        className="size-[160px] bg-contain bg-no-repeat text-center"
         style={{ backgroundImage: `url(${imageUrl})` }}
       />
     </div>
     <div className={`mb-[20px] text-2xl titleColor ${titleColor}`}>{title}</div>
-    <div className="px-[30px]">
+    <div>
       {texts.map((text, idx) => (
         <div key={idx} className="mb-[15px]">
           {text}
@@ -294,8 +294,23 @@ const Box: React.FC<BoxProps> = ({ title, texts, imageUrl, bgColor, titleColor }
   </div>
 )};
 
+interface TitleProps {
+  title: string;
+  className?: string;
+}
+const Title: React.FC<TitleProps> = ({ title, className }) => (
+  <div className={`group relative ${className}`}>
+    <span>{title}</span>
+    <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-orange-500 group-hover:w-3/6"></span>
+    <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-orange-500 group-hover:w-3/6"></span>
+  </div>
+)
+
 // Memoized version of the Box component
 const MemoizedBox = memo(Box);
+
+// Memoized version of the Title component
+const MemoizedTitle = memo(Title);
 
 // Memoized version of components
 const MemoizedCarousel = memo(Carousel);
