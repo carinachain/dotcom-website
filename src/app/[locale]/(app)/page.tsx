@@ -3,6 +3,8 @@
 import Button from '@mui/material/Button';
 import { useTranslations } from 'next-intl';
 import React, { memo, useEffect, useState, useRef } from 'react';
+import { useGSAP } from "@gsap/react";
+import gsap from 'gsap';
 
 export default function Home() {
   return <Content />;
@@ -28,6 +30,23 @@ const Carousel: React.FC = () => {
     setIsVisible(true); // Trigger animation on load
   }, []);
 
+  useGSAP(() => {
+    gsap.fromTo('#carousel-text', {
+      opacity: 0,
+      y: 50
+    }, {
+      opacity: 1,
+      y: 0
+    })
+    gsap.fromTo('#carousel-image', {
+      opacity: 0,
+      x: 150
+    }, {
+      opacity: 1,
+      x: 0
+    })
+  }, [])
+
   return (
     <div
       id="carousel"
@@ -35,11 +54,11 @@ const Carousel: React.FC = () => {
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <div className="mw-[1200px] flex justify-center gap-x-36 md:justify-between">
-        <div className="flex h-full flex-col justify-center gap-y-8">
+      <div className="mw-[1200px] flex justify-center gap-x-[200px] md:justify-between">
+        <div id='carousel-text' className="flex h-full flex-col justify-center gap-y-8">
           <div className="flex flex-col text-4xl">
-            <div className="text-color-1 animate-slide-in-left">{t('title1')}</div>
-            <div className="text-orange-500 animate-slide-in-right">{t('title2')}</div>
+            <div className="text-color-1">{t('title1')}</div>
+            <div className="text-orange-500">{t('title2')}</div>
           </div>
           <div className="flex flex-col gap-y-1">
             <div className="text-color-3">{t('text1')}</div>
@@ -50,7 +69,7 @@ const Carousel: React.FC = () => {
             <div className="text-white">{t('button1')}</div>
           </Button>
         </div>
-        <div className="mt-[32px] hidden w-[480px] flex-col items-center justify-end bg-[url('/images/index_head_image_01.png')] bg-no-repeat md:flex">
+        <div id='carousel-image' className="mt-[32px] hidden w-[480px] flex-col items-center justify-end bg-[url('/images/index_head_image_01.png')] bg-no-repeat md:flex">
           <Button className="mw-[270px] mb-[30px] ml-[40px] rounded-full animate-scale-in" variant="contained">
             <div className="py-1 text-lg text-white">{t('button2')}</div>
           </Button>
@@ -252,9 +271,11 @@ interface BoxProps {
   titleColor: string;
 }
 
-const Box: React.FC<BoxProps> = ({ title, texts, imageUrl, bgColor, titleColor }) => (
+const Box: React.FC<BoxProps> = ({ title, texts, imageUrl, bgColor, titleColor }) => {
+
+  return (
   <div
-    className={`flex h-[450px] w-full flex-col items-center rounded-none ${bgColor} drop-shadow md:rounded-[50px] animate-fade-in-up cursor-pointer hover:drop-shadow-lg`}
+    className={`flex h-[450px] w-full flex-col items-center rounded-none ${bgColor} drop-shadow md:rounded-[50px] animate-fade-in-up cursor-pointer transition-all duration-300 hover:shadow-lg hover:shadow-orange-400`}
   >
     <div className="flex h-[250px] items-center justify-center">
       <div
@@ -271,7 +292,7 @@ const Box: React.FC<BoxProps> = ({ title, texts, imageUrl, bgColor, titleColor }
       ))}
     </div>
   </div>
-);
+)};
 
 // Memoized version of the Box component
 const MemoizedBox = memo(Box);
