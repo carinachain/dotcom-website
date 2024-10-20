@@ -43,12 +43,12 @@ const Header: React.FC = () => {
 
   return (
     <div
-      className={`fixed w-screen top-0 transition-transform duration-300 z-100 ${
+      className={`fixed w-screen top-0 transition-transform duration-300 z-100 backdrop-blur-xl bg-white/30 ${
         isScrollingUp ? 'translate-y-0' : '-translate-y-full'
       } z-50 bg-white`}
     >
       <div className="flex justify-center px-[10px] md:px-0">
-        <div className="flex h-full w-[1200px] items-center justify-between py-[30px]">
+        <div className="flex h-full w-[1200px] items-center justify-between py-[20px]">
           {/* Logo */}
           <Link href="/">
             <Image src="/images/logo.png" width={200} height={40} alt="LOGO" />
