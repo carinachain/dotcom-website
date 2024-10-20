@@ -1,5 +1,9 @@
+'use client';
+
+import { useGSAP } from '@gsap/react';
 import { useTranslations } from 'next-intl';
-import { memo } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
+import gsap from 'gsap';
 
 export default function Points() {
   return (
@@ -13,15 +17,38 @@ export default function Points() {
 // Carousel Component
 const Carousel: React.FC = () => {
   const t = useTranslations('exchange.carousel');
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true); // Trigger animation on load
+  }, []);
+
+  useGSAP(() => {
+    gsap.fromTo('#carousel-text', {
+      opacity: 0,
+      y: 50
+    }, {
+      opacity: 1,
+      y: 0
+    })
+    gsap.fromTo('#carousel-image', {
+      opacity: 0,
+      x: 150
+    }, {
+      opacity: 1,
+      x: 0
+    })
+  }, []);
+
   return (
-    <div className="flex justify-center">
+    <div className={`flex justify-center transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       <div className="relative grid h-[500px] w-[1200px] grid-cols-1 overflow-hidden rounded-none bg-slate-300 md:grid-cols-2 md:rounded-t-[50px]">
-        <div className="flex translate-y-[-50px] flex-col justify-center gap-3 px-14">
+        <div id="carousel-text" className="flex translate-y-[-50px] flex-col justify-center gap-3 px-14">
           <div className="text-2xl">{t('title1')}</div>
           <div className="text-2xl">{t('title2')}</div>
           <div className="mw-[400px] text-orange-500">{t('text')}</div>
         </div>
-        <div className="hidden md:block">
+        <div id="carousel-image" className="hidden md:block">
           <div className="h-[550px] w-full -translate-y-10 bg-[url('/images/function_interchange_head_images_01.png')] bg-cover" />
         </div>
         {/* Decorative Circles */}
@@ -46,6 +73,30 @@ const DecorativeCircles: React.FC = () => (
 // Feature Component
 const Feature: React.FC = () => {
   const t = useTranslations('exchange.feature');
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Stop observing after the first intersection
+        }
+      },
+      { threshold: 0.1 } // Adjust the threshold as needed
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
 
   const boxes = [
     {
@@ -66,20 +117,29 @@ const Feature: React.FC = () => {
   ];
 
   return (
-    <div className="flex justify-center">
+    <div className={`flex justify-center ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       <div className="w-[1200px]">
         <div className="flex justify-center pb-[40px] pt-[50px] text-2xl">
           {t('title')}
         </div>
-        <div className="text-color-2 mb-0 grid grid-cols-1 gap-x-6 drop-shadow-2xl md:mb-[100px] md:grid-cols-3">
-          {boxes.map((box, index) => (
-            <FeatureBox
-              key={index}
-              iconUrl={box.iconUrl}
-              title={box.title}
-              texts={box.texts}
-            />
-          ))}
+        <div ref={containerRef} className="text-color-2 mb-0 grid grid-cols-1 gap-x-6 drop-shadow-2xl md:mb-[100px] md:grid-cols-3">
+          {boxes.map((box, index) => {
+            let animationClass = '';
+            if (index === 0) animationClass = 'animate-slide-in-left';
+            else if (index === 1) animationClass = 'animate-slide-in-bottom';
+            else if (index === 2) animationClass = 'animate-slide-in-right';
+
+            return (
+              <div key={index} className={isVisible ? animationClass : ""}>
+                <FeatureBox
+                  key={index}
+                  iconUrl={box.iconUrl}
+                  title={box.title}
+                  texts={box.texts}
+                />
+              </div>
+          );
+        })}
         </div>
       </div>
     </div>
@@ -94,7 +154,7 @@ interface FeatureBoxProps {
 }
 
 const FeatureBox: React.FC<FeatureBoxProps> = ({ iconUrl, title, texts }) => (
-  <div className="flex h-[620px] w-full flex-col items-center rounded-none bg-orange-400 drop-shadow md:rounded-[50px]">
+  <div className="bg-gradient-to-tr from-orange-600 to-orange-400 flex h-[620px] w-full flex-col items-center rounded-none bg-orange-400 drop-shadow md:rounded-[50px] hover:cursor-pointer hover:shadow-lg hover:shadow-orange-400">
     <div className="flex h-[250px] items-center justify-center">
       <div
         className="size-[160px] bg-contain bg-no-repeat"
