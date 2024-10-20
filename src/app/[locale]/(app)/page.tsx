@@ -5,6 +5,9 @@ import { useTranslations } from 'next-intl';
 import React, { memo, useEffect, useState, useRef } from 'react';
 import { useGSAP } from "@gsap/react";
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function Home() {
   return <Content />;
@@ -33,7 +36,7 @@ const Carousel: React.FC = () => {
   useGSAP(() => {
     gsap.fromTo('#carousel-text', {
       opacity: 0,
-      y: 50
+      y: 100
     }, {
       opacity: 1,
       y: 0
@@ -147,7 +150,7 @@ const Feature: React.FC = () => {
             else if (idx === 2) animationClass = 'animate-slide-in-right';
 
             return (
-              <div key={idx} className={isVisible ? animationClass : ""}>
+              <div key={idx} className={`${isVisible ? animationClass : ""} px-4 py-2 md:px-0 md:py-0`}>
                 <MemoizedBox {...feature} bgColor="bg-gradient-to-tr from-orange-600 to-orange-400 hover:shadow-lg hover:shadow-orange-400" titleColor="text-white" />
               </div>
             );
@@ -206,52 +209,39 @@ const Advantage: React.FC = () => {
     },
   ];
 
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect(); // Stop observing after the first intersection
+  useGSAP(() => {
+    if (!containerRef.current) return
+    const boxs = gsap.utils.toArray(containerRef.current.children)
+    boxs.forEach((box: any, idx: number) => {
+      gsap.from(box, {
+        opacity: 0,
+        y: 100 * idx,
+        delay: idx * .1,
+        ease: 'power1.inOut',
+        scrollTrigger: {
+          trigger: box,
+          start: 'top bottom',
+          toggleActions: 'restart'
         }
-      },
-      { threshold: 0.1 } // Adjust the threshold as needed
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
-      }
-    };
-  }, []);
+      })
+    })
+  }, [])
 
   return (
-    <div id="advantage" className="flex justify-center pb-0 md:pb-[100px]">
+    <div id="advantage" className="flex justify-center pb-4 md:pb-[100px]">
       <div className="w-[1200px]">
-        <div className={`flex justify-center pb-[40px] pt-[50px] text-2xl ${
-            isVisible ? 'opacity-100' : 'opacity-0'
-          }`}>
+        <div className={`flex justify-center pb-[40px] pt-[50px] text-2xl`}>
           <MemoizedTitle title={t('title')} />
         </div>
         <div
           ref={containerRef}
-          className={`text-color-2 grid grid-cols-1 gap-x-2 text-xs md:grid-cols-4 md:gap-x-6 transition-opacity duration-1000 ${
-            isVisible ? 'opacity-100' : 'opacity-0'
-          }`}
+          className={`text-color-2 grid grid-cols-1 gap-x-2 text-xs md:grid-cols-4 md:gap-x-6 transition-opacity duration-1000`}
         >
           {advantages.map((advantage, idx) => {
-            let animationClass = '';
-            if (idx === 0) animationClass = 'animate-slide-in-left';
-            else if (idx === 1) animationClass = 'animate-slide-in-left';
-            else if (idx === 2) animationClass = 'animate-slide-in-right';
-            else if (idx === 3) animationClass = 'animate-slide-in-right';
             return (
-              <div key={idx} className={isVisible ? animationClass : ""}>
+              <div key={idx} className={`px-4 py-2 md:px-0 md:py-0`}>
                 <MemoizedBox key={idx} {...advantage} bgColor="bg-gradient-to-tr from-gray-200 to-gray-100 hover:shadow-lg hover:shadow-gray-100" titleColor="text-orange-500" />
               </div>
             )
@@ -275,7 +265,7 @@ const Box: React.FC<BoxProps> = ({ title, texts, imageUrl, bgColor, titleColor }
 
   return (
   <div
-    className={`flex h-[500px] w-full flex-col items-center rounded-none drop-shadow md:rounded-[50px] px-5 animate-fade-in-up cursor-pointer transition-all duration-300 ${bgColor}`}
+    className={`flex h-[500px] w-full flex-col items-center drop-shadow rounded-[50px] px-5 animate-fade-in-up cursor-pointer transition-all duration-300 ${bgColor}`}
   >
     <div className="flex h-[250px] items-center justify-center">
       <div

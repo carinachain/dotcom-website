@@ -102,7 +102,7 @@ const Advantage: React.FC = () => {
   ];
 
   return (
-    <div className={`flex justify-center pb-0 md:pb-[100px] ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`flex justify-center py-4 md:pb-[100px] ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       <div className="w-[1200px]">
         <div ref={containerRef} className="text-color-2 grid grid-cols-1 gap-x-2 pt-0 text-lg leading-8 md:grid-cols-3 md:gap-x-6 md:pt-[50px]">
           {advantages.map((advantage, index) => {
@@ -111,7 +111,7 @@ const Advantage: React.FC = () => {
             else if (index === 1) animationClass = 'animate-slide-in-bottom';
             else if (index === 2) animationClass = 'animate-slide-in-right';
             return (
-              <div key={index} className={isVisible ? animationClass : ""}>
+              <div key={index} className={`${isVisible ? animationClass : ""} px-4 py-2 md:px-0 md:py-0`}>
                 <AdvantageCard
                   key={index}
                   title={advantage.title}
@@ -139,7 +139,7 @@ const AdvantageCard: React.FC<AdvantageCardProps> = ({
   text,
   imageUrl,
 }) => (
-  <div className="flex h-[450px] w-full flex-col rounded-none bg-gray-100 px-[30px] drop-shadow md:rounded-[50px] hover:cursor-pointer hover:shadow-lg">
+  <div className="flex h-[450px] w-full flex-col bg-gray-100 px-[30px] drop-shadow rounded-[50px] hover:cursor-pointer hover:shadow-lg">
     <div
       className="ml-[-20px] h-[100px] w-[110px] bg-no-repeat"
       style={{ backgroundImage: `url(${imageUrl})` }}

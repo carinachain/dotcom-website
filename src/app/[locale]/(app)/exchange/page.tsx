@@ -117,7 +117,7 @@ const Feature: React.FC = () => {
   ];
 
   return (
-    <div className={`flex justify-center ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`flex justify-center pb-4 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       <div className="w-[1200px]">
         <div className="flex justify-center pb-[40px] pt-[50px] text-2xl">
           {t('title')}
@@ -130,7 +130,7 @@ const Feature: React.FC = () => {
             else if (index === 2) animationClass = 'animate-slide-in-right';
 
             return (
-              <div key={index} className={isVisible ? animationClass : ""}>
+              <div key={index} className={`${isVisible ? animationClass : ""} px-4 py-2 md:px-0 md:py-0`}>
                 <FeatureBox
                   key={index}
                   iconUrl={box.iconUrl}
@@ -154,7 +154,7 @@ interface FeatureBoxProps {
 }
 
 const FeatureBox: React.FC<FeatureBoxProps> = ({ iconUrl, title, texts }) => (
-  <div className="bg-gradient-to-tr from-orange-600 to-orange-400 flex h-[620px] w-full flex-col items-center rounded-none bg-orange-400 drop-shadow md:rounded-[50px] hover:cursor-pointer hover:shadow-lg hover:shadow-orange-400">
+  <div className="bg-gradient-to-tr from-orange-600 to-orange-400 flex h-[620px] w-full flex-col items-center bg-orange-400 drop-shadow rounded-[50px] hover:cursor-pointer hover:shadow-lg hover:shadow-orange-400">
     <div className="flex h-[250px] items-center justify-center">
       <div
         className="size-[160px] bg-contain bg-no-repeat"
