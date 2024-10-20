@@ -164,7 +164,6 @@ const Feature: React.FC = () => {
 // Advantage block with animation
 const Advantage: React.FC = () => {
   const t = useTranslations('home.advantage');
-  const [isVisible, setIsVisible] = useState(false);
 
   const advantages = [
     {
