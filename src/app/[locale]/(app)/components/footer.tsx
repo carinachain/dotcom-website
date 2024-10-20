@@ -75,8 +75,8 @@ const Footer: React.FC = () => {
               </FooterColumn>
               <FooterColumn>
                 <div className="cursor-pointer text-sm text-gray-500">{t('box3.title')}</div>
-                <FooterLink href="/architecture" text={t('box3.text1')} />
-                <FooterLink href="/economic" text={t('box3.text2')} />
+                <FooterLink href="/economic-model" text={t('box3.text1')} />
+                <FooterLink href="/ecosys-n-community" text={t('box3.text2')} />
                 <FooterLink href="/whitepaper" text={t('box3.text3')} />
               </FooterColumn>
               <FooterColumn>
@@ -86,9 +86,9 @@ const Footer: React.FC = () => {
                 </div>
                 <div onClick={() => handleLanguageChange('jp')} className="cursor-pointer hover:text-orange-500">
                   {t('box4.text2')}
+                </div>
                 <div onClick={() => handleLanguageChange('zh-CN')} className="cursor-pointer hover:text-orange-500">
                   {t('box4.text3')}
-                </div>
                 </div>
               </FooterColumn>
               <FooterColumn>
