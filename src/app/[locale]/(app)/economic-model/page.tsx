@@ -27,7 +27,7 @@ const Carousel: React.FC = () => {
 
 // Title Component
 const Title: React.FC = () => {
-  const t = useTranslations('architecture.carousel');
+  const t = useTranslations('economic-model.carousel');
   return (
     <div className="flex justify-center">
       <div className="mt-[50px] w-[1200px] px-[10px] text-center text-3xl">
@@ -40,7 +40,7 @@ const Title: React.FC = () => {
 
 // Advantage Component
 const Advantage: React.FC = () => {
-  const t = useTranslations('architecture.advantage');
+  const t = useTranslations('economic-model.advantage');
   const advantageKeys = ['text1', 'text2', 'text3', 'text4'] as const;
 
   return (
