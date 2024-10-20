@@ -18,18 +18,18 @@
       },
       "about": {
         "title": "关于Carina",
-        "text1": "架构",
-        "detail1": "管理运行架构",
-        "text2": "经济模式",
-        "detail2": "发行专属自己商铺的积分/优惠券",
+        "text1": "经济模型",
+        "detail1": "为商店和消费者提供基于区块链技术的创新解决方案",
+        "text2": "社区&生态",
+        "detail2": "通过 Web 3.0 型生态系统和社区，形成三方共赢的环境",
         "text3": "项目白皮书",
-        "detail3": "下载 Carina Chain 的项目白皮书\n简体中文 ｜ English ｜ 日本語"
+        "detail3": "下载 Carina Chain 的项目白皮书\nEnglish ｜ 日本語 ｜ 简体中文"
       },
       "language": {
         "title": "语言",
-        "text1": "简体中文",
-        "text2": "English",
-        "text3": "日本語"
+        "text1": "English",
+        "text2": "日本語",
+        "text3": "简体中文"
       }
     },
     "carousel": {
@@ -114,9 +114,9 @@
       },
       "box4": {
         "title": "语言",
-        "text1": "简体中文",
-        "text2": "English",
-        "text3": "日本語"
+        "text1": "English",
+        "text2": "日本語",
+        "text3": "简体中文"
       },
       "button": "打开APP"
     }
@@ -221,7 +221,7 @@
       }
     }
   },
-  "architecture": {
+  "economic-model": {
     "carousel": {
       "title1": "Carina积分(CRN)作为媒介在整个生态内流通",
       "title2": "平台通过产品与服务获取的收益是CRN的价值基础"
@@ -233,7 +233,7 @@
       "text4": "平台将获取的收益转化为CRN后，通过基金会的各种活动和收益计划回馈给社区"
     }
   },
-  "economic": {
+  "ecosys-n-community": {
     "carousel": {
       "title1": "社区的治理决策通过基金会",
       "title2": "向开发运营法人委托的形式实现"

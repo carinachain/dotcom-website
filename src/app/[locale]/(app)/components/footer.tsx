@@ -81,14 +81,14 @@ const Footer: React.FC = () => {
               </FooterColumn>
               <FooterColumn>
                 <div className="cursor-pointer text-sm text-gray-500">{t('box4.title')}</div>
-                <div onClick={() => handleLanguageChange('zh-CN')} className="cursor-pointer hover:text-orange-500">
+                <div onClick={() => handleLanguageChange('en')} className="cursor-pointer hover:text-orange-500">
                   {t('box4.text1')}
                 </div>
-                <div onClick={() => handleLanguageChange('en')} className="cursor-pointer hover:text-orange-500">
-                  {t('box4.text2')}
-                </div>
                 <div onClick={() => handleLanguageChange('jp')} className="cursor-pointer hover:text-orange-500">
+                  {t('box4.text2')}
+                <div onClick={() => handleLanguageChange('zh-CN')} className="cursor-pointer hover:text-orange-500">
                   {t('box4.text3')}
+                </div>
                 </div>
               </FooterColumn>
               <FooterColumn>

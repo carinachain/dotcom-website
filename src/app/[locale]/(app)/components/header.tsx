@@ -104,7 +104,7 @@ const HeaderContent: React.FC = () => {
   };
 
   return (
-    <div className="text-color-2 flex flex-1 items-center justify-center gap-x-3 text-xs">
+    <div className="text-color-2 flex flex-1 items-center justify-center gap-x-3 text-s">
       <Link href="/">
         <HeaderMenuItem title={t('homePage.title')} noPopup />
       </Link>
@@ -116,14 +116,14 @@ const HeaderContent: React.FC = () => {
       </HeaderMenuItem>
       <HeaderMenuItem title={t('language.title')}>
         <div className="flex w-[88px] flex-col flex-wrap justify-center gap-0 px-0 py-3 text-xs">
-          <div className="cursor-pointer py-2 pl-5 hover:bg-gray-100 hover:shadow" onClick={() => handleChangeLanguage('zh-CN')}>
-            简体中文
-          </div>
           <div className="cursor-pointer py-2 pl-5 hover:bg-gray-100 hover:shadow" onClick={() => handleChangeLanguage('en')}>
-            English
+            {t('language.text1')}
           </div>
           <div className="cursor-pointer py-2 pl-5 hover:bg-gray-100 hover:shadow" onClick={() => handleChangeLanguage('jp')}>
-            日本語
+            {t('language.text2')}
+          </div>
+          <div className="cursor-pointer py-2 pl-5 hover:bg-gray-100 hover:shadow" onClick={() => handleChangeLanguage('zh-CN')}>
+            {t('language.text3')}
           </div>
         </div>
       </HeaderMenuItem>
@@ -151,8 +151,8 @@ const ContentTwo: React.FC<{ onMouseLeave?: () => void }> = ({ onMouseLeave }) =
 
   return (
     <div className="flex max-w-[550px] flex-wrap gap-0 py-3 pl-3 pr-0" onMouseLeave={onMouseLeave}>
-      <ContentLink href="/architecture" title={t('about.text1')} detail={t('about.detail1')} icon="/images/index_top_menu_icon_01.png" />
-      <ContentLink href="/economic" title={t('about.text2')} detail={t('about.detail2')} icon="/images/index_top_menu_icon_03.png" />
+      <ContentLink href="/economic-model" title={t('about.text1')} detail={t('about.detail1')} icon="/images/index_top_menu_icon_01.png" />
+      <ContentLink href="/ecosys-n-community" title={t('about.text2')} detail={t('about.detail2')} icon="/images/index_top_menu_icon_03.png" />
       <ContentLink href="/whitepaper" title={t('about.text3')} detail={t('about.detail3')} icon="/images/index_top_menu_icon_02.png" />
     </div>
   );
@@ -164,7 +164,7 @@ const ContentLink: React.FC<{ href: string; title: string; detail: string; icon:
     <div className="size-[50px] bg-[url('/images/index_top_menu_icon_01.png')] bg-no-repeat" />
     <div className="flex flex-col justify-between gap-2">
       <div className="text-sm text-orange-500">{title}</div>
-      <div className="max-w-[175px] text-xs text-gray-400">{detail}</div>
+      <div className="max-w-[175px] text-xs text-gray-400 whitespace-pre-line">{detail}</div>
     </div>
   </Link>
 );

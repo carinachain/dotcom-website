@@ -18,18 +18,18 @@
       },
       "about": {
         "title": "About Carina",
-        "text1": "Architecture",
-        "detail1": "Manage operational architecture",
-        "text2": "Economic Model",
-        "detail2": "Issue exclusive points/coupons for your own shop",
+        "text1": "Economic Model",
+        "detail1": "Innovative blockchain technology-based solutions for both stores and consumers",
+        "text2": "New Ecosystem & Community",
+        "detail2": "Forming a win-win-win environment through a Web 3.0 ecosystem and community",
         "text3": "Whitepaper",
-        "detail3": "Download the whitepaper of Carina Chain\nSimplified Chinese | English | Japanese"
+        "detail3": "Download the whitepaper of Carina Chain\nEnglish | Japanese | Simplified Chinese"
       },
       "language": {
         "title": "Language",
-        "text1": "简体中文",
-        "text2": "English",
-        "text3": "日本語"
+        "text1": "English",
+        "text2": "日本語",
+        "text3": "简体中文"
       }
     },
     "carousel": {
@@ -114,9 +114,9 @@
       },
       "box4": {
         "title": "Language",
-        "text1": "简体中文",
-        "text2": "English",
-        "text3": "日本語"
+        "text1": "English",
+        "text2": "日本語",
+        "text3": "简体中文"
       },
       "button": "Open App"
     }
@@ -221,7 +221,7 @@
       }
     }
   },
-  "architecture": {
+  "economic-model": {
     "carousel": {
       "title1": "Carina Points (CRN) circulate within the entire ecosystem as a medium",
       "title2": "The value of CRN is based on the revenue obtained through products and services on the platform"
@@ -233,7 +233,7 @@
       "text4": "The revenue obtained by the platform is converted into CRN and given back to the community through the foundation's various activities and profit plans"
     }
   },
-  "economic": {
+  "ecosys-n-community": {
     "carousel": {
       "title1": "Community governance decisions are made through the foundation",
       "title2": "Implemented in the form of entrusting to development and operation corporations"

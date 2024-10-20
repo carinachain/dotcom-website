@@ -17,13 +17,13 @@
         "detail4": "Carinaコミュニティの一員として、貢献に応じて収益の獲得"
       },
       "about": {
-        "title": "Carina Chainについて",
+        "title": "Carina Chain について",
         "text1": "ビジネスモデル",
         "detail1": "お店と消費者双方に向け、ブロックチェーン技術ベースの革新的なソリューションを提供",
         "text2": "新型エコシステム＆コミュニティ",
         "detail2": "Web3.0型エコシステムとコミュニティーを通じて、Win-Win-Winの三方良しな環境を形成",
         "text3": "White Paper",
-        "detail3": "PDFダウンロード\n簡体字中国語 | 英語 | 日本語"
+        "detail3": "PDFダウンロード\n英語 | 日本語 | 簡体字中国語"
       },
       "language": {
         "title": "言語",
@@ -114,9 +114,9 @@
       },
       "box4": {
         "title": "言語",
-        "text1": "English",
-        "text2": "日本語",
-        "text3": "简体中文"
+        "text1": "日本語",
+        "text2": "简体中文",
+        "text3": "English"
       },
       "button": "アプリを開く"
     }
@@ -221,7 +221,7 @@
       }
     }
   },
-  "architecture": {
+  "economic-model": {
     "carousel": {
       "title1": "Carinaポイント (CRN) はメディアとしてエコシステム全体で流通",
       "title2": "プラットフォームが製品とサービスを通じて得た収益がCRNの価値の基礎"
@@ -233,7 +233,7 @@
       "text4": "プラットフォームが得た収益はCRNに変換され、財団の様々な活動と利益計画を通じてコミュニティに還元"
     }
   },
-  "economic": {
+  "ecosys-n-community": {
     "carousel": {
       "title1": "コミュニティのガバナンス決定は財団を通じて行われる",
       "title2": "開発運営法人に委託する形式で実現"

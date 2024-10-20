@@ -27,7 +27,7 @@ const Carousel: React.FC = () => {
 
 // Title Component
 const Title: React.FC = () => {
-  const t = useTranslations('economic.carousel');
+  const t = useTranslations('ecosys-n-community.carousel');
   return (
     <div className="flex justify-center">
       <div className="mt-[50px] w-[1200px] px-[10px] text-center text-3xl">
@@ -40,7 +40,7 @@ const Title: React.FC = () => {
 
 // Advantage Component with reusable AdvantageCard
 const Advantage: React.FC = () => {
-  const t = useTranslations('economic.advantage');
+  const t = useTranslations('ecosys-n-community.advantage');
   const advantages = [
     {
       title: t('title1'),
