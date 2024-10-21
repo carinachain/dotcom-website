@@ -17,9 +17,7 @@ export default function Layout(props: { children: React.ReactNode }) {
         <div>
           <Header />
         </div>
-        <div className='pt-[110px]'>
-          {props.children}
-        </div>
+        <div className="pt-[110px]">{props.children}</div>
         <div>
           <Footer />
         </div>
