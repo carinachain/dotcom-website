@@ -297,34 +297,6 @@ const Title: React.FC<TitleProps> = ({ title, className }) => (
   </div>
 )
 
-// interface ButtonProps {
-//   text: string;
-//   className?: string;
-// }
-// const ButtonArrow: React.FC<ButtonProps> = ({ text, className }) => (
-//   <button
-//   className={`relative group inline-flex items-center px-8 py-2 overflow-hidden text-lg font-medium text-orange-600 border-2 border-orange-600 rounded-lg hover:text-white group hover:bg-gray-50 ${className}`}>
-//   <span
-//     className="absolute left-0 block w-full h-0 transition-all bg-orange-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
-//   <span
-//     className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
-//     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-//       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-//     </svg>
-//   </span>
-//   <span className="relative text-base font-semibold transition-all duration-300 group-hover:-translate-x-3">{ text }</span>
-// </button>
-// )
-
-// const Button: React.FC<ButtonProps> = ({ text, className }) => (
-//   <button
-//     className={`relative rounded px-5 py-2 overflow-hidden group bg-orange-500 relative hover:bg-gradient-to-r hover:from-orange-500 hover:to-orange-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-orange-400 transition-all ease-out duration-300 ${className}`}>
-//     <span
-//       className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-//     <span className="relative text-base font-semibold">{ text }</span>
-//   </button>
-// )
-
 // Memoized version of the Box component
 const MemoizedBox = memo(Box);
 
