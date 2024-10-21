@@ -1,11 +1,11 @@
 'use client';
 
-import Button from '@mui/material/Button';
 import { useTranslations } from 'next-intl';
 import React, { memo, useEffect, useState, useRef } from 'react';
 import { useGSAP } from "@gsap/react";
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import { ButtonArrow, Button } from './components/button';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -68,13 +68,15 @@ const Carousel: React.FC = () => {
             <div className="text-color-3">{t('text2')}</div>
             <div className="text-color-3">{t('text3')}</div>
           </div>
-          <Button className="w-[180px] animate-scale-in" variant="contained">
-            <div className="text-white">{t('button1')}</div>
-          </Button>
+          <ButtonArrow className='w-[180px]'>
+            {t('button1')}
+          </ButtonArrow>
         </div>
         <div id='carousel-image' className="mt-[32px] hidden w-[480px] flex-col items-center justify-end bg-[url('/images/index_head_image_01.png')] bg-no-repeat md:flex">
-          <Button className="mw-[270px] mb-[30px] ml-[40px] rounded-full animate-scale-in" variant="contained">
-            <div className="py-1 text-lg text-white">{t('button2')}</div>
+          <Button className="mw-[270px] mb-[30px] ml-[40px] rounded-full py-3">
+            <span className='font-semibold'>
+              {t('button2')}
+            </span>
           </Button>
         </div>
       </div>

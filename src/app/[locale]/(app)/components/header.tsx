@@ -1,4 +1,4 @@
-import Button from '@mui/material/Button';
+import { Button } from './button';
 import Popover from '@mui/material/Popover';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -62,8 +62,10 @@ const Header: React.FC = () => {
               <SocialIconLink href="https://twitter.com/carinachain" iconSrc={IMG_TWITTER} alt="Twitter" />
               <SocialIconLink href="https://github.com/carinachain" iconSrc={IMG_GITHUB} alt="Github" />
               <SocialIconLink href="mailto:contact@carinachain.com" iconSrc={IMG_EMAIL} alt="Email" />
-              <Button className="ml-3" variant="contained">
-                <div className="text-xs text-white">{t('openApp')}</div>
+              <Button className="ml-3">
+                <span className='text-sm font-semibold inline-block -translate-y-0.5'>
+                  {t('openApp')}
+                </span>
               </Button>
             </div>
           </div>
@@ -236,6 +238,7 @@ const HeaderMenuItem: React.FC<{
             open={isOpen}
             anchorEl={anchorEl}
             onClose={handleClose}
+            onClick={handleClose}
             anchorOrigin={{
               vertical: 'bottom',
               horizontal: 'center',
