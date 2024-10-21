@@ -106,7 +106,7 @@ const HeaderContent: React.FC = () => {
   };
 
   return (
-    <div className="text-color-2 flex flex-1 items-center justify-center gap-x-3 text-s">
+    <div className="text-color-2 flex flex-1 items-center justify-center gap-x-3 text-sm font-medium">
       <Link href="/">
         <HeaderMenuItem title={t('homePage.title')} noPopup />
       </Link>
@@ -226,7 +226,7 @@ const HeaderMenuItem: React.FC<{
         </>
       ) : (
         <div
-          className={`cursor-pointer hover:bg-gray-100 hover:shadow ${isOpen ? 'bg-gray-100' : ''}`}
+          className={`cursor-pointer hover:bg-gray-100 text-neutral-500 hover:shadow ${isOpen ? 'bg-gray-100' : ''}`}
           aria-describedby={popoverId}
           onMouseEnter={handleOpen}
           onMouseLeave={handleClose}
