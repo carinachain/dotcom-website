@@ -25,7 +25,7 @@ const Header: React.FC = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY < lastScrollY) {
+      if (currentScrollY <= lastScrollY) {
         setIsScrollingUp(true); // Show the header when scrolling up
       } else {
         setIsScrollingUp(false); // Hide the header when scrolling down
