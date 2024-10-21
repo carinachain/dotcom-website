@@ -1,5 +1,3 @@
-import '@/styles/global.css';
-
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
