@@ -1,11 +1,11 @@
 'use client';
 
-import Button from '@mui/material/Button';
 import { useTranslations } from 'next-intl';
 import React, { memo, useEffect, useState, useRef } from 'react';
 import { useGSAP } from "@gsap/react";
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import { ButtonArrow, Button } from './components/button';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -68,13 +68,15 @@ const Carousel: React.FC = () => {
             <div className="text-color-3">{t('text2')}</div>
             <div className="text-color-3">{t('text3')}</div>
           </div>
-          <Button className="w-[180px] animate-scale-in" variant="contained">
-            <div className="text-white">{t('button1')}</div>
-          </Button>
+          <ButtonArrow className='w-[180px]'>
+            {t('button1')}
+          </ButtonArrow>
         </div>
         <div id='carousel-image' className="mt-[32px] hidden w-[480px] flex-col items-center justify-end bg-[url('/images/index_head_image_01.png')] bg-no-repeat md:flex">
-          <Button className="mw-[270px] mb-[30px] ml-[40px] rounded-full animate-scale-in" variant="contained">
-            <div className="py-1 text-lg text-white">{t('button2')}</div>
+          <Button className="mw-[270px] mb-[30px] ml-[40px] rounded-full py-3">
+            <span className='font-semibold'>
+              {t('button2')}
+            </span>
           </Button>
         </div>
       </div>
@@ -294,6 +296,34 @@ const Title: React.FC<TitleProps> = ({ title, className }) => (
     <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-orange-500 group-hover:w-3/6"></span>
   </div>
 )
+
+// interface ButtonProps {
+//   text: string;
+//   className?: string;
+// }
+// const ButtonArrow: React.FC<ButtonProps> = ({ text, className }) => (
+//   <button
+//   className={`relative group inline-flex items-center px-8 py-2 overflow-hidden text-lg font-medium text-orange-600 border-2 border-orange-600 rounded-lg hover:text-white group hover:bg-gray-50 ${className}`}>
+//   <span
+//     className="absolute left-0 block w-full h-0 transition-all bg-orange-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
+//   <span
+//     className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+//     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+//       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+//     </svg>
+//   </span>
+//   <span className="relative text-base font-semibold transition-all duration-300 group-hover:-translate-x-3">{ text }</span>
+// </button>
+// )
+
+// const Button: React.FC<ButtonProps> = ({ text, className }) => (
+//   <button
+//     className={`relative rounded px-5 py-2 overflow-hidden group bg-orange-500 relative hover:bg-gradient-to-r hover:from-orange-500 hover:to-orange-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-orange-400 transition-all ease-out duration-300 ${className}`}>
+//     <span
+//       className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+//     <span className="relative text-base font-semibold">{ text }</span>
+//   </button>
+// )
 
 // Memoized version of the Box component
 const MemoizedBox = memo(Box);
