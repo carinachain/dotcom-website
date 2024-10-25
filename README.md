@@ -1,3 +1,5 @@
+[![CodeQL](https://github.com/carinachain/dotcom-website/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/carinachain/dotcom-website/actions/workflows/github-code-scanning/codeql)
+[![Dependabot Updates](https://github.com/carinachain/dotcom-website/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/carinachain/dotcom-website/actions/workflows/dependabot/dependabot-updates)
 ## About
 The official website of [carinachain.com](https://www.carinachain.com)
 
@@ -17,5 +19,5 @@ npm run dev
 ```
 
 ## Contribution
-[Raise issues](https://github.com/carinachain/dotcom-website/issues)  
-[Submit pull requests](https://github.com/carinachain/dotcom-website/pulls)
+Raise issues: [https://github.com/carinachain/dotcom-website/issues](https://github.com/carinachain/dotcom-website/issues)  
+Submit pull requests: [https://github.com/carinachain/dotcom-website/pulls](https://github.com/carinachain/dotcom-website/pulls)
