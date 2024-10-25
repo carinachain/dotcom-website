@@ -1,10 +1,13 @@
-import { Button } from './button';
 import Popover from '@mui/material/Popover';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import React, { useState, useEffect, MouseEvent } from 'react';
+import type { MouseEvent } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { usePathname, useRouter } from '@/libs/i18nNavigation';
+
+import { Button } from './button';
 
 // Image paths
 const IMG_TWITTER = '/svg/x.svg';
@@ -43,7 +46,7 @@ const Header: React.FC = () => {
 
   return (
     <div
-      className={`fixed w-screen top-0 transition-transform duration-300 z-100 backdrop-blur-xl bg-white/30 ${
+      className={`fixed top-0 z-100 w-screen bg-white/30 backdrop-blur-xl transition-transform duration-300 ${
         isScrollingUp ? 'translate-y-0' : '-translate-y-full'
       } z-50 bg-white`}
     >
@@ -58,12 +61,28 @@ const Header: React.FC = () => {
           <div className="hidden flex-1 justify-between lg:flex">
             <HeaderContent />
             <div className="flex gap-x-3">
-              <SocialIconLink href="https://discord.gg/b3tqEsYZ" iconSrc={IMG_DISCORD} alt="Discord" />
-              <SocialIconLink href="https://twitter.com/carinachain" iconSrc={IMG_TWITTER} alt="Twitter" />
-              <SocialIconLink href="https://github.com/carinachain" iconSrc={IMG_GITHUB} alt="Github" />
-              <SocialIconLink href="mailto:contact@carinachain.com" iconSrc={IMG_EMAIL} alt="Email" />
+              <SocialIconLink
+                href="https://discord.gg/b3tqEsYZ"
+                iconSrc={IMG_DISCORD}
+                alt="Discord"
+              />
+              <SocialIconLink
+                href="https://twitter.com/carinachain"
+                iconSrc={IMG_TWITTER}
+                alt="Twitter"
+              />
+              <SocialIconLink
+                href="https://github.com/carinachain"
+                iconSrc={IMG_GITHUB}
+                alt="Github"
+              />
+              <SocialIconLink
+                href="mailto:contact@carinachain.com"
+                iconSrc={IMG_EMAIL}
+                alt="Email"
+              />
               <Button className="ml-3">
-                <span className='text-sm font-semibold inline-block -translate-y-0.5'>
+                <span className="inline-block -translate-y-0.5 text-sm font-semibold">
                   {t('openApp')}
                 </span>
               </Button>
@@ -86,10 +105,20 @@ const Header: React.FC = () => {
 };
 
 // Social Icon Link Component
-const SocialIconLink: React.FC<{ href: string; iconSrc: string; alt: string }> = ({ href, iconSrc, alt }) => (
+const SocialIconLink: React.FC<{
+  href: string;
+  iconSrc: string;
+  alt: string;
+}> = ({ href, iconSrc, alt }) => (
   <div className="flex size-[36px] items-center justify-center rounded bg-orange-300 hover:bg-orange-400">
     <Link href={href} target="_blank" rel="noreferrer">
-      <Image className="cursor-pointer" src={iconSrc} width={30} height={30} alt={alt} />
+      <Image
+        className="cursor-pointer"
+        src={iconSrc}
+        width={30}
+        height={30}
+        alt={alt}
+      />
     </Link>
   </div>
 );
@@ -118,13 +147,22 @@ const HeaderContent: React.FC = () => {
       </HeaderMenuItem>
       <HeaderMenuItem title={t('language.title')}>
         <div className="flex w-[88px] flex-col flex-wrap justify-center gap-0 px-0 py-3 text-xs">
-          <div className="cursor-pointer py-2 pl-5 hover:bg-gray-100 hover:shadow" onClick={() => handleChangeLanguage('en')}>
+          <div
+            className="cursor-pointer py-2 pl-5 hover:bg-gray-100 hover:shadow"
+            onClick={() => handleChangeLanguage('en')}
+          >
             {t('language.text1')}
           </div>
-          <div className="cursor-pointer py-2 pl-5 hover:bg-gray-100 hover:shadow" onClick={() => handleChangeLanguage('jp')}>
+          <div
+            className="cursor-pointer py-2 pl-5 hover:bg-gray-100 hover:shadow"
+            onClick={() => handleChangeLanguage('jp')}
+          >
             {t('language.text2')}
           </div>
-          <div className="cursor-pointer py-2 pl-5 hover:bg-gray-100 hover:shadow" onClick={() => handleChangeLanguage('zh-CN')}>
+          <div
+            className="cursor-pointer py-2 pl-5 hover:bg-gray-100 hover:shadow"
+            onClick={() => handleChangeLanguage('zh-CN')}
+          >
             {t('language.text3')}
           </div>
         </div>
@@ -134,39 +172,94 @@ const HeaderContent: React.FC = () => {
 };
 
 // Content One Component
-const ContentOne: React.FC<{ onMouseLeave?: () => void }> = ({ onMouseLeave }) => {
+const ContentOne: React.FC<{ onMouseLeave?: () => void }> = ({
+  onMouseLeave,
+}) => {
   const t = useTranslations('home.header');
 
   return (
-    <div className="flex max-w-[550px] flex-wrap gap-0 py-3 pl-3 pr-0" onMouseLeave={onMouseLeave}>
-      <ContentLink href="/points" title={t('function.text1')} detail={t('function.detail1')} icon="/images/index_top_menu_icon_01.png" />
-      <ContentLink href="/exchange" title={t('function.text2')} detail={t('function.detail2')} icon="/images/index_top_menu_icon_03.png" />
-      <ContentLink href="/common-points" title={t('function.text3')} detail={t('function.detail3')} icon="/images/index_top_menu_icon_02.png" />
-      <ContentLink href="/profit" title={t('function.text4')} detail={t('function.detail4')} icon="/images/index_top_menu_icon_04.png" />
+    <div
+      className="flex max-w-[550px] flex-wrap gap-0 py-3 pl-3 pr-0"
+      onMouseLeave={onMouseLeave}
+    >
+      <ContentLink
+        href="/points"
+        title={t('function.text1')}
+        detail={t('function.detail1')}
+        icon="/images/index_top_menu_icon_01.png"
+      />
+      <ContentLink
+        href="/exchange"
+        title={t('function.text2')}
+        detail={t('function.detail2')}
+        icon="/images/index_top_menu_icon_03.png"
+      />
+      <ContentLink
+        href="/common-points"
+        title={t('function.text3')}
+        detail={t('function.detail3')}
+        icon="/images/index_top_menu_icon_02.png"
+      />
+      <ContentLink
+        href="/profit"
+        title={t('function.text4')}
+        detail={t('function.detail4')}
+        icon="/images/index_top_menu_icon_04.png"
+      />
     </div>
   );
 };
 
 // Content Two Component
-const ContentTwo: React.FC<{ onMouseLeave?: () => void }> = ({ onMouseLeave }) => {
+const ContentTwo: React.FC<{ onMouseLeave?: () => void }> = ({
+  onMouseLeave,
+}) => {
   const t = useTranslations('home.header');
 
   return (
-    <div className="flex max-w-[550px] flex-wrap gap-0 py-3 pl-3 pr-0" onMouseLeave={onMouseLeave}>
-      <ContentLink href="/economic-model" title={t('about.text1')} detail={t('about.detail1')} icon="/images/index_top_menu_icon_01.png" />
-      <ContentLink href="/ecosys-n-community" title={t('about.text2')} detail={t('about.detail2')} icon="/images/index_top_menu_icon_03.png" />
-      <ContentLink href="/whitepaper" title={t('about.text3')} detail={t('about.detail3')} icon="/images/index_top_menu_icon_02.png" />
+    <div
+      className="flex max-w-[550px] flex-wrap gap-0 py-3 pl-3 pr-0"
+      onMouseLeave={onMouseLeave}
+    >
+      <ContentLink
+        href="/economic-model"
+        title={t('about.text1')}
+        detail={t('about.detail1')}
+        icon="/images/index_top_menu_icon_01.png"
+      />
+      <ContentLink
+        href="/ecosys-n-community"
+        title={t('about.text2')}
+        detail={t('about.detail2')}
+        icon="/images/index_top_menu_icon_03.png"
+      />
+      <ContentLink
+        href="/whitepaper"
+        title={t('about.text3')}
+        detail={t('about.detail3')}
+        icon="/images/index_top_menu_icon_02.png"
+      />
     </div>
   );
 };
 
 // Content Link Component
-const ContentLink: React.FC<{ href: string; title: string; detail: string; icon: string }> = ({ href, title, detail }) => (
-  <Link className="flex cursor-pointer gap-2 py-3 pl-5 hover:bg-gray-100 hover:shadow" href={href}>
+const ContentLink: React.FC<{
+  href: string;
+  title: string;
+  detail: string;
+  icon: string;
+}> = ({ href, title, detail }) => (
+  <Link
+    className="flex cursor-pointer gap-2 py-3 pl-5 hover:bg-gray-100 hover:shadow"
+    href={href}
+  >
     <div className="size-[50px] bg-[url('/images/index_top_menu_icon_01.png')] bg-no-repeat" />
     <div className="flex flex-col justify-between gap-2">
       <div className="text-sm text-orange-500">{title}</div>
-      <div className="max-w-[175px] text-xs text-gray-400 whitespace-pre-line">{detail}</div>
+      <div className="max-w-[175px] whitespace-pre-line text-xs text-gray-400">
+        {detail}
+      </div>
     </div>
   </Link>
 );
@@ -226,7 +319,7 @@ const HeaderMenuItem: React.FC<{
         </>
       ) : (
         <div
-          className={`cursor-pointer hover:bg-gray-100 text-neutral-500 hover:shadow ${isOpen ? 'bg-gray-100' : ''}`}
+          className={`cursor-pointer text-neutral-500 hover:bg-gray-100 hover:shadow ${isOpen ? 'bg-gray-100' : ''}`}
           aria-describedby={popoverId}
           onMouseEnter={handleOpen}
           onMouseLeave={handleClose}
@@ -248,9 +341,7 @@ const HeaderMenuItem: React.FC<{
               horizontal: 'center',
             }}
           >
-            <div onMouseLeave={handleClose}>
-              {children}
-            </div>
+            <div onMouseLeave={handleClose}>{children}</div>
           </Popover>
         </div>
       )}
