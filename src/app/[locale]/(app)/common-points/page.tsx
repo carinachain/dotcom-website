@@ -1,10 +1,9 @@
-
 'use client';
 
 import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 import { useTranslations } from 'next-intl';
 import { memo, useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
 
 export default function Points() {
   return (
@@ -25,27 +24,43 @@ const Carousel: React.FC = () => {
   }, []);
 
   useGSAP(() => {
-    gsap.fromTo('#carousel-text', {
-      opacity: 0,
-      y: 50
-    }, {
-      opacity: 1,
-      y: 0
-    })
-    gsap.fromTo('#carousel-image', {
-      opacity: 0,
-      x: 150
-    }, {
-      opacity: 1,
-      x: 0
-    })
+    gsap.fromTo(
+      '#carousel-text',
+      {
+        opacity: 0,
+        y: 50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+      },
+    );
+    gsap.fromTo(
+      '#carousel-image',
+      {
+        opacity: 0,
+        x: 150,
+      },
+      {
+        opacity: 1,
+        x: 0,
+      },
+    );
   }, []);
 
   return (
-    <div className={`flex justify-center transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <div
+      className={`flex justify-center transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+    >
       <div className="relative h-[1100px] w-[1200px] overflow-hidden bg-slate-300 md:h-[730px] md:rounded-t-[80px]">
-        <div id="carousel-image" className="h-[390px] w-full bg-[url('/images/function_common_head_images_01.png')] bg-cover" />
-        <div id="carousel-text" className="z-60 mt-[70px] flex flex-col items-center justify-center gap-3 px-10">
+        <div
+          id="carousel-image"
+          className="h-[390px] w-full bg-[url('/images/function_common_head_images_01.png')] bg-cover"
+        />
+        <div
+          id="carousel-text"
+          className="z-60 mt-[70px] flex flex-col items-center justify-center gap-3 px-10"
+        >
           <div className="text-2xl">{t('title1')}</div>
           <div className="text-2xl">{t('title2')}</div>
           <div className="mt-[20px] flex flex-col gap-2 text-center text-orange-500">
@@ -87,7 +102,7 @@ const Feature: React.FC = () => {
           observer.disconnect(); // Stop observing after the first intersection
         }
       },
-      { threshold: 0.1 } // Adjust the threshold as needed
+      { threshold: 0.1 }, // Adjust the threshold as needed
     );
 
     if (containerRef.current) {
@@ -102,9 +117,14 @@ const Feature: React.FC = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className={`flex justify-center ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <div
+      ref={containerRef}
+      className={`flex justify-center ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+    >
       <div className="w-[1200px] py-[80px]">
-        <div className={`flex flex-col justify-between md:flex-row ${isVisible ? "animate-slide-in-bottom" : ""}`}>
+        <div
+          className={`flex flex-col justify-between md:flex-row ${isVisible ? 'animate-slide-in-bottom' : ''}`}
+        >
           <CircleDisplay value="500" label={t('jpy')} />
           <FeatureContent
             title={t('content.title')}
@@ -168,7 +188,7 @@ const FeatureBoxes: React.FC<FeatureBoxesProps> = ({ t }) => {
           observer.disconnect(); // Stop observing after the first intersection
         }
       },
-      { threshold: 0.1 } // Adjust the threshold as needed
+      { threshold: 0.1 }, // Adjust the threshold as needed
     );
 
     if (containerRef.current) {
@@ -201,14 +221,17 @@ const FeatureBoxes: React.FC<FeatureBoxesProps> = ({ t }) => {
   ];
 
   return (
-    <div ref={containerRef} className="grid grid-cols-1 gap-8 px-[20px] pt-[80px] text-gray-800 md:grid-cols-3 lg:px-[80px]">
+    <div
+      ref={containerRef}
+      className="grid grid-cols-1 gap-8 px-[20px] pt-[80px] text-gray-800 md:grid-cols-3 lg:px-[80px]"
+    >
       {boxes.map((box, index) => {
         let animationClass = '';
         if (index === 0) animationClass = 'animate-slide-in-left';
         else if (index === 1) animationClass = 'animate-slide-in-bottom';
         else if (index === 2) animationClass = 'animate-slide-in-right';
         return (
-          <div key={index} className={isVisible ? animationClass : ""}>
+          <div key={index} className={isVisible ? animationClass : ''}>
             <FeatureBox
               key={index}
               title={box.title}
@@ -216,7 +239,7 @@ const FeatureBoxes: React.FC<FeatureBoxesProps> = ({ t }) => {
               imageUrl={box.imageUrl}
             />
           </div>
-      );
+        );
       })}
     </div>
   );

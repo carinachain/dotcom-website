@@ -1,6 +1,6 @@
 interface ButtonProps {
-    children: any;
-    className?: string;
+  children: any;
+  className?: string;
 }
 
-export type { ButtonProps }
+export type { ButtonProps };

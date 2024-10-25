@@ -1,9 +1,9 @@
 'use client';
 
 import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 import { useTranslations } from 'next-intl';
 import { memo, useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
 
 export default function Profit() {
   return (
@@ -24,27 +24,43 @@ const Carousel: React.FC = () => {
   }, []);
 
   useGSAP(() => {
-    gsap.fromTo('#carousel-text', {
-      opacity: 0,
-      y: 50
-    }, {
-      opacity: 1,
-      y: 0
-    })
-    gsap.fromTo('#carousel-image', {
-      opacity: 0,
-      x: 150
-    }, {
-      opacity: 1,
-      x: 0
-    })
+    gsap.fromTo(
+      '#carousel-text',
+      {
+        opacity: 0,
+        y: 50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+      },
+    );
+    gsap.fromTo(
+      '#carousel-image',
+      {
+        opacity: 0,
+        x: 150,
+      },
+      {
+        opacity: 1,
+        x: 0,
+      },
+    );
   }, []);
 
   return (
-    <div className={`flex justify-center transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <div
+      className={`flex justify-center transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+    >
       <div className="relative h-[900px] w-[1200px] overflow-hidden rounded-none bg-gray-600/90 bg-slate-300 md:h-[800px] md:rounded-t-[80px]">
-        <div id="carousel-image" className="h-[450px] w-full bg-[url('/images/function_income_head_images_01.png')] bg-cover" />
-        <div id="carousel-text" className="mt-[50px] flex flex-col items-center justify-center gap-3 px-10">
+        <div
+          id="carousel-image"
+          className="h-[450px] w-full bg-[url('/images/function_income_head_images_01.png')] bg-cover"
+        />
+        <div
+          id="carousel-text"
+          className="mt-[50px] flex flex-col items-center justify-center gap-3 px-10"
+        >
           <div className="text-3xl text-orange-500">{t('title1')}</div>
           <div className="mw-[500px] mt-[20px] text-center text-lg leading-8 text-white">
             {t('text1')}
@@ -69,7 +85,7 @@ const Advantage: React.FC = () => {
           observer.disconnect(); // Stop observing after the first intersection
         }
       },
-      { threshold: 0.1 } // Adjust the threshold as needed
+      { threshold: 0.1 }, // Adjust the threshold as needed
     );
 
     if (containerRef.current) {
@@ -102,16 +118,24 @@ const Advantage: React.FC = () => {
   ];
 
   return (
-    <div className={`flex justify-center py-4 md:pb-[100px] ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <div
+      className={`flex justify-center py-4 md:pb-[100px] ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+    >
       <div className="w-[1200px]">
-        <div ref={containerRef} className="text-color-2 grid grid-cols-1 gap-x-2 pt-0 text-lg leading-8 md:grid-cols-3 md:gap-x-6 md:pt-[50px]">
+        <div
+          ref={containerRef}
+          className="text-color-2 grid grid-cols-1 gap-x-2 pt-0 text-lg leading-8 md:grid-cols-3 md:gap-x-6 md:pt-[50px]"
+        >
           {advantages.map((advantage, index) => {
             let animationClass = '';
             if (index === 0) animationClass = 'animate-slide-in-left';
             else if (index === 1) animationClass = 'animate-slide-in-bottom';
             else if (index === 2) animationClass = 'animate-slide-in-right';
             return (
-              <div key={index} className={`${isVisible ? animationClass : ""} px-4 py-2 md:px-0 md:py-0`}>
+              <div
+                key={index}
+                className={`${isVisible ? animationClass : ''} px-4 py-2 md:p-0`}
+              >
                 <AdvantageCard
                   key={index}
                   title={advantage.title}
@@ -119,7 +143,7 @@ const Advantage: React.FC = () => {
                   imageUrl={advantage.imageUrl}
                 />
               </div>
-          );
+            );
           })}
         </div>
       </div>
@@ -139,7 +163,7 @@ const AdvantageCard: React.FC<AdvantageCardProps> = ({
   text,
   imageUrl,
 }) => (
-  <div className="flex h-[450px] w-full flex-col bg-gray-100 px-[30px] drop-shadow rounded-[50px] hover:cursor-pointer hover:shadow-lg">
+  <div className="flex h-[450px] w-full flex-col rounded-[50px] bg-gray-100 px-[30px] drop-shadow hover:cursor-pointer hover:shadow-lg">
     <div
       className="ml-[-20px] h-[100px] w-[110px] bg-no-repeat"
       style={{ backgroundImage: `url(${imageUrl})` }}
