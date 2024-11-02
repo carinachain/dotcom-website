@@ -3,6 +3,8 @@
 ## About
 The official website of [carinachain.com](https://www.carinachain.com)
 
+... 
+
 This project is developed using the [next.js framework](https://nextjs.org/).
 
 ## Develop
